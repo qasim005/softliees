@@ -3947,3 +3947,16 @@ section#product-details .row.hide-on-desktop .mobile-prod-details .spacer_custom
 }
 
 }
+
+a.nav-link.rounded-0.memory_status_button.memory_status_button_active {
+  max-width: 33%;
+}
+
+.memory_detail_section nav.nav.nav-pills.nav-fill {
+  justify-content: center;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+  /* color: var(--bs-dropdown-link-hover-color); */
+  background-color: #3c59ed !important;
+}
