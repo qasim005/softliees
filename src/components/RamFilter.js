@@ -4,10 +4,15 @@ import Header from "./small/header";
 import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
+import clsx from "clsx";
+import { IsMobileWidth, IsTabletWidth } from "./utils";
 
 
 const RamFilter = () => {
   const [Users, setUsers] = useState([]);
+  const mobileWidth = IsMobileWidth();
+  const tabletWidth = IsTabletWidth();
+
   const location = useLocation()
   // console.log(location.pathname.split("/"));
   const path = location.pathname.split("/");
@@ -47,17 +52,25 @@ const RamFilter = () => {
       <section className="ram-filter">
         <Header />
         <div className="container ram-filter-content">
-          <div className="row">
+          <div className="row px-2">
             <div className="section-head-ram">
               <h1>Ram Mobile</h1>
             </div>
-
+          </div>
+          <div className="row px-2">
             {Users.length > 0 && Users ? (
               Users.map((items, index) => {
 
                 return (
-                  <div className="col-md-3 col-12 bg-sm-danger px-2">
-                    <div className="single-m-wrap">
+                  <div className="col-sm-3 col-6 bg-sm-danger px-2">
+                    <div
+                      className={clsx(
+                        "",
+                        mobileWidth && "single-m-wraps",
+                        !mobileWidth && "single-m-wrap"
+                      )}
+                      style={{ maxHeight: "400px" }}
+                    >
                       <img
                         className="single-mob-img"
                         //   src="\assets\images\mobiles\image1.png"
@@ -65,7 +78,12 @@ const RamFilter = () => {
                         alt={items.alt_imag}
                         onClick={() => handleImgClick1(items.slug)}
                       />
-                      <h3 className="single-mob-tit">{items.name}</h3>
+                      <h3
+                        className={clsx(
+                          "",
+                          mobileWidth && "single-mob-tits",
+                          !mobileWidth && "single-mob-tit"
+                        )} onClick={() => handleImgClick1(items.slug)}>{items.name}</h3>
 
                       <Link
                         to={`/compare-mobile-phone/${items?.slug}/change_product`}
@@ -75,14 +93,38 @@ const RamFilter = () => {
                         <AddIcon />
                       </Link>
 
-                      <div className="mt-3 details-wrap">
-                        <h4 className=" p-1 details">
+                      <div
+                        className={clsx(
+                          "mt-3",
+                          tabletWidth && "deetails-wrap",
+                          !tabletWidth && "details-wrap"
+                        )}
+                      >
+                        <h4
+                          className={clsx(
+                            " p-1",
+                            tabletWidth && "deetails",
+                            !tabletWidth && "details"
+                          )}
+                        >
                           {items.ram_storage1} GB | {items.battery}
                         </h4>
                       </div>
-                      <div className="flex align-items-center justify-content-center price-icon-wrap">
-                        <h3 className="single-mob-tit">
-                          $ {items.orignal_price}
+                      <div
+                        className={clsx(
+                          "flex align-items-center justify-content-center",
+                          mobileWidth && "price-icon-wraps",
+                          !mobileWidth && "price-icon-wrap"
+                        )}
+                      >
+                        <h3
+                          className={clsx(
+                            "",
+                            mobileWidth && "single-mob-tits",
+                            !mobileWidth && "single-mob-tit"
+                          )}
+                        >
+                          RS {items.orignal_price}
                         </h3>
                       </div>
                     </div>
@@ -92,12 +134,13 @@ const RamFilter = () => {
             ) : (
               <></>
             )}
+
           </div>
         </div>
 
         <Footer />
-      </section>
-    </div>
+      </section >
+    </div >
   );
 };
 
