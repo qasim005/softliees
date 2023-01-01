@@ -45,7 +45,7 @@ const Home = () => {
     sendNewsLatterResponse,
     currency,
   } = useSelector((selectSate) => selectSate.app);
-  const [ram, setRam] = useState(2);
+  const [ram, setRam] = useState(0);
   const handleImgClick = (slug) => {
     navigate(`/product/${slug}`, { replace: true });
   };
