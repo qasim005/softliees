@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "./small/searchbar";
 import { IsMobileWidth, IsTabletWidth } from "./utils";
 import { useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
 
 const PageTerms = () => {
   const tabletWidth = IsTabletWidth();
@@ -12,6 +13,13 @@ const PageTerms = () => {
   const { advertisement } = useSelector((selectSate) => selectSate.app);
   return (
     <>
+      <Helmet>
+        <title>Terms & Conditions - Softliee.com</title>
+        <meta
+          name="description"
+          content="At Softliee, accessible from Https://Softliee.com/, one of our vital priorities is the privacy of our visitors. This Privacy Policy document contains types of information and data that is collected and recorded by Softliee and how we use it."
+        />
+      </Helmet>
       {isSearchBarOpen && mobileWidth ? (
         <>
           <SearchBar onGoBack={() => setIsSearchBarOpen(false)} />
@@ -29,23 +37,21 @@ const PageTerms = () => {
                   (!mobileWidth ? (
                     <img
                       className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${
-                        advertisement.data?.ads.find(
-                          (data) => data?.size === "728 × 90 px"
-                        )?.image
-                      }`}
+                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
+                        (data) => data?.size === "728 × 90 px"
+                      )?.image
+                        }`}
                       alt=""
                     />
                   ) : (
                     <img
-                    className="single-mob-imgss-mobiles"
-                    src={`https://softliee.com/softlee/public/storage/adds/${
-                      advertisement.data?.ads.find(
+                      className="single-mob-imgss-mobiles"
+                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
                         (data) => data?.size === "160 × 600 px"
                       )?.image
-                    }`}
-                    alt=""
-                  />
+                        }`}
+                      alt=""
+                    />
                   ))}
               </div>
             </div>

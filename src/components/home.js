@@ -127,6 +127,13 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Mobile Phone Prices 2023 - Softliee.com</title>
+        <meta
+          name="description"
+          content="Latest Mobile Phones & Prices in Pakistan, Compare prices and features on Android smartphones, Apple, Windows phones and Best Mobile Phone Prices 2023."
+        />
+      </Helmet>
       {isSearchBarOpen && mobileWidth ? (
         <>
           <SearchBar onGoBack={() => setIsSearchBarOpen(false)} />

@@ -19,7 +19,7 @@ import { formatAmount } from "../utils";
 export default function SearchDialog(props) {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  const { searchList, searchProduct  , currency} = useSelector(
+  const { searchList, searchProduct, currency } = useSelector(
     (selectSate) => selectSate.app
   );
   const { value } = props;
@@ -113,7 +113,7 @@ export default function SearchDialog(props) {
                   }
                   value="1"
                 />
-                <Tab
+                {/* <Tab
                   label={
                     <span
                       className={`${tab == 2 ? "tab-text-active" : "tab-text"}`}
@@ -122,7 +122,7 @@ export default function SearchDialog(props) {
                     </span>
                   }
                   value="2"
-                />
+                /> */}
                 {/* <Tab label={<span className={`${tab == 3 ? "tab-text-active" : "tab-text"}`}>Compares</span>} value="3" /> */}
               </TabList>
             </Box>
@@ -152,10 +152,10 @@ export default function SearchDialog(props) {
                         {item.name}
                       </span>
                       <span className="text-center search-price mt-1">
-                      {localSelectedCurrency === "USD" ? "$ " : "RS "}
-                              {item.orignal_price
-                                ? formatAmount(getItemPrice(item.orignal_price))
-                                : "N/A"}
+                        {localSelectedCurrency === "USD" ? "$ " : "RS "}
+                        {item.orignal_price
+                          ? formatAmount(getItemPrice(item.orignal_price))
+                          : "N/A"}
                       </span>
                     </div>
                   ))}

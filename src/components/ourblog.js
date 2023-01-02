@@ -9,6 +9,8 @@ import React, { useEffect, useState } from "react";
 import { getBlogs } from "../redux/actions/app.actions";
 import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
+import { Helmet } from "react-helmet";
+
 
 const Ourblog = () => {
   const mobileWidth = IsMobileWidth();
@@ -25,6 +27,13 @@ const Ourblog = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Gadgets - Mobile Phones And Tech Updates - Softliee.com</title>
+        <meta
+          name="description"
+          content="Mobile Blog aims to focus upon latest news and seo friendly content related to technology, gadgets or Mobile phones."
+        />
+      </Helmet>
       {isSearchBarOpen && mobileWidth ? (
         <>
           <SearchBar onGoBack={() => setIsSearchBarOpen(false)} />

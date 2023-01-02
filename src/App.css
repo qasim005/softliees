@@ -3866,7 +3866,7 @@ section.filter-devices {
 .user-profile-drop-menu {
   padding: 10px !important;
   background-color: #c64d4d !important;
-  background: #4958ef !important;
+  background: #ffffff !important;
   box-shadow: 0px 0px 10px 1px #0000001a;
   width: fit-content !important;
 }
@@ -3959,4 +3959,16 @@ a.nav-link.rounded-0.memory_status_button.memory_status_button_active {
 .dropdown-item:focus, .dropdown-item:hover {
   /* color: var(--bs-dropdown-link-hover-color); */
   background-color: #3c59ed !important;
+}
+.username-h{
+  text-transform: capitalize;
+}
+h3.login-tit.cursor-pointer.logout {
+  color: black;
+  font-size: 15px;
+}
+
+.user-profile-drop-menu a.dropdown-item:hover {
+  background: none !important;
+  color: #000 !important;
 }

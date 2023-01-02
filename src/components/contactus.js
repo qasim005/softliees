@@ -7,6 +7,8 @@ import { sentContactUsMessage } from "../redux/actions/app.actions";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { isValidMessage } from "./validator";
+import { Helmet } from "react-helmet";
+
 
 const PageContact = () => {
   let navigate = useNavigate();
@@ -50,6 +52,13 @@ const PageContact = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact Us - Softliee.com</title>
+        <meta
+          name="description"
+          content="We do appreciate your feedback. We will be glad to hear from you if: - You have found a mistake in our phone specifications."
+        />
+      </Helmet>
       {isSearchBarOpen && mobileWidth ? (
         <>
           <SearchBar onGoBack={() => setIsSearchBarOpen(false)} />
@@ -68,21 +77,19 @@ const PageContact = () => {
                   (!mobileWidth ? (
                     <img
                       className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${
-                        advertisement.data?.ads.find(
-                          (data) => data?.size === "728 × 90 px"
-                        )?.image
-                      }`}
+                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
+                        (data) => data?.size === "728 × 90 px"
+                      )?.image
+                        }`}
                       alt=""
                     />
                   ) : (
                     <img
                       className="single-mob-imgss-mobiles"
-                      src={`https://softliee.com/softlee/public/storage/adds/${
-                        advertisement.data?.ads.find(
-                          (data) => data?.size === "160 × 600 px"
-                        )?.image
-                      }`}
+                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
+                        (data) => data?.size === "160 × 600 px"
+                      )?.image
+                        }`}
                       alt=""
                     />
                   ))}

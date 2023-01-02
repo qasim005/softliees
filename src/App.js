@@ -45,7 +45,7 @@ function App() {
           <Route path="/contact" element={<PageContact />} />
           <Route path="/termsandconditions" element={<PageTerms />} />
           <Route path="/popularmobiles" element={<PopularMobiles />} />
-          <Route path="/upcomingpage" element={<UpcomingPage />} />
+          <Route path="/top-upcoming-mobile-phones-in-2023" element={<UpcomingPage />} />
           <Route path="/privacypolicy" element={<PagePrivacy />} />
           <Route path="/phonefinder" element={<PhoneFinder />} />
           <Route path="/phonefinderdetails" element={<PhoneFinderDetails />} />

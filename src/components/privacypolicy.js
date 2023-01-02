@@ -4,6 +4,7 @@ import { IsMobileWidth, IsTabletWidth } from "./utils";
 import React, { useEffect, useState } from "react";
 import SearchBar from "./small/searchbar";
 import { useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
 const PagePrivacy = () => {
   const mobileWidth = IsMobileWidth();
   const tabletWidth = IsTabletWidth();
@@ -12,6 +13,13 @@ const PagePrivacy = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Privacy Policy - Softliee.com</title>
+        <meta
+          name="description"
+          content="Softliee.com take privacy very seriously. We would never disclose your personal information to third parties or use it for bulk mail lists or newsletters."
+        />
+      </Helmet>
       {isSearchBarOpen && mobileWidth ? (
         <>
           <SearchBar onGoBack={() => setIsSearchBarOpen(false)} />
@@ -29,21 +37,19 @@ const PagePrivacy = () => {
                   (!mobileWidth ? (
                     <img
                       className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${
-                        advertisement.data?.ads.find(
-                          (data) => data?.size === "728 × 90 px"
-                        )?.image
-                      }`}
+                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
+                        (data) => data?.size === "728 × 90 px"
+                      )?.image
+                        }`}
                       alt=""
                     />
                   ) : (
                     <img
                       className="single-mob-imgss-mobiles"
-                      src={`https://softliee.com/softlee/public/storage/adds/${
-                        advertisement.data?.ads.find(
-                          (data) => data?.size === "160 × 600 px"
-                        )?.image
-                      }`}
+                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
+                        (data) => data?.size === "160 × 600 px"
+                      )?.image
+                        }`}
                       alt=""
                     />
                   ))}

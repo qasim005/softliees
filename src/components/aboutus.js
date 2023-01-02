@@ -1,6 +1,7 @@
 import Footer from "./small/footer";
 import Header from "./small/header";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const Aboutus = () => {

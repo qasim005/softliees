@@ -26,6 +26,7 @@ const Header = (props) => {
   const { isSearchBarOpen } = props;
   const [show, setShow] = useState(false);
   const [showS, setShowS] = useState(false);
+  const [ControlBrands, setControlBrands] = useState(false);
   const [isTechNewsDialogOpen, setIsTechNewsDialogOpen] = useState(false);
   const [isSearchDialogOpen, setIsSearchDialogOpen] = useState(false);
   const [search, setSearch] = useState();
@@ -158,10 +159,55 @@ const Header = (props) => {
               <div className="Line"></div>
 
               <div className="off-submenu ps-3 pe-3">
-                <h3 className="topbrand-tit sub">Apple</h3>
-                <h3 className="topbrand-tit sub">Samsung</h3>
-                <h3 className="topbrand-tit sub">Realme</h3>
-                <h3 className="topbrand-tit sub">More..</h3>
+                {
+                  !ControlBrands ? <>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/filterbrand/iphone-mobiles-price")
+                      setShow(false)
+                    }}>Apple</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/filterbrand/samsung-mobile-phones-prices-in-pakistan")
+                      setShow(false)
+                    }}>Samsung</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/filterbrand/iphone-mobiles-price")
+                      setShow(false)
+                    }}>Realme</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      setControlBrands(true)
+                    }}>More..</h3>
+                  </> : <>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/filterbrand/iphone-mobiles-price")
+                      setShow(false)
+                    }}>Apple</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/filterbrand/samsung-mobile-phones-prices-in-pakistan")
+                      setShow(false)
+                    }}>Samsung</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/filterbrand/iphone-mobiles-price")
+                      setShow(false)
+                    }}>Realme</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/filterbrand/google-mobile-phones-price-in-pakistan")
+                      setShow(false)
+                    }}>Google</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/filterbrand/huawei-mobile-phone-price-in-pakistan")
+                      setShow(false)
+                    }}>Huawei</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/filterbrand/infinix-mobile-phones")
+                      setShow(false)
+                    }}>Infinix</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      setControlBrands(false)
+                    }}>Less..</h3>
+
+                  </>
+                }
+
               </div>
               <div className="topbrands ps-3 pe-3">
                 <div className="title-wrap">
@@ -195,7 +241,7 @@ const Header = (props) => {
 
                   <h3 className="topbrand-tit trending">
                     {" "}
-                    <Link to="/upcomingpage" className="off-links">
+                    <Link to="/top-upcoming-mobile-phones-in-2023" className="off-links">
                       Upcoming Mobiles
                     </Link>
                   </h3>
@@ -328,9 +374,8 @@ const Header = (props) => {
                 <div className="notify-item">
                   <img
                     className="side-mobile-sec-img"
-                    src={`https://softliee.com/softlee/public/storage/${
-                      item?.latestPost ? "blogs" : "product"
-                    }/${item.image}`}
+                    src={`https://softliee.com/softlee/public/storage/${item?.latestPost ? "blogs" : "product"
+                      }/${item.image}`}
                     height="88px"
                     onClick={() =>
                       handleImgClick(
@@ -377,13 +422,11 @@ const Header = (props) => {
                   </div>
                   <ClickAwayListener onClickAway={handleBlurForSearchDialog}>
                     <div
-                      className={`${
-                        tabletWidth ? "col-sm-4" : "col-sm-6"
-                      }  p-0 ${
-                        isSearchDialogOpen
+                      className={`${tabletWidth ? "col-sm-4" : "col-sm-6"
+                        }  p-0 ${isSearchDialogOpen
                           ? "search-box-parent-container rounded-5 p-0"
                           : ""
-                      }`}
+                        }`}
                     >
                       <div className="flex search-wrap">
                         <input
@@ -489,24 +532,24 @@ const Header = (props) => {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu className="user-profile-drop-menu">
-                                  <Dropdown.Item href="#/action-1">
+                                  <Dropdown.Item>
                                     {JSON.parse(
                                       localStorage.getItem("softliUserData")
                                     )?.user?.name && (
-                                      <h6 className="mr-16 text-white mb-0 font-bold">
-                                        {
-                                          JSON.parse(
-                                            localStorage.getItem(
-                                              "softliUserData"
-                                            )
-                                          )?.user?.name
-                                        }
-                                      </h6>
-                                    )}
+                                        <h6 className="mr-16 mb-0 font-bold username-h">
+                                          {
+                                            JSON.parse(
+                                              localStorage.getItem(
+                                                "softliUserData"
+                                              )
+                                            )?.user?.name
+                                          }
+                                        </h6>
+                                      )}
                                   </Dropdown.Item>
-                                  <Dropdown.Item href="#/action-2">
+                                  <Dropdown.Item>
                                     <h3
-                                      className="login-tit cursor-pointer"
+                                      className="login-tit cursor-pointer logout"
                                       onClick={handleLogout}
                                     >
                                       Logout
@@ -553,7 +596,7 @@ const Header = (props) => {
                       </a>
                     </li>
                     <li className="nav-single-li">
-                      <a className="nav-single-a" href="/upcomingpage">
+                      <a className="nav-single-a" href="/top-upcoming-mobile-phones-in-2023">
                         Upcoming mobiles
                       </a>
                     </li>

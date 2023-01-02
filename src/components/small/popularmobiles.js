@@ -12,6 +12,7 @@ import Footer from "../small/footer";
 import Header from "../small/header";
 import SearchBar from "./searchbar";
 import { CircularProgress } from "@mui/material";
+import { Helmet } from "react-helmet";
 
 const PopularMobiles = (props) => {
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
@@ -50,6 +51,13 @@ const PopularMobiles = (props) => {
 
   return (
     <>
+      <Helmet>
+        <title>Best Popular Mobile Phone 2023 in Pakistan - Softliee</title>
+        <meta
+          name="description"
+          content="Mobile Prices in Pakistan 2023 and Find New & Latest mobile Market Rates in ... Mobile brands like Samsung, Apple, Vivo, Tecno, Oppo, Infinix, and other top ..."
+        />
+      </Helmet>
       {isSearchBarOpen && mobileWidth ? (
         <>
           <SearchBar onGoBack={() => setIsSearchBarOpen(false)} />
@@ -143,8 +151,8 @@ const PopularMobiles = (props) => {
                                 {localSelectedCurrency === "USD" ? "$ " : "RS "}
                                 {item.orignal_price
                                   ? formatAmount(
-                                      getItemPrice(item.orignal_price)
-                                    )
+                                    getItemPrice(item.orignal_price)
+                                  )
                                   : "N/A"}
                               </h3>
                               <RemoveRedEyeIcon />

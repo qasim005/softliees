@@ -3,12 +3,21 @@ import Header from "./small/header";
 import React, { useEffect, useState } from "react";
 import SearchBar from "./small/searchbar";
 import { IsMobileWidth, IsTabletWidth } from "./utils";
+import { Helmet } from "react-helmet";
 const Advertisewithus = () => {
   const tabletWidth = IsTabletWidth();
   const mobileWidth = IsMobileWidth();
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
   return (
     <>
+
+      <Helmet>
+        <title>Advertise With Us- Softliee.com</title>
+        <meta
+          name="description"
+          content="Advertising with us is a unique opportunity to reach a huge global audience in a creative and compelling way. We present your brand’s message in a bigger, bolder and more beautiful way like any other online platform."
+        />
+      </Helmet>
       {isSearchBarOpen && mobileWidth ? (
         <>
           <SearchBar onGoBack={() => setIsSearchBarOpen(false)} />

@@ -7,6 +7,7 @@ import Header from "./small/header";
 import Footer from "./small/footer";
 import SearchBar from "./small/searchbar";
 import { IsMobileWidth, IsTabletWidth, formatAmount } from "./utils";
+import { Helmet } from "react-helmet";
 
 export default function UpcomingPhones() {
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
@@ -23,6 +24,14 @@ export default function UpcomingPhones() {
 
   return (
     <div>
+      <Helmet>
+        <title>Top Upcoming Mobile Phones in 2023 - Softliee.com</title>
+        <meta
+          name="description"
+          content="Latest Softliee Upcoming Mobile Phones in 2023 · Samsung, Nokia, Oppo, Apple, Infinix, realme and much more"
+        />
+      </Helmet>
+
       {/* {isSearchBarOpen && mobileWidth ? (
         <>
           <SearchBar onGoBack={() => setIsSearchBarOpen(false)} />
@@ -33,28 +42,28 @@ export default function UpcomingPhones() {
             hadleSarchBarOpen={() => setIsSearchBarOpen(true)}
             isSearchBarOpen={isSearchBarOpen}
           /> */}
-          <div class="main-tit">Upcoming Phone</div>
-          <div class="spacer_custom_10"></div>
-          {upcomingProducts?.data?.$upcoming_products?.length > 0 &&
-            upcomingProducts?.data?.$upcoming_products.map((data) => (
-              <div class="side_mobile_section">
-                <div class="side_mobile_Col">
-                  <center>
-                    <img
-                      className="side-mobile-sec-img"
-                      src={`https://softliee.com/softlee/public/storage/product/${data?.image}`}
-                      height="88px"
-                    />
-                  </center>
-                </div>
-                <div class="side_mobile_Col">
-                  <div class="side_col_title">{data?.name}</div>
-                  <div class="side_col_rupee">RS {data?.orignal_price}</div>
-                  <Link class="view_more_link" to={`/product/${data?.slug}`}>View More</Link>
-                </div>
-              </div>
-            ))}
-          {/* <Footer />
+      <div class="main-tit">Upcoming Phone</div>
+      <div class="spacer_custom_10"></div>
+      {upcomingProducts?.data?.$upcoming_products?.length > 0 &&
+        upcomingProducts?.data?.$upcoming_products.map((data) => (
+          <div class="side_mobile_section">
+            <div class="side_mobile_Col">
+              <center>
+                <img
+                  className="side-mobile-sec-img"
+                  src={`https://softliee.com/softlee/public/storage/product/${data?.image}`}
+                  height="88px"
+                />
+              </center>
+            </div>
+            <div class="side_mobile_Col">
+              <div class="side_col_title">{data?.name}</div>
+              <div class="side_col_rupee">RS {data?.orignal_price}</div>
+              <Link class="view_more_link" to={`/product/${data?.slug}`}>View More</Link>
+            </div>
+          </div>
+        ))}
+      {/* <Footer />
         </>
       )} */}
     </div>
