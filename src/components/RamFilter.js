@@ -6,13 +6,16 @@ import { Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import clsx from "clsx";
 import { IsMobileWidth, IsTabletWidth } from "./utils";
+import { useSelector } from "react-redux";
 
 
 const RamFilter = () => {
   const [Users, setUsers] = useState([]);
   const mobileWidth = IsMobileWidth();
   const tabletWidth = IsTabletWidth();
-
+  const { filters, brands, filterMobilesResponse, advertisement, currency } = useSelector(
+    (selectSate) => selectSate.app
+  );
   const location = useLocation()
   // console.log(location.pathname.split("/"));
   const path = location.pathname.split("/");
@@ -51,6 +54,43 @@ const RamFilter = () => {
     <div>
       <section className="ram-filter">
         <Header />
+
+
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12">
+              <getSelection>
+                <div className="container">
+                  <div className="row">
+                    {advertisement.data?.ads &&
+                      (!mobileWidth ? (
+                        <img
+                          className="single-mob-imgss "
+                          style={{ marginTop: "30px" }}
+                          src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
+                            (data) => data?.size === "728 × 90 px"
+                          )?.image
+                            }`}
+                          alt=""
+                        />
+                      ) : (
+                        <img
+                          className="single-mob-imgss-mobiles "
+                          style={{ marginTop: "30px" }}
+                          src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
+                            (data) => data?.size === "160 × 600 px"
+                          )?.image
+                            }`}
+                          alt=""
+                        />
+                      ))}
+                  </div>
+                </div>
+              </getSelection>
+            </div>
+          </div>
+        </div>
+
         <div className="container ram-filter-content">
           <div className="row px-2">
             <div className="section-head-ram">
