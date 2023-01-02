@@ -220,10 +220,10 @@ const Header = (props) => {
                   </div>
                   <h3 className="topbrand-tit trending">
                     <Link
-                      to="/filterbrand/trending-mobiles"
+                      to="/"
                       className="off-links"
                     >
-                      Trending Mobile
+                      Home
                     </Link>
                   </h3>
                 </div>

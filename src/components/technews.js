@@ -10,6 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import SearchIcon from "@mui/icons-material/Search";
 import { Divider } from "@mui/material";
+import { Helmet } from "react-helmet";
 
 const abc = [
   { name: "A", value: "A" },
@@ -81,64 +82,76 @@ BootstrapDialogTitle.propTypes = {
 export default function TechNewsDialog(props) {
   const { dialogIsOpen, brands } = props;
   return (
-    <div>
-      <BootstrapDialog
-        onClose={props.handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={dialogIsOpen}
-        // fullWidth={true}
-        // maxWidth="lg"
-        sx={{
-          "& .MuiDialog-container": {
-            "& .MuiPaper-root": {
-              width: "100%",
-              maxWidth: "1110px",
-            },
-          },
-        }}
-      >
-        <BootstrapDialogTitle
-          id="customized-dialog-title"
+    <>
+
+      <Helmet>
+        <title>Gadgets - Mobile Phones And Tech Updates - Softliee.com</title>
+        <meta
+          name="description"
+          content="Mobile Blog aims to focus upon latest news and seo friendly content related to technology, gadgets or Mobile phones."
+        />
+      </Helmet>
+
+      <div>
+
+        <BootstrapDialog
           onClose={props.handleClose}
-          className="text-center"
+          aria-labelledby="customized-dialog-title"
+          open={dialogIsOpen}
+          // fullWidth={true}
+          // maxWidth="lg"
+          sx={{
+            "& .MuiDialog-container": {
+              "& .MuiPaper-root": {
+                width: "100%",
+                maxWidth: "1110px",
+              },
+            },
+          }}
         >
-          <Typography
-            className="d-flex justify-content-center w-100 pe-3 fw-bolder"
-            variant="h5"
+          <BootstrapDialogTitle
+            id="customized-dialog-title"
+            onClose={props.handleClose}
+            className="text-center"
           >
-            Search Brand
-          </Typography>
-        </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <div className="d-flex justify-content-center align-items-center  w-100 flex-column pt-2">
-            <div className="searchContiner">
-              <input className="searchbarinput" />
-              <button className="searchButton">
-                <SearchIcon />
-                Search
-              </button>
+            <Typography
+              className="d-flex justify-content-center w-100 pe-3 fw-bolder"
+              variant="h5"
+            >
+              Search Brand
+            </Typography>
+          </BootstrapDialogTitle>
+          <DialogContent dividers>
+            <div className="d-flex justify-content-center align-items-center  w-100 flex-column pt-2">
+              <div className="searchContiner">
+                <input className="searchbarinput" />
+                <button className="searchButton">
+                  <SearchIcon />
+                  Search
+                </button>
+              </div>
+              <div className="d-flex pt-4 flex-wrap">
+                {abc.map((data) => (
+                  <Typography
+                    variant="body1"
+                    className="m-2 cursor-pointer fw-bolder"
+                  >
+                    {data?.name}
+                  </Typography>
+                ))}
+              </div>
             </div>
-            <div className="d-flex pt-4 flex-wrap">
-              {abc.map((data) => (
-                <Typography
-                  variant="body1"
-                  className="m-2 cursor-pointer fw-bolder"
-                >
-                  {data?.name}
-                </Typography>
-              ))}
-            </div>
-          </div>
-          <Divider orientation="horizontal" className="mt-3">
-            {" "}
-          </Divider>
-          {/* <div className="d-flex  justify-content-start pt-4 w-100 flex-wrap pb-3">
+            <Divider orientation="horizontal" className="mt-3">
+              {" "}
+            </Divider>
+            {/* <div className="d-flex  justify-content-start pt-4 w-100 flex-wrap pb-3">
             {brands?.data?.brands?.map((data) => (
               <Typography variant="body1" className="p-2 mt-2 cursor-pointer fw-bolder w-20 d-flex justify-content-center">{data?.brand_name}</Typography>
             ))}
           </div> */}
-        </DialogContent>
-      </BootstrapDialog>
-    </div>
+          </DialogContent>
+        </BootstrapDialog>
+      </div>
+    </>
   );
 }
