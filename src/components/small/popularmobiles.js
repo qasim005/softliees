@@ -49,6 +49,10 @@ const PopularMobiles = (props) => {
     }
   };
 
+  useEffect(() => {
+    console.log(advertisement);
+  }, [advertisement])
+
   return (
     <>
       <Helmet>

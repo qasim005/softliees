@@ -108,7 +108,10 @@ const Home = () => {
       return price;
     }
   };
+  useEffect(() => {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
 
+  }, [])
   // useEffect(() => {
   //   if (!currency?.data && !currency?.loading) {
   //     dispatch(getCurrency());
@@ -348,10 +351,10 @@ const Home = () => {
             </div>
           </section>
 
-          <section style={{ marginTop: "30px" }}>
+          <section className="ads-section" style={{ marginTop: "30px" }}>
             <div className="container">
               <div className="row">
-                {advertisement.data?.ads &&
+                {/* {advertisement.data?.ads &&
                   (!mobileWidth ? (
                     <img
                       className="single-mob-imgss"
@@ -370,7 +373,23 @@ const Home = () => {
                         }`}
                       alt=""
                     />
-                  ))}
+                  ))} */}
+
+
+                {/* <!-- 720 x90 --> */}
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2933454440337038"
+                  crossorigin="anonymous"></script>
+                {/* <!-- 720 x90 --> */}
+                <ins class="adsbygoogle"
+                  style={{ display: "block" }}
+                  data-ad-client="ca-pub-2933454440337038"
+                  data-ad-slot="6702463586"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"></ins>
+                {/* <script>
+                  
+                </script> */}
+
               </div>
             </div>
           </section>
