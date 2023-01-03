@@ -116,30 +116,30 @@ const Home = () => {
   // }, [])
 
 
-  useEffect(() => {
-    const pushAd = () => {
-      try {
-        const adsbygoogle = window.adsbygoogle
-        console.log({ adsbygoogle })
-        adsbygoogle.push({})
-      } catch (e) {
-        console.error(e)
-      }
-    }
+  // useEffect(() => {
+  //   const pushAd = () => {
+  //     try {
+  //       const adsbygoogle = window.adsbygoogle
+  //       console.log({ adsbygoogle })
+  //       adsbygoogle.push({})
+  //     } catch (e) {
+  //       console.error(e)
+  //     }
+  //   }
 
-    let interval = setInterval(() => {
-      // Check if Adsense script is loaded every 300ms
-      if (window.adsbygoogle) {
-        pushAd()
-        // clear the interval once the ad is pushed so that function isn't called indefinitely
-        clearInterval(interval)
-      }
-    }, 300)
+  //   let interval = setInterval(() => {
+  //     // Check if Adsense script is loaded every 300ms
+  //     if (window.adsbygoogle) {
+  //       pushAd()
+  //       // clear the interval once the ad is pushed so that function isn't called indefinitely
+  //       clearInterval(interval)
+  //     }
+  //   }, 300)
 
-    return () => {
-      clearInterval(interval)
-    }
-  }, [])
+  //   return () => {
+  //     clearInterval(interval)
+  //   }
+  // }, [])
   // useEffect(() => {
   //   if (!currency?.data && !currency?.loading) {
   //     dispatch(getCurrency());
@@ -412,13 +412,18 @@ const Home = () => {
                   data-ad-format="auto"
                   data-full-width-responsive="true"></ins> */}
 
-                <Adsense
+                {/* <Adsense
                   client="ca-pub-2933454440337038"
                   slot="6702463586"
                   style={{ width: 720, height: 90 }}
                   format=""
+                /> */}
+                <Adsense
+                  client="ca-pub-7640562161899788"
+                  slot="7259870550"
+                  style={{ width: 500, height: 300 }}
+                  format=""
                 />
-
 
               </div>
             </div>
