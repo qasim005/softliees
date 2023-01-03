@@ -583,12 +583,12 @@ const Header = (props) => {
                 <div className="flex justify-content-between">
                   <ul className="navigation">
                     <li className="nav-single-li">
-                      <a
+                      <Link
                         className="nav-single-a"
-                        href="/filterbrand/trending-mobiles"
+                        to="/"
                       >
-                        Trending Mobiles
-                      </a>
+                        Home
+                      </Link>
                     </li>
                     <li className="nav-single-li">
                       <a className="nav-single-a" href="/blog">

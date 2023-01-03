@@ -84,13 +84,13 @@ export default function TechNewsDialog(props) {
   return (
     <>
 
-      <Helmet>
+      {/* <Helmet>
         <title>Gadgets - Mobile Phones And Tech Updates - Softliee.com</title>
         <meta
           name="description"
           content="Mobile Blog aims to focus upon latest news and seo friendly content related to technology, gadgets or Mobile phones."
         />
-      </Helmet>
+      </Helmet> */}
 
       <div>
 

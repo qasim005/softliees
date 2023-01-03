@@ -12,6 +12,7 @@ import Footer from "./small/footer";
 import Header from "./small/header";
 import SearchBar from "../components/small/searchbar";
 import { CircularProgress } from "@mui/material";
+import { Helmet } from "react-helmet";
 
 const UpcomingPage = (props) => {
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
@@ -19,7 +20,7 @@ const UpcomingPage = (props) => {
   const tabletWidth = IsTabletWidth();
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  const { upcomingProducts, advertisement , currency } = useSelector(
+  const { upcomingProducts, advertisement, currency } = useSelector(
     (selectSate) => selectSate.app
   );
   const handleImgClick = (slug) => {
@@ -52,6 +53,15 @@ const UpcomingPage = (props) => {
 
   return (
     <>
+
+      <Helmet>
+        <title>Top Upcoming Mobile Phones in 2023 - Softliee.com</title>
+        <meta
+          name="description"
+          content="Latest Softliee Upcoming Mobile Phones in 2023 · Samsung, Nokia, Oppo, Apple, Infinix, realme and much more"
+        />
+      </Helmet>
+
       {isSearchBarOpen && mobileWidth ? (
         <>
           <SearchBar onGoBack={() => setIsSearchBarOpen(false)} />
@@ -69,21 +79,19 @@ const UpcomingPage = (props) => {
                   (!mobileWidth ? (
                     <img
                       className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${
-                        advertisement.data?.ads.find(
-                          (data) => data?.size === "728 × 90 px"
-                        )?.image
-                      }`}
+                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
+                        (data) => data?.size === "728 × 90 px"
+                      )?.image
+                        }`}
                       alt=""
                     />
                   ) : (
                     <img
                       className="single-mob-imgss-mobiles"
-                      src={`https://softliee.com/softlee/public/storage/adds/${
-                        advertisement.data?.ads.find(
-                          (data) => data?.size === "160 × 600 px"
-                        )?.image
-                      }`}
+                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
+                        (data) => data?.size === "160 × 600 px"
+                      )?.image
+                        }`}
                       alt=""
                     />
                   ))}
@@ -154,10 +162,10 @@ const UpcomingPage = (props) => {
 
                         <div className="price-icon-wrap flex align-items-center justify-content-center">
                           <h3 className="single-mob-tit">
-                          {localSelectedCurrency === "USD" ? "$ " : "RS "}
-                              {data.orignal_price
-                                ? formatAmount(getItemPrice(data.orignal_price))
-                                : "N/A"}
+                            {localSelectedCurrency === "USD" ? "$ " : "RS "}
+                            {data.orignal_price
+                              ? formatAmount(getItemPrice(data.orignal_price))
+                              : "N/A"}
                           </h3>
 
                           {/* <RemoveRedEyeIcon /> */}

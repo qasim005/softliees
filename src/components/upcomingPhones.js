@@ -24,13 +24,7 @@ export default function UpcomingPhones() {
 
   return (
     <div>
-      <Helmet>
-        <title>Top Upcoming Mobile Phones in 2023 - Softliee.com</title>
-        <meta
-          name="description"
-          content="Latest Softliee Upcoming Mobile Phones in 2023 · Samsung, Nokia, Oppo, Apple, Infinix, realme and much more"
-        />
-      </Helmet>
+
 
       {/* {isSearchBarOpen && mobileWidth ? (
         <>
