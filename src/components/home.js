@@ -27,6 +27,8 @@ import clsx from "clsx";
 import CircularProgress from "@mui/material/CircularProgress";
 import { isValidMessage } from "./validator";
 import { Helmet } from "react-helmet";
+import { Adsense } from '@ctrl/react-adsense';
+
 
 const Home = () => {
   const [rangePrices, setRangePrices] = useState([1000, 500000]);
@@ -108,9 +110,35 @@ const Home = () => {
       return price;
     }
   };
-  useEffect(() => {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  // useEffect(() => {
+  //   (window.adsbygoogle = window.adsbygoogle || []).push({});
 
+  // }, [])
+
+
+  useEffect(() => {
+    const pushAd = () => {
+      try {
+        const adsbygoogle = window.adsbygoogle
+        console.log({ adsbygoogle })
+        adsbygoogle.push({})
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    let interval = setInterval(() => {
+      // Check if Adsense script is loaded every 300ms
+      if (window.adsbygoogle) {
+        pushAd()
+        // clear the interval once the ad is pushed so that function isn't called indefinitely
+        clearInterval(interval)
+      }
+    }, 300)
+
+    return () => {
+      clearInterval(interval)
+    }
   }, [])
   // useEffect(() => {
   //   if (!currency?.data && !currency?.loading) {
@@ -376,19 +404,21 @@ const Home = () => {
                   ))} */}
 
 
-                {/* <!-- 720 x90 --> */}
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2933454440337038"
-                  crossorigin="anonymous"></script>
-                {/* <!-- 720 x90 --> */}
-                <ins class="adsbygoogle"
+
+                {/* <ins class="adsbygoogle"
                   style={{ display: "block" }}
                   data-ad-client="ca-pub-2933454440337038"
                   data-ad-slot="6702463586"
                   data-ad-format="auto"
-                  data-full-width-responsive="true"></ins>
-                {/* <script>
-                  
-                </script> */}
+                  data-full-width-responsive="true"></ins> */}
+
+                <Adsense
+                  client="ca-pub-2933454440337038"
+                  slot="6702463586"
+                  style={{ width: 720, height: 90 }}
+                  format=""
+                />
+
 
               </div>
             </div>
