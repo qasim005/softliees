@@ -22,6 +22,7 @@ import {
   getBlogs,
   priceWiseProducts,
   sendNewsLatter,
+  getCurrency,
 } from "../redux/actions/app.actions";
 import clsx from "clsx";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -146,15 +147,15 @@ const Home = () => {
   //   }
   // }, []);
 
-  // const getPrice = (amount) => {
-  //     if(currency?.data && currency?.data?.currency){
-  //       let data = currency.data.currency.find((data) => data.name === "USD")
-  //       return (data?.price * amount)
-  //     }
-  //     else {
-  //       return amount
-  //     }
-  // };
+  const getPrice = (amount) => {
+    if (currency?.data && currency?.data?.currency) {
+      let data = currency.data.currency.find((data) => data.name === "USD")
+      return (data?.price * amount)
+    }
+    else {
+      return amount
+    }
+  };
 
   return (
     <>
@@ -404,8 +405,8 @@ const Home = () => {
                   ))} */}
 
 
-
-                {/* <ins class="adsbygoogle"
+                {/* 
+                <ins class="adsbygoogle"
                   style={{ display: "block" }}
                   data-ad-client="ca-pub-2933454440337038"
                   data-ad-slot="6702463586"
@@ -418,12 +419,12 @@ const Home = () => {
                   style={{ width: 720, height: 90 }}
                   format=""
                 /> */}
-                <Adsense
+                {/* <Adsense
                   client="ca-pub-7640562161899788"
                   slot="7259870550"
                   style={{ width: 500, height: 300 }}
                   format=""
-                />
+                /> */}
 
               </div>
             </div>
