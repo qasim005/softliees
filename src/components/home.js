@@ -28,7 +28,9 @@ import clsx from "clsx";
 import CircularProgress from "@mui/material/CircularProgress";
 import { isValidMessage } from "./validator";
 import { Helmet } from "react-helmet";
-import { Adsense } from '@ctrl/react-adsense';
+// import { Adsense } from '@ctrl/react-adsense';
+import AdSense from 'react-adsense';
+
 
 
 const Home = () => {
@@ -43,7 +45,6 @@ const Home = () => {
     brands,
     latestProducts,
     blogs,
-    advertisement,
     priceWiseProductsResponse,
     sendNewsLatterResponse,
     currency,
@@ -426,6 +427,15 @@ const Home = () => {
                   format=""
                 /> */}
 
+                <AdSense.Google
+                  client='ca-pub-2933454440337038'
+                  slot='6702463586'
+                  style={{ display: 'block' }}
+                  format='auto'
+                  responsive='true'
+                  layoutKey='-gw-1+2a-9x+5c'
+                />
+
               </div>
             </div>
           </section>
@@ -550,7 +560,7 @@ const Home = () => {
               </div>
             </div>
           </section> */}
-          <section style={{ marginTop: "30px" }}>
+          {/* <section style={{ marginTop: "30px" }}>
             <div className="container">
               <div className="row">
                 {advertisement.data?.ads &&
@@ -575,7 +585,7 @@ const Home = () => {
                   ))}
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/* <PopularMobiles title="Popular Mobiles" /> */}
           <Popularcomp />
