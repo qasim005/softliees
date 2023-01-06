@@ -3953,9 +3953,8 @@ a.nav-link.rounded-0.memory_status_button.memory_status_button_active {
 }
 
 .memory_detail_section nav.nav.nav-pills.nav-fill {
-  justify-content: center;
+  justify-content: start;
 }
-
 .dropdown-item:focus, .dropdown-item:hover {
   /* color: var(--bs-dropdown-link-hover-color); */
   background-color: #3c59ed !important;
@@ -3972,3 +3971,15 @@ h3.login-tit.cursor-pointer.logout {
   background: none !important;
   color: #000 !important;
 }
+
+/* .myAds{
+  width:720 !important; 
+  height: 90 !important;
+}
+
+@media (max-width:600px) {
+  .myAds{
+    width:300 !important;
+    height: 250 !important;
+  }
+} */

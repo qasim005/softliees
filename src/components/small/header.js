@@ -587,7 +587,7 @@ const Header = (props) => {
                         className="nav-single-a"
                         to="/"
                       >
-                        Home
+                        Home Mobiles
                       </Link>
                     </li>
                     <li className="nav-single-li">

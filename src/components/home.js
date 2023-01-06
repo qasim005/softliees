@@ -30,6 +30,7 @@ import { isValidMessage } from "./validator";
 import { Helmet } from "react-helmet";
 // import { Adsense } from '@ctrl/react-adsense';
 import AdSense from 'react-adsense';
+import { Adsense } from "@ctrl/react-adsense";
 
 
 
@@ -383,60 +384,14 @@ const Home = () => {
 
           <section className="ads-section" style={{ marginTop: "30px" }}>
             <div className="container">
-              <div className="row">
-                {/* {advertisement.data?.ads &&
-                  (!mobileWidth ? (
-                    <img
-                      className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                        (data) => data?.size === "728 × 90 px"
-                      )?.image
-                        }`}
-                      alt=""
-                    />
-                  ) : (
-                    <img
-                      className="single-mob-imgss-mobile"
-                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                        (data) => data?.size === "300 × 250 px"
-                      )?.image
-                        }`}
-                      alt=""
-                    />
-                  ))} */}
+              <div className="row justify-content-center">
 
-
-
-                <ins class="adsbygoogle"
-                  google_adtest="on"
-                  style={{ display: "block" }}
-                  data-ad-client="ca-pub-2933454440337038"
-                  data-ad-slot="6702463586"
-                  data-ad-format="auto"
-                  data-full-width-responsive="true"></ins>
-
-                {/* <Adsense
+                <Adsense
                   client="ca-pub-2933454440337038"
                   slot="6702463586"
-                  style={{ width: 720, height: 90 }}
+                  style={mobileWidth ? { width: 300, height: 250 } : { width: 720, height: 90 }}
                   format=""
-                /> */}
-                {/* <Adsense
-                  client="ca-pub-7640562161899788"
-                  slot="7259870550"
-                  style={{ width: 500, height: 300 }}
-                  format=""
-                /> */}
-
-                {/* <AdSense.Google
-                  client='ca-pub-2933454440337038'
-                  slot='6702463586'
-                  style={{ display: 'block' }}
-                  format='auto'
-                  responsive='true'
-                  layoutKey='-gw-1+2a-9x+5c'
-                  dataad
-                /> */}
+                />
 
               </div>
             </div>
@@ -590,6 +545,25 @@ const Home = () => {
           </section> */}
 
           {/* <PopularMobiles title="Popular Mobiles" /> */}
+
+
+          <section className="ads-section">
+            <div className="container">
+              <div className="row justify-content-center">
+
+
+                <Adsense
+                  client="ca-pub-2933454440337038"
+                  slot="6702463586"
+                  style={mobileWidth ? { width: 300, height: 250 } : { width: 720, height: 90 }}
+                  format=""
+                />
+
+
+              </div>
+            </div>
+          </section>
+
           <Popularcomp />
 
           {/* tech news section */}

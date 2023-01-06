@@ -342,7 +342,7 @@ const ProductPages = () => {
                         <img
                           className="product-img img-fluid"
                           src={`https://softliee.com/softlee/public/storage/product/${singleProducts?.data?.single_product?.image}`}
-                          alt=""
+                          alt={singleProducts?.data?.single_product?.name}
                         />
                       </div>
                       {/* <div>
