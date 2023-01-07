@@ -25,6 +25,7 @@ import {
 } from "../redux/actions/app.actions";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Helmet } from "react-helmet";
+import { Adsense } from "@ctrl/react-adsense";
 
 const Filterbrand = (props) => {
   let navigate = useNavigate();
@@ -69,13 +70,13 @@ const Filterbrand = (props) => {
           from_price: state.priceRange
             ? 0
             : searchParams.get("from")
-            ? searchParams.get("from")
-            : undefined,
+              ? searchParams.get("from")
+              : undefined,
           to_price: state.priceRange
             ? parseInt(state.priceRange)
             : searchParams.get("to")
-            ? searchParams.get("to")
-            : undefined,
+              ? searchParams.get("to")
+              : undefined,
           filters: [
             {
               2: parseInt(value),
@@ -92,13 +93,13 @@ const Filterbrand = (props) => {
           from_price: state.priceRange
             ? 0
             : searchParams.get("from")
-            ? searchParams.get("from")
-            : undefined,
+              ? searchParams.get("from")
+              : undefined,
           to_price: state.priceRange
             ? parseInt(state.priceRange)
             : searchParams.get("to")
-            ? searchParams.get("to")
-            : undefined,
+              ? searchParams.get("to")
+              : undefined,
           filters: [
             {
               2: state.ram !== "" ? parseInt(state.ram) : undefined,
@@ -115,13 +116,13 @@ const Filterbrand = (props) => {
           from_price: state.priceRange
             ? 0
             : searchParams.get("from")
-            ? searchParams.get("from")
-            : undefined,
+              ? searchParams.get("from")
+              : undefined,
           to_price: state.priceRange
             ? parseInt(state.priceRange)
             : searchParams.get("to")
-            ? searchParams.get("to")
-            : undefined,
+              ? searchParams.get("to")
+              : undefined,
           filters: [
             {
               2: state.ram !== "" ? parseInt(state.ram) : undefined,
@@ -138,13 +139,13 @@ const Filterbrand = (props) => {
           from_price: state.priceRange
             ? 0
             : searchParams.get("from")
-            ? searchParams.get("from")
-            : undefined,
+              ? searchParams.get("from")
+              : undefined,
           to_price: state.priceRange
             ? parseInt(state.priceRange)
             : searchParams.get("to")
-            ? searchParams.get("to")
-            : undefined,
+              ? searchParams.get("to")
+              : undefined,
           filters: [
             {
               2: state.ram !== "" ? parseInt(state.ram) : undefined,
@@ -161,13 +162,13 @@ const Filterbrand = (props) => {
           from_price: value
             ? 0
             : searchParams.get("from")
-            ? searchParams.get("from")
-            : undefined,
+              ? searchParams.get("from")
+              : undefined,
           to_price: value
             ? parseInt(value)
             : searchParams.get("to")
-            ? searchParams.get("to")
-            : undefined,
+              ? searchParams.get("to")
+              : undefined,
           filters: [
             {
               2: state.ram !== "" ? parseInt(state.ram) : undefined,
@@ -341,31 +342,22 @@ const Filterbrand = (props) => {
               </div>
             </div>
           </section>
-          <section style={{ marginTop: "10px", marginBottom: "20px" }}>
+          <section className="ads-section" style={{ marginTop: "50px", marginBottom: "30px" }}>
             <div className="container">
-              <div className="row">
-                {advertisement.data?.ads &&
-                  (!mobileWidth ? (
-                    <img
-                      className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${
-                        advertisement.data?.ads.find(
-                          (data) => data?.size === "728 × 90 px"
-                        )?.image
-                      }`}
-                      alt=""
-                    />
-                  ) : (
-                    <img
-                      className="single-mob-imgss-mobiles"
-                      src={`https://softliee.com/softlee/public/storage/adds/${
-                        advertisement.data?.ads.find(
-                          (data) => data?.size === "160 × 600 px"
-                        )?.image
-                      }`}
-                      alt=""
-                    />
-                  ))}
+              <div className="row justify-content-center">
+                <div className="col-12">
+
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
+                      width: 720, height: 90, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
+                </div>
+
+
               </div>
             </div>
           </section>
@@ -512,8 +504,8 @@ const Filterbrand = (props) => {
                     {searchParams.get("under")
                       ? "Browse By Budget Mobiles"
                       : searchParams.get("from")
-                      ? "Filtered Mobiles"
-                      : slug?.replaceAll("-", " ")}
+                        ? "Filtered Mobiles"
+                        : slug?.replaceAll("-", " ")}
                   </h3>
                 </div>
               </div>
@@ -525,52 +517,52 @@ const Filterbrand = (props) => {
                   priceWiseProductsResponse?.loading
                     ? priceWiseProductsResponse?.loading
                     : slug === "trending-mobiles"
-                    ? trendingProducts?.loading
-                    : productByBrand?.loading
+                      ? trendingProducts?.loading
+                      : productByBrand?.loading
                 ) ? (
                   <div className="w-100 d-flex justify-content-center align-items-center h-40vh">
                     <CircularProgress />
                   </div>
                 ) : (
-                    priceWiseProductsResponse?.error
-                      ? priceWiseProductsResponse?.error
-                      : slug === "trending-mobiles"
+                  priceWiseProductsResponse?.error
+                    ? priceWiseProductsResponse?.error
+                    : slug === "trending-mobiles"
                       ? trendingProducts?.error
                       : productByBrand?.error
-                  ) ? (
+                ) ? (
                   slug === "trending-mobiles" ? (
                     trendingProducts?.error
                   ) : (
                     productByBrand?.error
                   )
                 ) : (
-                    priceWiseProductsResponse?.data?.products
-                      ? priceWiseProductsResponse?.data?.products
-                      : searchParams.get("under") &&
-                        priceWiseProductsResponse?.data?.budget_products &&
-                        priceWiseProductsResponse?.data?.budget_products
-                          ?.length > 0
+                  priceWiseProductsResponse?.data?.products
+                    ? priceWiseProductsResponse?.data?.products
+                    : searchParams.get("under") &&
+                      priceWiseProductsResponse?.data?.budget_products &&
+                      priceWiseProductsResponse?.data?.budget_products
+                        ?.length > 0
                       ? priceWiseProductsResponse?.data?.budget_products
                       : priceWiseProductsResponse?.data?.$price_wise_product
-                      ? priceWiseProductsResponse?.data?.$price_wise_product
-                      : slug === "trending-mobiles"
-                      ? trendingProducts?.data?.$trending_products &&
-                        trendingProducts?.data?.$trending_products?.length > 0
-                      : productByBrand?.data?.brand_products &&
-                        productByBrand?.data?.brand_products?.length > 0
-                  ) ? (
+                        ? priceWiseProductsResponse?.data?.$price_wise_product
+                        : slug === "trending-mobiles"
+                          ? trendingProducts?.data?.$trending_products &&
+                          trendingProducts?.data?.$trending_products?.length > 0
+                          : productByBrand?.data?.brand_products &&
+                          productByBrand?.data?.brand_products?.length > 0
+                ) ? (
                   (priceWiseProductsResponse?.data?.products
                     ? priceWiseProductsResponse?.data?.products
                     : searchParams.get("under") &&
                       priceWiseProductsResponse?.data?.budget_products &&
                       priceWiseProductsResponse?.data?.budget_products?.length >
-                        0
-                    ? priceWiseProductsResponse?.data?.budget_products
-                    : priceWiseProductsResponse?.data?.$price_wise_product
-                    ? priceWiseProductsResponse?.data?.$price_wise_product
-                    : slug === "trending-mobiles"
-                    ? trendingProducts?.data?.$trending_products
-                    : productByBrand?.data?.brand_products
+                      0
+                      ? priceWiseProductsResponse?.data?.budget_products
+                      : priceWiseProductsResponse?.data?.$price_wise_product
+                        ? priceWiseProductsResponse?.data?.$price_wise_product
+                        : slug === "trending-mobiles"
+                          ? trendingProducts?.data?.$trending_products
+                          : productByBrand?.data?.brand_products
                   ).map((item, index) => {
                     return (
                       <div className="col-sm-3 col-6 px-2">
@@ -619,21 +611,25 @@ const Filterbrand = (props) => {
               </div>
             </div>
           </section>
-          {/* <section style={{ marginTop: "30px" }}>
+          <section className="ads-section" style={{ marginBottom: "50px" }}>
             <div className="container">
-              <div className="row">
-                {advertisement.data?.ads &&
-                  advertisement.data?.ads[0] &&
-                  advertisement.data?.ads[0]?.image && (
-                    <img
-                      className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads[0]?.image}`}
-                      alt=""
-                    />
-                  )}
+              <div className="row justify-content-center">
+                <div className="col-12">
+
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                      width: 970, height: 250, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
+                </div>
+
+
               </div>
             </div>
-          </section> */}
+          </section>
           <Footer />
         </>
       )}

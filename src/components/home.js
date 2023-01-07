@@ -385,13 +385,17 @@ const Home = () => {
           <section className="ads-section" style={{ marginTop: "30px" }}>
             <div className="container">
               <div className="row justify-content-center">
+                <div className="col-12">
 
-                <Adsense
-                  client="ca-pub-2933454440337038"
-                  slot="6702463586"
-                  style={mobileWidth ? { width: 300, height: 250 } : { width: 720, height: 90 }}
-                  format=""
-                />
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                      width: 720, height: 90, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
+                </div>
 
               </div>
             </div>
@@ -550,14 +554,17 @@ const Home = () => {
           <section className="ads-section">
             <div className="container">
               <div className="row justify-content-center">
+                <div className="col-12">
 
-
-                <Adsense
-                  client="ca-pub-2933454440337038"
-                  slot="6702463586"
-                  style={mobileWidth ? { width: 300, height: 250 } : { width: 720, height: 90 }}
-                  format=""
-                />
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                      width: 720, height: 90, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
+                </div>
 
 
               </div>

@@ -22,6 +22,7 @@ import UpcomingPhones from "./upcomingPhones";
 import moment from "moment";
 import { CircularProgress } from "@mui/material";
 import { Helmet } from "react-helmet";
+import { Adsense } from "@ctrl/react-adsense";
 
 const ProductPages = () => {
   const [myFlag, setmyFlag] = useState(false)
@@ -283,6 +284,27 @@ const ProductPages = () => {
         </h3>
       ) : (
         <main id="single-mob-product-page">
+
+          <section className="ads-section" style={{ marginTop: "30px" }}>
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-12">
+
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
+                      width: 720, height: 90, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
+                </div>
+
+
+              </div>
+            </div>
+          </section>
+
           <section>
             <div class="container">
               <div class="spacer_custom_20"></div>
@@ -303,7 +325,7 @@ const ProductPages = () => {
             </div>
           </section>
 
-          <section id="ad-plpl">
+          {/* <section id="ad-plpl">
             <section style={{ marginTop: "30px" }}>
               <div className="container">
                 <div className="row">
@@ -330,7 +352,7 @@ const ProductPages = () => {
                 </div>
               </div>
             </section>
-          </section>
+          </section> */}
           <section id="product-details" style={{ marginBottom: "10px" }}>
             <div class="container product_detail_section">
               <div class="row p-0">
@@ -673,29 +695,22 @@ const ProductPages = () => {
             </div>
             <div class="spacer_custom_30"></div>
           </section>
-          <section style={{ marginTop: "30px" }}>
+          <section className="ads-section" style={{ marginTop: "30px" }}>
             <div className="container">
-              <div className="row">
-                {advertisement.data?.ads &&
-                  (!mobileWidth ? (
-                    <img
-                      className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                        (data) => data?.size === "728 × 90 px"
-                      )?.image
-                        }`}
-                      alt=""
-                    />
-                  ) : (
-                    <img
-                      className="single-mob-imgss-mobiles"
-                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                        (data) => data?.size === "300 × 250 px"
-                      )?.image
-                        }`}
-                      alt=""
-                    />
-                  ))}
+              <div className="row justify-content-center">
+                <div className="col-12">
+
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                      width: 720, height: 90, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
+                </div>
+
+
               </div>
             </div>
           </section>
@@ -751,29 +766,22 @@ const ProductPages = () => {
                       </table>
                     </>
                   )}
-                  <section style={{ marginTop: "30px" }}>
+                  <section className="ads-section" style={{ marginTop: "30px" }}>
                     <div className="container">
-                      <div className="row">
-                        {advertisement.data?.ads &&
-                          (!mobileWidth ? (
-                            <img
-                              className="single-mob-imgss"
-                              src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                                (data) => data?.size === "728 × 90 px"
-                              )?.image
-                                }`}
-                              alt=""
-                            />
-                          ) : (
-                            <img
-                              className="single-mob-imgss-mobiles"
-                              src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                                (data) => data?.size === "300 × 250 px"
-                              )?.image
-                                }`}
-                              alt=""
-                            />
-                          ))}
+                      <div className="row justify-content-center">
+                        <div className="col-12">
+
+                          <Adsense
+                            client="ca-pub-2933454440337038"
+                            slot="6702463586"
+                            style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                              width: 720, height: 90, display: "block", margin: "0 auto"
+                            }}
+                            format=""
+                          />
+                        </div>
+
+
                       </div>
                     </div>
                   </section>
@@ -822,29 +830,22 @@ const ProductPages = () => {
                       </table>
                     </>
                   )}
-                  <section style={{ marginTop: "30px" }}>
+                  <section className="ads-section" style={{ marginTop: "30px" }}>
                     <div className="container">
-                      <div className="row">
-                        {advertisement.data?.ads &&
-                          (!mobileWidth ? (
-                            <img
-                              className="single-mob-imgss"
-                              src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                                (data) => data?.size === "728 × 90 px"
-                              )?.image
-                                }`}
-                              alt=""
-                            />
-                          ) : (
-                            <img
-                              className="single-mob-imgss-mobiles"
-                              src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                                (data) => data?.size === "300 × 250 px"
-                              )?.image
-                                }`}
-                              alt=""
-                            />
-                          ))}
+                      <div className="row justify-content-center">
+                        <div className="col-12">
+
+                          <Adsense
+                            client="ca-pub-2933454440337038"
+                            slot="6702463586"
+                            style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                              width: 720, height: 90, display: "block", margin: "0 auto"
+                            }}
+                            format=""
+                          />
+                        </div>
+
+
                       </div>
                     </div>
                   </section>
@@ -893,33 +894,25 @@ const ProductPages = () => {
                       </table>
                     </>
                   )}
-                  <section style={{ marginTop: "30px" }}>
+                  <section className="ads-section" style={{ marginTop: "30px" }}>
                     <div className="container">
-                      <div className="row">
-                        {advertisement.data?.ads &&
-                          (!mobileWidth ? (
-                            <img
-                              className="single-mob-imgss"
-                              src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                                (data) => data?.size === "728 × 90 px"
-                              )?.image
-                                }`}
-                              alt=""
-                            />
-                          ) : (
-                            <img
-                              className="single-mob-imgss-mobiles"
-                              src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                                (data) => data?.size === "300 × 250 px"
-                              )?.image
-                                }`}
-                              alt=""
-                            />
-                          ))}
+                      <div className="row justify-content-center">
+                        <div className="col-12">
+
+                          <Adsense
+                            client="ca-pub-2933454440337038"
+                            slot="6702463586"
+                            style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                              width: 720, height: 90, display: "block", margin: "0 auto"
+                            }}
+                            format=""
+                          />
+                        </div>
+
+
                       </div>
                     </div>
                   </section>
-
                   {state.group7.length > 0 && (
                     <>
                       <div class="icon_heading_sepecification">
@@ -986,33 +979,25 @@ const ProductPages = () => {
                       </table>
                     </>
                   )}
-                  <section style={{ marginTop: "30px" }}>
+                  <section className="ads-section" style={{ marginTop: "30px" }}>
                     <div className="container">
-                      <div className="row">
-                        {advertisement.data?.ads &&
-                          (!mobileWidth ? (
-                            <img
-                              className="single-mob-imgss"
-                              src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                                (data) => data?.size === "728 × 90 px"
-                              )?.image
-                                }`}
-                              alt=""
-                            />
-                          ) : (
-                            <img
-                              className="single-mob-imgss-mobiles"
-                              src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                                (data) => data?.size === "300 × 250 px"
-                              )?.image
-                                }`}
-                              alt=""
-                            />
-                          ))}
+                      <div className="row justify-content-center">
+                        <div className="col-12">
+
+                          <Adsense
+                            client="ca-pub-2933454440337038"
+                            slot="6702463586"
+                            style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                              width: 720, height: 90, display: "block", margin: "0 auto"
+                            }}
+                            format=""
+                          />
+                        </div>
+
+
                       </div>
                     </div>
                   </section>
-
                   {state.group10.length > 0 && (
                     <div className="internationalprice">
                       <h3 className="main-tit">
@@ -1112,10 +1097,18 @@ const ProductPages = () => {
                     </Link>
                   </div>
                   <div class="spacer_custom_30"></div>
-                  <img
-                    src="../../assets/images/product/banner2.png"
-                    width="100%"
+
+
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { display: "none" } : {
+                      width: 300, height: 600, display: "block", margin: "0 auto"
+                    }}
+                    format=""
                   />
+
+
                 </div>
               </div>
             </div>
@@ -1363,34 +1356,28 @@ const ProductPages = () => {
           </section>
 
           <Popularcomp />
-          <section style={{ marginTop: "30px" }}>
+          <section className="ads-section" style={{ marginBottom: "50px" }}>
             <div className="container">
-              <div className="row">
-                {advertisement.data?.ads &&
-                  (!mobileWidth ? (
-                    <img
-                      className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                        (data) => data?.size === "728 × 90 px"
-                      )?.image
-                        }`}
-                      alt=""
-                    />
-                  ) : (
-                    <img
-                      className="single-mob-imgss-mobiles"
-                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                        (data) => data?.size === "300 × 250 px"
-                      )?.image
-                        }`}
-                      alt=""
-                    />
-                  ))}
+              <div className="row justify-content-center">
+                <div className="col-12">
+
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                      width: 970, height: 250, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
+                </div>
+
+
               </div>
             </div>
           </section>
         </main>
-      )}
+      )
+      }
       <Footer />
     </>
   );

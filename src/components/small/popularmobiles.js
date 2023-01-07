@@ -13,6 +13,7 @@ import Header from "../small/header";
 import SearchBar from "./searchbar";
 import { CircularProgress } from "@mui/material";
 import { Helmet } from "react-helmet";
+import { Adsense } from "@ctrl/react-adsense";
 
 const PopularMobiles = (props) => {
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
@@ -72,18 +73,22 @@ const PopularMobiles = (props) => {
             hadleSarchBarOpen={() => setIsSearchBarOpen(true)}
             isSearchBarOpen={isSearchBarOpen}
           />
-          <section style={{ marginTop: "30px" }}>
+          <section className="ads-section" style={{ marginTop: "50px" }}>
             <div className="container">
-              <div className="row">
-                {advertisement.data?.ads &&
-                  advertisement.data?.ads[0] &&
-                  advertisement.data?.ads[0]?.image && (
-                    <img
-                      className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads[0]?.image}`}
-                      alt=""
-                    />
-                  )}
+              <div className="row justify-content-center">
+                <div className="col-12">
+
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
+                      width: 720, height: 90, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
+                </div>
+
+
               </div>
             </div>
           </section>
@@ -167,6 +172,26 @@ const PopularMobiles = (props) => {
                     }
                   )
                 )}
+              </div>
+            </div>
+          </section>
+
+          <section className="ads-section" style={{ marginBottom: "50px" }}>
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-12">
+
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                      width: 970, height: 250, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
+                </div>
+
+
               </div>
             </div>
           </section>

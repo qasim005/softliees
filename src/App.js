@@ -27,6 +27,7 @@ import UpcomingPage from "./components/upcomingPage";
 import RamFilter from "./components/RamFilter";
 import "./App.scss"
 import PhoneFinderDetails from "./components/phonefinderdetails";
+import NotFound from "./components/NotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/emailtemplate" element={<Emailproduct />} /> */}
+
           <Route index element={<Home />} />
           <Route path="/filterbrand/:slug" element={<Filterbrand />} />
           <Route path="/contact" element={<PageContact />} />
@@ -62,6 +63,7 @@ function App() {
             path="/compare-mobile-phone/:slug/:slug1"
             element={<PageCompare />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>

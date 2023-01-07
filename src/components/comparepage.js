@@ -24,8 +24,11 @@ import { CircularProgress } from "@mui/material";
 import Select from "react-select";
 import dummyImage from "../assets2/images/mobile-icon.png";
 import { Helmet } from "react-helmet";
+import { Adsense } from "@ctrl/react-adsense";
 
 const PageCompare = () => {
+  console.log(window.location.pathname);
+  const [myFlag, setMyflag] = useState(false)
   let navigate = useNavigate();
   const mobileWidth = IsMobileWidth();
   const tabletWidth = IsTabletWidth();
@@ -158,12 +161,12 @@ const PageCompare = () => {
               value: data?.attribute_value,
               secondValue:
                 compareTwoProducts?.data?.second_product?.attribute_values &&
-                compareTwoProducts?.data?.second_product?.attribute_values[
-                  index
-                ]?.attribute_value
+                  compareTwoProducts?.data?.second_product?.attribute_values[
+                    index
+                  ]?.attribute_value
                   ? compareTwoProducts?.data?.second_product?.attribute_values[
-                      index
-                    ]?.attribute_value
+                    index
+                  ]?.attribute_value
                   : "-",
             });
           } else if (
@@ -176,12 +179,12 @@ const PageCompare = () => {
               value: data?.attribute_value,
               secondValue:
                 compareTwoProducts?.data?.second_product?.attribute_values &&
-                compareTwoProducts?.data?.second_product?.attribute_values[
-                  index
-                ]?.attribute_value
+                  compareTwoProducts?.data?.second_product?.attribute_values[
+                    index
+                  ]?.attribute_value
                   ? compareTwoProducts?.data?.second_product?.attribute_values[
-                      index
-                    ]?.attribute_value
+                    index
+                  ]?.attribute_value
                   : "-",
             });
           } else if (
@@ -194,12 +197,12 @@ const PageCompare = () => {
               value: data?.attribute_value,
               secondValue:
                 compareTwoProducts?.data?.second_product?.attribute_values &&
-                compareTwoProducts?.data?.second_product?.attribute_values[
-                  index
-                ]?.attribute_value
+                  compareTwoProducts?.data?.second_product?.attribute_values[
+                    index
+                  ]?.attribute_value
                   ? compareTwoProducts?.data?.second_product?.attribute_values[
-                      index
-                    ]?.attribute_value
+                    index
+                  ]?.attribute_value
                   : "-",
             });
           } else if (
@@ -212,12 +215,12 @@ const PageCompare = () => {
               value: data?.attribute_value,
               secondValue:
                 compareTwoProducts?.data?.second_product?.attribute_values &&
-                compareTwoProducts?.data?.second_product?.attribute_values[
-                  index
-                ]?.attribute_value
+                  compareTwoProducts?.data?.second_product?.attribute_values[
+                    index
+                  ]?.attribute_value
                   ? compareTwoProducts?.data?.second_product?.attribute_values[
-                      index
-                    ]?.attribute_value
+                    index
+                  ]?.attribute_value
                   : "-",
             });
           } else if (
@@ -230,12 +233,12 @@ const PageCompare = () => {
               value: data?.attribute_value,
               secondValue:
                 compareTwoProducts?.data?.second_product?.attribute_values &&
-                compareTwoProducts?.data?.second_product?.attribute_values[
-                  index
-                ]?.attribute_value
+                  compareTwoProducts?.data?.second_product?.attribute_values[
+                    index
+                  ]?.attribute_value
                   ? compareTwoProducts?.data?.second_product?.attribute_values[
-                      index
-                    ]?.attribute_value
+                    index
+                  ]?.attribute_value
                   : "-",
             });
           } else if (
@@ -248,12 +251,12 @@ const PageCompare = () => {
               value: data?.attribute_value,
               secondValue:
                 compareTwoProducts?.data?.second_product?.attribute_values &&
-                compareTwoProducts?.data?.second_product?.attribute_values[
-                  index
-                ]?.attribute_value
+                  compareTwoProducts?.data?.second_product?.attribute_values[
+                    index
+                  ]?.attribute_value
                   ? compareTwoProducts?.data?.second_product?.attribute_values[
-                      index
-                    ]?.attribute_value
+                    index
+                  ]?.attribute_value
                   : "-",
             });
           } else if (
@@ -266,12 +269,12 @@ const PageCompare = () => {
               value: data?.attribute_value,
               secondValue:
                 compareTwoProducts?.data?.second_product?.attribute_values &&
-                compareTwoProducts?.data?.second_product?.attribute_values[
-                  index
-                ]?.attribute_value
+                  compareTwoProducts?.data?.second_product?.attribute_values[
+                    index
+                  ]?.attribute_value
                   ? compareTwoProducts?.data?.second_product?.attribute_values[
-                      index
-                    ]?.attribute_value
+                    index
+                  ]?.attribute_value
                   : "-",
             });
           } else if (
@@ -284,12 +287,12 @@ const PageCompare = () => {
               value: data?.attribute_value,
               secondValue:
                 compareTwoProducts?.data?.second_product?.attribute_values &&
-                compareTwoProducts?.data?.second_product?.attribute_values[
-                  index
-                ]?.attribute_value
+                  compareTwoProducts?.data?.second_product?.attribute_values[
+                    index
+                  ]?.attribute_value
                   ? compareTwoProducts?.data?.second_product?.attribute_values[
-                      index
-                    ]?.attribute_value
+                    index
+                  ]?.attribute_value
                   : "-",
             });
           } else if (
@@ -302,12 +305,12 @@ const PageCompare = () => {
               value: data?.attribute_value,
               secondValue:
                 compareTwoProducts?.data?.second_product?.attribute_values &&
-                compareTwoProducts?.data?.second_product?.attribute_values[
-                  index
-                ]?.attribute_value
+                  compareTwoProducts?.data?.second_product?.attribute_values[
+                    index
+                  ]?.attribute_value
                   ? compareTwoProducts?.data?.second_product?.attribute_values[
-                      index
-                    ]?.attribute_value
+                    index
+                  ]?.attribute_value
                   : "-",
             });
           } else if (
@@ -320,12 +323,12 @@ const PageCompare = () => {
               value: data?.attribute_value,
               secondValue:
                 compareTwoProducts?.data?.second_product?.attribute_values &&
-                compareTwoProducts?.data?.second_product?.attribute_values[
-                  index
-                ]?.attribute_value
+                  compareTwoProducts?.data?.second_product?.attribute_values[
+                    index
+                  ]?.attribute_value
                   ? compareTwoProducts?.data?.second_product?.attribute_values[
-                      index
-                    ]?.attribute_value
+                    index
+                  ]?.attribute_value
                   : "-",
             });
           }
@@ -346,15 +349,15 @@ const PageCompare = () => {
         group10,
         firstProduct: compareTwoProducts?.data?.first_product?.name
           ? {
-              label: compareTwoProducts?.data?.first_product?.name,
-              value: compareTwoProducts?.data?.first_product?.slug,
-            }
+            label: compareTwoProducts?.data?.first_product?.name,
+            value: compareTwoProducts?.data?.first_product?.slug,
+          }
           : "",
         secondProduct: compareTwoProducts?.data?.second_product?.name
           ? {
-              label: compareTwoProducts?.data?.second_product?.name,
-              value: compareTwoProducts?.data?.second_product?.slug,
-            }
+            label: compareTwoProducts?.data?.second_product?.name,
+            value: compareTwoProducts?.data?.second_product?.slug,
+          }
           : "",
       });
     }
@@ -431,31 +434,22 @@ const PageCompare = () => {
             </>
           ) : (
             <>
-              <section style={{ marginTop: "30px" }}>
+              <section className="ads-section" style={{ marginTop: "50px", marginBottom: "30px" }}>
                 <div className="container">
-                  <div className="row">
-                    {advertisement.data?.ads &&
-                      (!mobileWidth ? (
-                        <img
-                          className="single-mob-imgss"
-                          src={`https://softliee.com/softlee/public/storage/adds/${
-                            advertisement.data?.ads.find(
-                              (data) => data?.size === "728 × 90 px"
-                            )?.image
-                          }`}
-                          alt=""
-                        />
-                      ) : (
-                        <img
-                          className="single-mob-imgss-mobiles"
-                          src={`https://softliee.com/softlee/public/storage/adds/${
-                            advertisement.data?.ads.find(
-                              (data) => data?.size === "160 × 600 px"
-                            )?.image
-                          }`}
-                          alt=""
-                        />
-                      ))}
+                  <div className="row justify-content-center">
+                    <div className="col-12">
+
+                      <Adsense
+                        client="ca-pub-2933454440337038"
+                        slot="6702463586"
+                        style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
+                          width: 720, height: 90, display: "block", margin: "0 auto"
+                        }}
+                        format=""
+                      />
+                    </div>
+
+
                   </div>
                 </div>
               </section>
@@ -515,11 +509,11 @@ const PageCompare = () => {
                       <div className="grey-bg">
                         <h3 className="comapre-with-tits">Compare with</h3>
                         <Select
-                        className={clsx(
-                          "",
-                          mobileWidth && "select-mb",
-                          !mobileWidth && ""
-                        )}
+                          className={clsx(
+                            "",
+                            mobileWidth && "select-mb",
+                            !mobileWidth && ""
+                          )}
                           theme={selectThemeColors}
                           value={state.secondProduct}
                           onChange={(e) => handleChange("secondProduct", e)}
@@ -659,11 +653,11 @@ const PageCompare = () => {
                             {compareTwoProducts?.data?.first_product
                               ?.orignal_price
                               ? formatAmount(
-                                  getItemPrice(
-                                    compareTwoProducts?.data?.first_product
-                                      ?.orignal_price
-                                  )
+                                getItemPrice(
+                                  compareTwoProducts?.data?.first_product
+                                    ?.orignal_price
                                 )
+                              )
                               : "N/A"}
                           </h3>
                         </>
@@ -680,14 +674,14 @@ const PageCompare = () => {
                             {compareTwoProducts?.data?.first_product
                               ?.orignal_price
                               ? formatAmount(
-                                  getItemPrice(
-                                    compareTwoProducts?.data?.first_product
-                                      ?.orignal_price
-                                  )
+                                getItemPrice(
+                                  compareTwoProducts?.data?.first_product
+                                    ?.orignal_price
                                 )
+                              )
                               : "N/A"}
                           </h3>
-                          
+
                         </>
                       )}
                     </div>
@@ -729,11 +723,11 @@ const PageCompare = () => {
                             {compareTwoProducts?.data?.second_product
                               ?.orignal_price
                               ? formatAmount(
-                                  getItemPrice(
-                                    compareTwoProducts?.data?.second_product
-                                      ?.orignal_price
-                                  )
+                                getItemPrice(
+                                  compareTwoProducts?.data?.second_product
+                                    ?.orignal_price
                                 )
+                              )
                               : "N/A"}
                           </h3>
                         </>
@@ -750,14 +744,14 @@ const PageCompare = () => {
                             {compareTwoProducts?.data?.second_product
                               ?.orignal_price
                               ? formatAmount(
-                                  getItemPrice(
-                                    compareTwoProducts?.data?.second_product
-                                      ?.orignal_price
-                                  )
+                                getItemPrice(
+                                  compareTwoProducts?.data?.second_product
+                                    ?.orignal_price
                                 )
+                              )
                               : "N/A"}
                           </h3>
-                          
+
                         </>
                       )}
                     </div>
@@ -821,31 +815,22 @@ const PageCompare = () => {
                         </>
                       )}
 
-                      <section style={{ marginTop: "30px" }}>
+                      <section className="ads-section" style={{ marginTop: "50px", marginBottom: "30px" }}>
                         <div className="container">
-                          <div className="row">
-                            {advertisement.data?.ads &&
-                              (!mobileWidth ? (
-                                <img
-                                  className="single-mob-imgss"
-                                  src={`https://softliee.com/softlee/public/storage/adds/${
-                                    advertisement.data?.ads.find(
-                                      (data) => data?.size === "728 × 90 px"
-                                    )?.image
-                                  }`}
-                                  alt=""
-                                />
-                              ) : (
-                                <img
-                                  className="single-mob-imgss-mobile"
-                                  src={`https://softliee.com/softlee/public/storage/adds/${
-                                    advertisement.data?.ads.find(
-                                      (data) => data?.size === "300 × 250 px"
-                                    )?.image
-                                  }`}
-                                  alt=""
-                                />
-                              ))}
+                          <div className="row justify-content-center">
+                            <div className="col-12">
+
+                              <Adsense
+                                client="ca-pub-2933454440337038"
+                                slot="6702463586"
+                                style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                                  width: 720, height: 90, display: "block", margin: "0 auto"
+                                }}
+                                format=""
+                              />
+                            </div>
+
+
                           </div>
                         </div>
                       </section>
@@ -900,34 +885,7 @@ const PageCompare = () => {
                         </>
                       )}
 
-                      <section style={{ marginTop: "30px" }}>
-                        <div className="container">
-                          <div className="row">
-                            {advertisement.data?.ads &&
-                              (!mobileWidth ? (
-                                <img
-                                  className="single-mob-imgss"
-                                  src={`https://softliee.com/softlee/public/storage/adds/${
-                                    advertisement.data?.ads.find(
-                                      (data) => data?.size === "728 × 90 px"
-                                    )?.image
-                                  }`}
-                                  alt=""
-                                />
-                              ) : (
-                                <img
-                                  className="single-mob-imgss-mobile"
-                                  src={`https://softliee.com/softlee/public/storage/adds/${
-                                    advertisement.data?.ads.find(
-                                      (data) => data?.size === "300 × 250 px"
-                                    )?.image
-                                  }`}
-                                  alt=""
-                                />
-                              ))}
-                          </div>
-                        </div>
-                      </section>
+
 
                       {state.group5.length > 0 && (
                         <>
@@ -979,31 +937,22 @@ const PageCompare = () => {
                         </>
                       )}
 
-                      <section style={{ marginTop: "30px" }}>
+                      <section className="ads-section" style={{ marginTop: "50px", marginBottom: "30px" }}>
                         <div className="container">
-                          <div className="row">
-                            {advertisement.data?.ads &&
-                              (!mobileWidth ? (
-                                <img
-                                  className="single-mob-imgss"
-                                  src={`https://softliee.com/softlee/public/storage/adds/${
-                                    advertisement.data?.ads.find(
-                                      (data) => data?.size === "728 × 90 px"
-                                    )?.image
-                                  }`}
-                                  alt=""
-                                />
-                              ) : (
-                                <img
-                                  className="single-mob-imgss-mobile"
-                                  src={`https://softliee.com/softlee/public/storage/adds/${
-                                    advertisement.data?.ads.find(
-                                      (data) => data?.size === "300 × 250 px"
-                                    )?.image
-                                  }`}
-                                  alt=""
-                                />
-                              ))}
+                          <div className="row justify-content-center">
+                            <div className="col-12">
+
+                              <Adsense
+                                client="ca-pub-2933454440337038"
+                                slot="6702463586"
+                                style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                                  width: 720, height: 90, display: "block", margin: "0 auto"
+                                }}
+                                format=""
+                              />
+                            </div>
+
+
                           </div>
                         </div>
                       </section>
@@ -1083,31 +1032,22 @@ const PageCompare = () => {
                         </>
                       )}
 
-                      <section style={{ marginTop: "30px" }}>
+                      <section className="ads-section" style={{ marginTop: "50px", marginBottom: "50px" }}>
                         <div className="container">
-                          <div className="row">
-                            {advertisement.data?.ads &&
-                              (!mobileWidth ? (
-                                <img
-                                  className="single-mob-imgss"
-                                  src={`https://softliee.com/softlee/public/storage/adds/${
-                                    advertisement.data?.ads.find(
-                                      (data) => data?.size === "728 × 90 px"
-                                    )?.image
-                                  }`}
-                                  alt=""
-                                />
-                              ) : (
-                                <img
-                                  className="single-mob-imgss-mobile"
-                                  src={`https://softliee.com/softlee/public/storage/adds/${
-                                    advertisement.data?.ads.find(
-                                      (data) => data?.size === "300 × 250 px"
-                                    )?.image
-                                  }`}
-                                  alt=""
-                                />
-                              ))}
+                          <div className="row justify-content-center">
+                            <div className="col-12">
+
+                              <Adsense
+                                client="ca-pub-2933454440337038"
+                                slot="6702463586"
+                                style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                                  width: 970, height: 250, display: "block", margin: "0 auto"
+                                }}
+                                format=""
+                              />
+                            </div>
+
+
                           </div>
                         </div>
                       </section>

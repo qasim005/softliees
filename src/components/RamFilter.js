@@ -7,6 +7,7 @@ import AddIcon from "@mui/icons-material/Add";
 import clsx from "clsx";
 import { IsMobileWidth, IsTabletWidth } from "./utils";
 import { useSelector } from "react-redux";
+import { Adsense } from "@ctrl/react-adsense";
 
 
 const RamFilter = () => {
@@ -55,41 +56,26 @@ const RamFilter = () => {
       <section className="ram-filter">
         <Header />
 
+        <section className="ads-section" style={{ marginTop: "50px", marginBottom: "30px" }}>
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-12">
 
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12">
-              <getSelection>
-                <div className="container">
-                  <div className="row">
-                    {advertisement.data?.ads &&
-                      (!mobileWidth ? (
-                        <img
-                          className="single-mob-imgss "
-                          style={{ marginTop: "30px" }}
-                          src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                            (data) => data?.size === "728 × 90 px"
-                          )?.image
-                            }`}
-                          alt=""
-                        />
-                      ) : (
-                        <img
-                          className="single-mob-imgss-mobiles "
-                          style={{ marginTop: "30px" }}
-                          src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                            (data) => data?.size === "160 × 600 px"
-                          )?.image
-                            }`}
-                          alt=""
-                        />
-                      ))}
-                  </div>
-                </div>
-              </getSelection>
+                <Adsense
+                  client="ca-pub-2933454440337038"
+                  slot="6702463586"
+                  style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
+                    width: 720, height: 90, display: "block", margin: "0 auto"
+                  }}
+                  format=""
+                />
+              </div>
+
+
             </div>
           </div>
-        </div>
+        </section>
+
 
         <div className="container ram-filter-content">
           <div className="row px-2">
@@ -177,6 +163,26 @@ const RamFilter = () => {
 
           </div>
         </div>
+
+        <section className="ads-section" style={{ marginBottom: "50px" }}>
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-12">
+
+                <Adsense
+                  client="ca-pub-2933454440337038"
+                  slot="6702463586"
+                  style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                    width: 970, height: 250, display: "block", margin: "0 auto"
+                  }}
+                  format=""
+                />
+              </div>
+
+
+            </div>
+          </div>
+        </section>
 
         <Footer />
       </section >

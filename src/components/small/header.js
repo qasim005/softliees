@@ -725,7 +725,7 @@ const Header = (props) => {
           <div
             onClick={handleCloseS}
             className={
-              !showS && window.location.pathname === "/compare"
+              !showS && window.location.pathname === "/compare-mobile-phone"
                 ? "active icon-box-wrap"
                 : "icon-box-wrap"
             }

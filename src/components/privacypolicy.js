@@ -30,32 +30,7 @@ const PagePrivacy = () => {
             hadleSarchBarOpen={() => setIsSearchBarOpen(true)}
             isSearchBarOpen={isSearchBarOpen}
           />
-          <section style={{ marginTop: "30px" }}>
-            <div className="container">
-              <div className="row">
-                {advertisement.data?.ads &&
-                  (!mobileWidth ? (
-                    <img
-                      className="single-mob-imgss"
-                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                        (data) => data?.size === "728 × 90 px"
-                      )?.image
-                        }`}
-                      alt=""
-                    />
-                  ) : (
-                    <img
-                      className="single-mob-imgss-mobiles"
-                      src={`https://softliee.com/softlee/public/storage/adds/${advertisement.data?.ads.find(
-                        (data) => data?.size === "160 × 600 px"
-                      )?.image
-                        }`}
-                      alt=""
-                    />
-                  ))}
-              </div>
-            </div>
-          </section>
+
 
           <div className="container">
             <div className="row">
