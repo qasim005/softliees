@@ -28,6 +28,10 @@ import RamFilter from "./components/RamFilter";
 import "./App.scss"
 import PhoneFinderDetails from "./components/phonefinderdetails";
 import NotFound from "./components/NotFound";
+import { HashRouter } from "react-router-dom";
+import SearchResultPage from "./components/searchpage";
+import FindAMobile from "./components/findAmobile";
+import BrowseByBudget from "./components/browsebybudget";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,11 +42,11 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter >
         <Routes>
-
           <Route index element={<Home />} />
-          <Route path="/filterbrand/:slug" element={<Filterbrand />} />
+          <Route path="/findamobile/:slug" element={<FindAMobile />} />
+          <Route path="/new-mobile/:slug" element={<Filterbrand />} />
           <Route path="/contact" element={<PageContact />} />
           <Route path="/termsandconditions" element={<PageTerms />} />
           <Route path="/popularmobiles" element={<PopularMobiles />} />
@@ -54,16 +58,18 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<Aboutus />} />
-          <Route path="/product/:slug" element={<ProductPages />} />
+          <Route path="/:slug" element={<ProductPages />} />
           <Route path="/blog" element={<Ourblog />} />
           <Route path="/details/:slug" element={<Blogdetails />} />
           <Route path="/compare-mobile-phone" element={<PageCompare />} />
           <Route path="/ram/:id" element={<RamFilter />} />
+          <Route path="/browsebybudget/:id/:id" element={<BrowseByBudget />} />
           <Route
             path="/compare-mobile-phone/:slug/:slug1"
             element={<PageCompare />}
           />
           <Route path="*" element={<NotFound />} />
+          <Route path="/searchresult" element={<SearchResultPage />} />
         </Routes>
       </BrowserRouter>
     </>

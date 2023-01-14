@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <>   {tabletWidth
             ?
-            <footer className={mobileWidth ? 'pb-5 mb-4' : ""}>  
+            <footer className={mobileWidth ? 'pb-5 mb-4' : ""}>
                 <div className="footer-top">
                     <div className="container">
                         <div className="row">
@@ -128,7 +128,7 @@ const Footer = () => {
 
 
                                 <div className="col-sm-6">
-                                    <p className='foot-bottom-txt'>Softliee Pakistan © 2022 All Rights Reserved <span style={{ color: '#EE2835' }}>Softliee.com</span></p>
+                                    <p className='foot-bottom-txt'>Softliee Pakistan © 2023 All Rights Reserved <span style={{ color: '#EE2835' }}>Softliee.com</span></p>
                                 </div>
                                 <div className="col-sm-6">
                                     <div className="footer-icons-wrapp">
@@ -152,7 +152,7 @@ const Footer = () => {
 
             :
 
-            <footer className={mobileWidth ? 'pb-5 mb-4' : ""}>  
+            <footer className={mobileWidth ? 'pb-5 mb-4' : ""}>
                 <div className="footer-top">
                     <div className="container">
                         <div className="row">
@@ -236,7 +236,7 @@ const Footer = () => {
                                         </h3>
                                         <ul className="footer-nav">
                                             <li className="single-nav-li">
-                                                <a href="/filterbrand/trending-mobiles" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Trending Mobiles</a>
+                                                <a href="/new-mobile/trending-mobiles" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Trending Mobiles</a>
                                             </li>
                                             <li className="single-nav-li">
                                                 <a href="/upcomingphones" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Upcoming Mobiles</a>
@@ -269,7 +269,7 @@ const Footer = () => {
 
 
                                 <div className="col-sm-6">
-                                    <p className='foot-bottom-txt'>Softliee Pakistan © 2022 All Rights Reserved <span style={{ color: '#EE2835' }}>Softliee.com</span></p>
+                                    <p className='foot-bottom-txt'>Softliee Pakistan © 2023 All Rights Reserved <span style={{ color: '#EE2835' }}>Softliee.com</span></p>
                                 </div>
                                 <div className="col-sm-6">
                                     <div className="footer-icons-wrapp">

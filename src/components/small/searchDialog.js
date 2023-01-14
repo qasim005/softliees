@@ -29,7 +29,7 @@ export default function SearchDialog(props) {
   };
 
   const handleImgClick = (slug) => {
-    navigate(`/product/${slug}`, { replace: true });
+    navigate(`/${slug}`, { replace: true });
   };
 
   const handleImgClickk = (slug) => {
@@ -53,7 +53,8 @@ export default function SearchDialog(props) {
         (data) => data?.country === localSelectedCurrency
       );
     if (selectedCurrency) {
-      return (price / selectedCurrency?.price).toFixed(2);
+      return (parseInt(price / selectedCurrency?.price));
+
     } else {
       return price;
     }
@@ -68,8 +69,8 @@ export default function SearchDialog(props) {
         </div>
       ) : searchProduct?.data?.search_Product ? (
         searchProduct?.data?.search_Product.map((item, index) => (
-          <div className="single-m-wrap d-flex justify-content-between p-2-5 align-items-center">
-            <div className="d-flex align-items-center">
+          <div className="single-m-wrap search-items-wrap">
+            <div className="single-m-inner">
               <img
                 width="60px"
                 height="80px"
@@ -77,17 +78,17 @@ export default function SearchDialog(props) {
                 onClick={() => handleImgClick(item.slug)}
               />
               <h6
-                className="ps-4 fw-bold"
+                className="fw-bold"
                 onClick={() => handleImgClick(item.slug)}
               >
                 {item.name}
               </h6>
             </div>
-            <div>
+            {/* <div>
               <IconButton>
                 <Close />
               </IconButton>
-            </div>
+            </div> */}
           </div>
         ))
       ) : (

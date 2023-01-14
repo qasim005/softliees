@@ -97,7 +97,7 @@ const PhoneFinder = () => {
   };
 
   const handleImgClick1 = (slug) => {
-    navigate(`/product/${slug}`, { replace: true });
+    navigate(`/${slug}`, { replace: true });
   };
 
   const resetData = () => {
@@ -133,7 +133,8 @@ const PhoneFinder = () => {
         (data) => data?.country === localSelectedCurrency
       );
     if (selectedCurrency) {
-      return (price / selectedCurrency?.price).toFixed(2);
+      return (parseInt(price / selectedCurrency?.price));
+
     } else {
       return price;
     }
@@ -152,7 +153,7 @@ const PhoneFinder = () => {
             isSearchBarOpen={isSearchBarOpen}
           />
           <Helmet>
-            <title>google mobile phone finder 2022 - Sofliee.com</title>
+            <title>google mobile phone finder 2023 - Sofliee.com</title>
             <meta
               name="description"
               content="Phone Ffinder - Finder Mobile phones Prices, Brand, Display, Cpu, Storage, Camera, Bbattey, Rating and more."
@@ -506,7 +507,7 @@ const PhoneFinder = () => {
                 !mobileWidth && "find-mob phone-finder-btn"
               )}
               onClick={() => {
-                // navigate(`/filterbrand/trending-mobiles?from=${search}`);
+                // navigate(`/new-mobile/trending-mobiles?from=${search}`);
                 search();
                 navigate("/phonefinderdetails")
               }}

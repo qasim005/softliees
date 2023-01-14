@@ -22,7 +22,7 @@ const PhoneFinderDetails = () => {
     const navigate = useNavigate();
 
     const handleImgClick1 = (slug) => {
-        navigate(`/product/${slug}`, { replace: true });
+        navigate(`/${slug}`, { replace: true });
     };
 
 
@@ -55,7 +55,8 @@ const PhoneFinderDetails = () => {
                 (data) => data?.country === localSelectedCurrency
             );
         if (selectedCurrency) {
-            return (price / selectedCurrency?.price).toFixed(2);
+            return (parseInt(price / selectedCurrency?.price));
+
         } else {
             return price;
         }

@@ -85,6 +85,7 @@ const Header = (props) => {
   const handleSearch = () => {
     setIsSearchDialogOpen(true);
     dispatch(getSearchProduct({ search: search }));
+    navigate("/searchresult")
   };
 
   useEffect(() => {
@@ -128,7 +129,9 @@ const Header = (props) => {
       window.location.reload();
     }
   };
-
+  useEffect(() => {
+    console.log(localSelectedCurrency);
+  }, [localSelectedCurrency])
   return (
     <>
       {!isSearchBarOpen && (
@@ -162,15 +165,15 @@ const Header = (props) => {
                 {
                   !ControlBrands ? <>
                     <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/filterbrand/iphone-mobiles-price")
+                      navigate("/new-mobile/iphone-mobiles-price")
                       setShow(false)
                     }}>Apple</h3>
                     <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/filterbrand/samsung-mobile-phones-prices-in-pakistan")
+                      navigate("/new-mobile/samsung-mobile-phones-prices-in-pakistan")
                       setShow(false)
                     }}>Samsung</h3>
                     <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/filterbrand/iphone-mobiles-price")
+                      navigate("/new-mobile/iphone-mobiles-price")
                       setShow(false)
                     }}>Realme</h3>
                     <h3 className="topbrand-tit sub" onClick={() => {
@@ -178,27 +181,27 @@ const Header = (props) => {
                     }}>More..</h3>
                   </> : <>
                     <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/filterbrand/iphone-mobiles-price")
+                      navigate("/new-mobile/iphone-mobiles-price")
                       setShow(false)
                     }}>Apple</h3>
                     <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/filterbrand/samsung-mobile-phones-prices-in-pakistan")
+                      navigate("/new-mobile/samsung-mobile-phones-prices-in-pakistan")
                       setShow(false)
                     }}>Samsung</h3>
                     <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/filterbrand/iphone-mobiles-price")
+                      navigate("/new-mobile/iphone-mobiles-price")
                       setShow(false)
                     }}>Realme</h3>
                     <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/filterbrand/google-mobile-phones-price-in-pakistan")
+                      navigate("/new-mobile/google-mobile-phones-price-in-pakistan")
                       setShow(false)
                     }}>Google</h3>
                     <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/filterbrand/huawei-mobile-phone-price-in-pakistan")
+                      navigate("/new-mobile/huawei-mobile-phone-price-in-pakistan")
                       setShow(false)
                     }}>Huawei</h3>
                     <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/filterbrand/infinix-mobile-phones")
+                      navigate("/new-mobile/infinix-mobile-phones")
                       setShow(false)
                     }}>Infinix</h3>
                     <h3 className="topbrand-tit sub" onClick={() => {
@@ -459,26 +462,43 @@ const Header = (props) => {
                       <div className="only-lang">
                         <Dropdown>
                           <Dropdown.Toggle variant="light" id="dropdon-basic">
-                            <div className="lang-wrap ">
-                              {localSelectedCurrency === "Pakistan" && (
-                                <img
-                                  className="ic-notify flag"
-                                  src="../../assets/images/pkflag.png"
-                                  alt=""
-                                />
-                              )}
 
-                              <h5 className="pak-tit">
-                                {localSelectedCurrency
-                                  ? localSelectedCurrency
-                                  : "Pakistan"}
-                              </h5>
-                              {/* <h5 className="pak-tit">{currency?.data?.currency && currency?.data?.currency[0]?.country}</h5> */}
-                              <Icon
-                                className="flag-drop-ico"
-                                icon="bx:chevron-down"
-                              />
-                            </div>
+                            {
+                              localSelectedCurrency == null || localSelectedCurrency == "Pakistan" ?
+                                <div className="lang-wrap null pak ">
+
+                                  <img
+                                    className="ic-notify flag"
+                                    src="../../assets/images/pkflag.png"
+                                    alt=""
+                                  />
+
+
+                                  <h5 className="pak-tit">
+
+                                    Pakistan
+                                  </h5>
+                                  <Icon
+                                    className="flag-drop-ico"
+                                    icon="bx:chevron-down"
+                                  />
+                                </div> :
+
+
+                                <div className="lang-wrap usa ">
+
+
+                                  <h5 className="pak-tit">
+                                    USA
+                                  </h5>
+                                  <Icon
+                                    className="flag-drop-ico"
+                                    icon="bx:chevron-down"
+                                  />
+                                </div>
+
+                            }
+
                           </Dropdown.Toggle>
 
                           <Dropdown.Menu className="asdasdas">

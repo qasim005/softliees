@@ -1,7 +1,19 @@
+import Footer from "./small/footer"
+import Header from "./small/header"
+
 const NotFound = () => {
     return (
         <>
-            <h1>Not Found</h1>
+            <Header />
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-12">
+
+                        <img className="fourzero" src="../../assets/images/404.jpeg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <Footer />
         </>
     )
 }

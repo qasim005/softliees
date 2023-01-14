@@ -8,9 +8,10 @@ import clsx from "clsx";
 import { IsMobileWidth, IsTabletWidth } from "./utils";
 import { useSelector } from "react-redux";
 import { Adsense } from "@ctrl/react-adsense";
+import axios from "axios";
 
 
-const RamFilter = () => {
+const BrowseByBudget = () => {
   const [Users, setUsers] = useState([]);
   const mobileWidth = IsMobileWidth();
   const tabletWidth = IsTabletWidth();
@@ -22,34 +23,50 @@ const RamFilter = () => {
   const path = location.pathname.split("/");
   const navigate = useNavigate()
 
+  const mylocation = window.location.pathname.split("/")
+  const [pageNumber, setpageNumber] = useState("")
 
-  const getUser = async () => {
 
-    try {
-      await fetch(
-        `https://softliee.com/softlee/public/api/ram_products/${path[2]}`
-      ).then(async (response) => {
-        await response.json().then((res) => {
-          console.log(res.ram_product);
-          setUsers(res.ram_product);
-        });
-      });
-      //   setLoading(false);
-    } catch (error) {
-      alert("api get faile");
-    }
-  };
+  // const getUser = async () => {
+
+  //   try {
+  //     await fetch(
+  //       `https://softliee.com/softlee/public/api/ram_products/${path[2]}`
+  //     ).then(async (response) => {
+  //       await response.json().then((res) => {
+  //         console.log(res.ram_product);
+  //         setUsers(res.ram_product);
+  //       });
+  //     });
+  //     //   setLoading(false);
+  //   } catch (error) {
+  //     alert("api get faile");
+  //   }
+  // };
   const handleImgClick1 = (slug) => {
     navigate(`/${slug}`, { replace: true });
   };
-
+  const getData = () => {
+    setUsers([])
+    if (pageNumber) {
+      console.log(pageNumber);
+      axios.get(`https://softliee.com/softlee/public/api/browse_budget/${mylocation[2]}?page=${pageNumber}`).then((res) => {
+        setUsers(res.data.budget_products.data);
+        console.log(res.data.budget_products);
+      })
+    }
+  }
 
   useEffect(() => {
-    getUser();
+    getData()
+    window.scrollTo(0, 0)
+  }, [pageNumber]);
+  useEffect(() => {
+    setpageNumber(window.location.pathname.split("/")[3])
   }, []);
   useEffect(() => {
-    console.log(Users);
-  }, [Users]);
+    console.log(pageNumber);
+  }, [pageNumber]);
 
   return (
     <div>
@@ -80,7 +97,7 @@ const RamFilter = () => {
         <div className="container ram-filter-content">
           <div className="row px-2">
             <div className="section-head-ram">
-              <h1>Ram Mobile</h1>
+              <h1>Browse By Budget</h1>
             </div>
           </div>
           <div className="row px-2">
@@ -163,6 +180,11 @@ const RamFilter = () => {
 
           </div>
         </div>
+        {/* 
+        <button onClick={() => {
+          setpageNumber(2)
+
+        }}>Next</button> */}
 
         <section className="ads-section" style={{ marginBottom: "50px" }}>
           <div className="container">
@@ -190,4 +212,4 @@ const RamFilter = () => {
   );
 };
 
-export default RamFilter;
+export default BrowseByBudget;

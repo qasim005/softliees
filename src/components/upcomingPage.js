@@ -25,7 +25,7 @@ const UpcomingPage = (props) => {
     (selectSate) => selectSate.app
   );
   const handleImgClick = (slug) => {
-    navigate(`/product/${slug}`, { replace: true });
+    navigate(`/${slug}`, { replace: true });
   };
 
   useEffect(() => {
@@ -45,7 +45,8 @@ const UpcomingPage = (props) => {
         (data) => data?.country === localSelectedCurrency
       );
     if (selectedCurrency) {
-      return (price / selectedCurrency?.price).toFixed(2);
+      return (parseInt(price / selectedCurrency?.price));
+
     } else {
       return price;
     }
@@ -167,7 +168,7 @@ const UpcomingPage = (props) => {
                         <div className="flex align-items-center justify-content-center">
                           <Link
                             class="view_more_link"
-                            to={`/product/${data?.slug}`}
+                            to={`/mobiles/${data?.slug}`}
                           >
                             View More
                           </Link>

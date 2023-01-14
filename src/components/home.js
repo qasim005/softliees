@@ -52,7 +52,7 @@ const Home = () => {
   } = useSelector((selectSate) => selectSate.app);
   const [ram, setRam] = useState(0);
   const handleImgClick = (slug) => {
-    navigate(`/product/${slug}`, { replace: true });
+    navigate(`/${slug}`, { replace: true });
   };
 
   const handleTeachNews = (e) => {
@@ -108,7 +108,7 @@ const Home = () => {
         (data) => data?.country === localSelectedCurrency
       );
     if (selectedCurrency) {
-      return (price / selectedCurrency?.price).toFixed(2);
+      return (parseInt(price / selectedCurrency?.price));
     } else {
       return price;
     }
@@ -251,7 +251,7 @@ const Home = () => {
                           className="find-mobil"
                           onClick={() => {
                             navigate(
-                              `/filterbrand/trending-mobiles?from=${rangePrices[0]}&to=${rangePrices[1]}&ram=${ram}`
+                              `/findamobile/trending-mobiles?from=${rangePrices[0]}&to=${rangePrices[1]}&ram=${ram}`
                             );
                           }}
                         >
@@ -360,7 +360,7 @@ const Home = () => {
                       <div className="row first-row-br-wrap">
                         {brands?.data?.brands.map((data, index) => (
                           <Link
-                            to={`/filterbrand/${data?.slug}`}
+                            to={`/new-mobile/${data?.slug}`}
                             className="col-sm-4 brand-col"
                             key={data?.id}
                           >

@@ -79,6 +79,7 @@ const ProductPages = () => {
   useEffect(() => {
     dispatch(getSingleProducts(slug));
     setState({ ...state, comment: "", commentReply: "", selectedIndex: false });
+
   }, [slug, commentsResponse]);
 
   useEffect(() => {
@@ -223,7 +224,7 @@ const ProductPages = () => {
   };
 
   const handleRelatedImage = (slug) => {
-    navigate(`/product/${slug}`, { replace: true });
+    navigate(`/${slug}`, { replace: true });
   };
 
   const handleCommentPost = (id) => {
@@ -313,7 +314,7 @@ const ProductPages = () => {
                   Home
                 </Link>
                 <ChevronRightIcon />
-                <Link to={`/product/${slug}`} class="bread_crumb_link">
+                <Link to={`/mobiles/${slug}`} class="bread_crumb_link">
                   {singleProducts?.data?.single_product?.name}
                 </Link>
               </div>
@@ -1074,25 +1075,25 @@ const ProductPages = () => {
                   <div class="main-tit browsebyb-tit">Browse By Budget</div>
 
                   <div class="tags_Section budget">
-                    <Link to={`/filterbrand/trending-mobiles?under=15000`}>
+                    <Link to={`/browsebybudget/15000/1`}>
                       <div class="btn tags budget-range">Under 15,000</div>
                     </Link>
-                    <Link to={`/filterbrand/trending-mobiles?under=25000`}>
+                    <Link to={`/browsebybudget/25000/1`}>
                       <div class="btn tags budget-range">Under 25,000</div>
                     </Link>
-                    <Link to={`/filterbrand/trending-mobiles?under=35000`}>
+                    <Link to={`/browsebybudget/35000/1`}>
                       <div class="btn tags budget-range">Under 35,000</div>
                     </Link>
-                    <Link to={`/filterbrand/trending-mobiles?under=45000`}>
+                    <Link to={`/browsebybudget/45000/1`}>
                       <div class="btn tags budget-range">Under 45,000</div>
                     </Link>
-                    <Link to={`/filterbrand/trending-mobiles?under=65000`}>
+                    <Link to={`/browsebybudget/65000/1`}>
                       <div class="btn tags budget-range">Under 65,000</div>
                     </Link>
-                    <Link to={`/filterbrand/trending-mobiles?under=85000`}>
+                    <Link to={`/browsebybudget/85000/1`}>
                       <div class="btn tags budget-range">Under 85,000</div>
                     </Link>
-                    <Link to={`/filterbrand/trending-mobiles?under=115000`}>
+                    <Link to={`/browsebybudget/115000/1`}>
                       <div class="btn tags budget-range">Under 115,000</div>
                     </Link>
                   </div>

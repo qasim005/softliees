@@ -3033,8 +3033,9 @@ svg.flag-drop-ico.iconify.iconify--bx {
   color: #000;
   display: flex;
   padding: 7px 8px;
-  width: 200px;
+  width: 169px;
   background-color: #fff;
+  margin-left: 14px;
 }
 
 .lang-wrap h5.pak-tit {
@@ -3983,3 +3984,128 @@ h3.login-tit.cursor-pointer.logout {
     height: 250 !important;
   }
 } */
+
+img.fourzero {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.lang-wrap.usa {
+  /* padding: 0px; */
+  width: 110px;
+  margin-left: 38px;
+}
+
+.single-m-wrap.search-items-wrap {
+  /* padding-bottom: 12px; */
+  padding-top: 20px;
+  border: 1px solid #d9dadd;
+  margin-top: 20px;
+  width: 29.333%;
+  float: left;
+  margin: 6px 10px;
+  text-align: center;
+  min-height: 146px;
+  display: flex;
+  justify-content: center;
+}
+.single-m-wrap.search-items-wrap h6{
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+ul.react-paginations {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+ul.react-paginations li.previous {
+  background:url(../public/assets/images/prev.png);
+  background-repeat: no-repeat;
+ 
+  background-size: contain;
+  color: white;
+ 
+  width: 20px;
+  height: 20px;
+}
+ul.react-paginations li.next {
+  background:url(../public/assets/images/next.png) ;
+  background-repeat: no-repeat;
+
+  background-size: contain;
+  color: white;
+ 
+  width: 20px;
+  height: 20px;
+}
+
+
+ul.react-paginations li.next a {
+  color: white;
+  /* z-index: -1; */
+  position: relative;
+  padding: 10px;
+  background: transparent;
+  /* width: 20px; */
+  /* height: 20px; */
+  color: transparent;
+}
+
+ul.react-paginations li.previous a {
+  color: white;
+  /* z-index: -1; */
+  position: relative;
+  padding: 10px;
+  background: transparent;
+  /* width: 20px; */
+  /* height: 20px; */
+  color: transparent;
+}
+ul.react-paginations li.next a:hover {
+  position: relative;
+  padding: 10px;
+  background: transparent;
+  color: transparent !important;
+}
+
+ul.react-paginations li.previous a:hover {
+  position: relative;
+  padding: 10px;
+  background: transparent;
+  color: transparent !important;
+}
+ul.react-paginations  li.selected {
+  background: #3c59ee;
+
+  color: white;
+}
+ul.react-paginations  li a {
+  padding: 6px 2px;
+}
+
+ul.react-paginations  li {
+  width: 25px;
+  height: 24px;
+}
+
+ul.react-paginations  li a:hover {
+ color: rgb(255, 255, 255) !important;
+ 
+ }
+
+ul.react-paginations  li:hover {
+  background: #3c59ee;
+ 
+  color: white;
+}
+ul.react-paginations  li.selected a:hover  {
+  
+ 
+  color: white !important;
+}

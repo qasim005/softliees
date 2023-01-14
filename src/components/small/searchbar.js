@@ -19,10 +19,12 @@ const SearchBar = (props) => {
   const handleSearch = () => {
     setIsSearchDialogOpen(true);
     dispatch(getSearchProduct({ search: search }));
+
+
   };
 
   const handleImgClick = (slug) => {
-    navigate(`/product/${slug}`, { replace: true });
+    navigate(`/${slug}`, { replace: true });
   };
 
   return (

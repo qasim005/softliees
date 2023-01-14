@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://www.softliee.com/</loc> </url>
+<url> <loc>https://www.softliee.com/new-mobile/:slug</loc> </url>
+<url> <loc>https://www.softliee.com/contact</loc> </url>
+<url> <loc>https://www.softliee.com/termsandconditions</loc> </url>
+<url> <loc>https://www.softliee.com/popularmobiles</loc> </url>
+<url> <loc>https://www.softliee.com/top-upcoming-mobile-phones-in-2023</loc> </url>
+<url> <loc>https://www.softliee.com/privacypolicy</loc> </url>
+<url> <loc>https://www.softliee.com/phonefinder</loc> </url>
+<url> <loc>https://www.softliee.com/phonefinderdetails</loc> </url>
+<url> <loc>https://www.softliee.com/advertise</loc> </url>
+<url> <loc>https://www.softliee.com/login</loc> </url>
+<url> <loc>https://www.softliee.com/register</loc> </url>
+<url> <loc>https://www.softliee.com/about</loc> </url>
+<url> <loc>https://www.softliee.com/:slug</loc> </url>
+<url> <loc>https://www.softliee.com/blog</loc> </url>
+<url> <loc>https://www.softliee.com/details/:slug</loc> </url>
+<url> <loc>https://www.softliee.com/compare-mobile-phone</loc> </url>
+<url> <loc>https://www.softliee.com/ram/:id</loc> </url>
+<url> <loc>https://www.softliee.com/compare-mobile-phone/:slug/:slug1</loc> </url>
+<url> <loc>https://www.softliee.com/searchresult</loc> </url>
+</urlset>

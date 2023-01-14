@@ -9,6 +9,8 @@ import React, { useEffect, useState } from "react";
 import { getBlogs } from "../redux/actions/app.actions";
 import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
+import { Adsense } from "@ctrl/react-adsense";
+import ReactPaginate from "react-paginate";
 // import { Helmet } from "react-helmet";
 
 
@@ -19,12 +21,59 @@ const Ourblog = () => {
   const dispatch = useDispatch();
   const { blogs } = useSelector((selectSate) => selectSate.app);
 
+
+  const [itemOffset, setItemOffset] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const [myCurrentItems, setCurrentItems] = useState([]);
+
+  const itemsPerPage = 8;
+
+  // Simulate fetching items from another resources.
+  // (This could be items from props; or items loaded in a local state
+  // from an API endpoint with useEffect and useState)
+
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % blogs.data.blogs.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+
+    window.scrollTo(0, 0)
+  };
+
   useEffect(() => {
     if (!blogs?.data && !blogs?.loading) {
       dispatch(getBlogs());
     }
   }, []);
 
+
+
+
+  const ChangeCurrentItems = () => {
+    if (blogs) {
+      if (blogs.data) {
+        console.log("if");
+        const endOffset = itemOffset + itemsPerPage;
+        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+        const currentItems = blogs?.data?.blogs.slice(itemOffset, endOffset);
+        setCurrentItems(currentItems)
+        const pageCount1 = Math.ceil(blogs.data.blogs.length / itemsPerPage);
+        setPageCount(pageCount1)
+        console.log(currentItems, "Current ITems");
+      }
+
+    }
+  }
+
+  useEffect(() => {
+    ChangeCurrentItems()
+
+
+  }, [blogs.data.blogs, itemOffset])
   return (
     <>
       {/* <Helmet>
@@ -34,6 +83,9 @@ const Ourblog = () => {
           content="Mobile Blog aims to focus upon latest news and seo friendly content related to technology, gadgets or Mobile phones."
         />
       </Helmet> */}
+
+      {/* <Items currentItems={currentItems} /> */}
+
       {isSearchBarOpen && mobileWidth ? (
         <>
           <SearchBar onGoBack={() => setIsSearchBarOpen(false)} />
@@ -44,32 +96,26 @@ const Ourblog = () => {
             hadleSarchBarOpen={() => setIsSearchBarOpen(true)}
             isSearchBarOpen={isSearchBarOpen}
           />
-          <section className="advertiseus">
+          <section className="ads-section" style={{ marginTop: "50px", marginBottom: "30px" }}>
             <div className="container">
-              <div className="row">
-                <div className="col-sm-12">
-                  {mobileWidth ? (
-                    <section id="ad-plpl">
-                      <div class="container py-3">
-                        <div
-                          style={{ padding: "30px 0", background: "#F8F8F9" }}
-                          class="text-center"
-                        >
-                          Ad Placement
-                        </div>
-                      </div>
-                    </section>
-                  ) : (
-                    <img
-                      src="../../assets/images/blog/aaa.png"
-                      alt=""
-                      className="img-fluid my-5 "
-                    />
-                  )}
+              <div className="row justify-content-center">
+                <div className="col-12">
+
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
+                      width: 720, height: 90, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
                 </div>
+
+
               </div>
             </div>
           </section>
+
           {mobileWidth ? (
             <>
               {" "}
@@ -91,8 +137,8 @@ const Ourblog = () => {
                 </div>
                 <div className="container">
                   <div className="row">
-                    {blogs?.data?.blogs &&
-                      blogs?.data?.blogs.map((data) => (
+                    {myCurrentItems &&
+                      myCurrentItems.map((data) => (
                         <div className="col-sm-6">
                           <div className="single-post-item-wrap">
                             <div className="for-flexing-single-post">
@@ -144,8 +190,8 @@ const Ourblog = () => {
                         "col-sm-9 for-padding-right"
                       )}
                     >
-                      {blogs?.data?.blogs &&
-                        blogs?.data?.blogs.map((data, index) => (
+                      {myCurrentItems &&
+                        myCurrentItems.map((data, index) => (
 
                           <div className="blog-posts-wrapp ">
                             <div className="blog-card-design">
@@ -180,6 +226,17 @@ const Ourblog = () => {
                           </div>
 
                         ))}
+
+                      <ReactPaginate
+                        breakLabel="..."
+                        nextLabel=">"
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={5}
+                        pageCount={pageCount}
+                        previousLabel="<"
+                        renderOnZeroPageCount={null}
+                        className="react-paginations"
+                      />
                     </div>
                   </div>
                 </div>

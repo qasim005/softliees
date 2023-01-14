@@ -365,7 +365,7 @@ const PageCompare = () => {
 
   const handleImgClick = () => {
     console.log("inside");
-    navigate("/product", { replace: true });
+    navigate("/mobiles", { replace: true });
   };
 
   const handleSearch = (type) => {
@@ -393,7 +393,8 @@ const PageCompare = () => {
         (data) => data?.country === localSelectedCurrency
       );
     if (selectedCurrency) {
-      return (price / selectedCurrency?.price).toFixed(2);
+      return (parseInt(price / selectedCurrency?.price));
+
     } else {
       return price;
     }
@@ -406,7 +407,7 @@ const PageCompare = () => {
         isSearchBarOpen={isSearchBarOpen}
       />
       <Helmet>
-        <title>compare mobile phones in pakistan 2022 - Sofliee.com</title>
+        <title>compare mobile phones in pakistan 2023 - Sofliee.com</title>
         <meta
           name="description"
           content="Compare Mobiles Phones-Compare phones Prices, Specification, Display,Cpu, Storage, Camera, Battery, Rating and more"
