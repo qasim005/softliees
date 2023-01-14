@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMaxCountBlog } from "../../redux/actions/app.actions";
 import { Link } from "react-router-dom";
+import { Adsense } from "@ctrl/react-adsense";
 
 const BlogSidebar = () => {
   const mobileWidth = IsMobileWidth();
@@ -26,15 +27,25 @@ const BlogSidebar = () => {
       {tabletWidth ? (
         <div className="col-sm-3 ps-0 blog-sidebar">
           <div className="w-100 d-flex justify-content-center">
-            <img
+            {/* <img
               src="../../assets/images/blog/ss.png"
               alt=""
               className="img-fluid for-margin-blog-ad"
+            /> */}
+            <Adsense
+              className="for-margin-blog-ad"
+              client="ca-pub-2933454440337038"
+              slot="6702463586"
+              style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                width: 300, height: 250, display: "block", margin: "0 auto"
+              }}
+              format=""
             />
+
           </div>
 
           <div className="d-flex align-item-center justify-content-between">
-            <h3 className="main-tit">Tech News</h3>
+            <h3 className="main-tit tech-news">Tech News</h3>
             <button className="seemoreebss" href="#">
               See More
             </button>
@@ -70,10 +81,20 @@ const BlogSidebar = () => {
             </section>
           ) : (
             <div className="w-100 d-flex justify-content-center">
-              <img
+              {/* <img
                 src="../../assets/images/blog/ss.png"
                 alt=""
                 className="img-fluid for-margin-blog-ad ad-between"
+              /> */}
+
+              <Adsense
+                className="for-margin-blog-ad"
+                client="ca-pub-2933454440337038"
+                slot="6702463586"
+                style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                  width: 300, height: 250, display: "block", margin: "0 auto"
+                }}
+                format=""
               />
             </div>
           )}
@@ -145,15 +166,19 @@ const BlogSidebar = () => {
       ) : (
         <div className="col-sm-3 ps-0 blog-sidebar">
           <div className="w-100 d-flex justify-content-center">
-            <img
-              src="../../assets/images/blog/ss.png"
-              alt=""
-              className="img-fluid for-margin-blog-ad"
+            <Adsense
+              className="for-margin-blog-ad"
+              client="ca-pub-2933454440337038"
+              slot="6702463586"
+              style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                width: 300, height: 250, display: "block", margin: "0 auto"
+              }}
+              format=""
             />
           </div>
 
-          <div className="d-flex align-item-center justify-content-between">
-            <h3 className="main-tit">Tech New</h3>
+          <div className="d-flex align-item-center justify-content-between tech-news">
+            <h3 className="main-tit ">Tech News</h3>
             <button className="seemoreeb" href="#">
               See More <ChevronRightIcon className="btn-chev" />
             </button>
@@ -194,10 +219,14 @@ const BlogSidebar = () => {
             </section>
           ) : (
             <div className="w-100 d-flex justify-content-center">
-              <img
-                src="../../assets/images/blog/ss.png"
-                alt=""
-                className="img-fluid for-margin-blog-ad ad-between"
+              <Adsense
+                className="for-margin-blog-ad"
+                client="ca-pub-2933454440337038"
+                slot="6702463586"
+                style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                  width: 300, height: 250, display: "block", margin: "0 auto"
+                }}
+                format=""
               />
             </div>
           )}
@@ -263,10 +292,14 @@ const BlogSidebar = () => {
             </>
           )}
           <div className="w-100 d-flex justify-content-center">
-            <img
-              src="../../assets/images/blog/ss.png"
-              alt=""
-              className="img-fluid last-ad-blog"
+            <Adsense
+              className="for-margin-blog-ad lastadblog"
+              client="ca-pub-2933454440337038"
+              slot="6702463586"
+              style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                width: 300, height: 250, display: "block", margin: "0 auto"
+              }}
+              format=""
             />
           </div>
         </div>

@@ -26,7 +26,7 @@ const Ourblog = () => {
   const [pageCount, setPageCount] = useState(0);
   const [myCurrentItems, setCurrentItems] = useState([]);
 
-  const itemsPerPage = 8;
+  const itemsPerPage = 12;
 
   // Simulate fetching items from another resources.
   // (This could be items from props; or items loaded in a local state

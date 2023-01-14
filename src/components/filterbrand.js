@@ -241,7 +241,7 @@ const Filterbrand = (props) => {
                 (data) => data?.country === localSelectedCurrency
             );
         if (selectedCurrency) {
-            return (price / selectedCurrency?.price).toFixed(2);
+            return parseInt(price / selectedCurrency?.price);
         } else {
             return price;
         }

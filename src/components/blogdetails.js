@@ -7,58 +7,43 @@ import { useNavigate, useParams } from "react-router-dom";
 import BlogSidebar from "./small/blogsidebar";
 import { IsMobileWidth, IsTabletWidth } from "./utils";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getSingleBlog } from "../redux/actions/app.actions";
+import axios from "axios";
+// import { useDispatch, useSelector } from "react-redux";
+// import { getSingleBlog } from "../redux/actions/app.actions";
 
 const Blogdetails = () => {
-  // const [currentItems, setCurrentItems] = useState(null);
-  // const [pageCount, setPageCount] = useState(0);
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
-  const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 16;
+
+
 
   const tabletWidth = IsTabletWidth();
   const mobileWidth = IsMobileWidth();
+  const mylocation = window.location.pathname.split("/")
 
-  const dispatch = useDispatch();
-  const { slug } = useParams();
-  const { singleBlog } = useSelector((selectSate) => selectSate.app);
+  // const dispatch = useDispatch();
+  // const { slug } = useParams();
+  // const { singleBlog } = useSelector((selectSate) => selectSate.app);
 
-  useEffect(() => {
-    dispatch(getSingleBlog(slug));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getSingleBlog(slug));
+  // }, []);
 
   let navigate = useNavigate();
-  const handleImgClick = () => {
-    console.log("inside");
-    navigate("/mobiles", { replace: true });
-  };
-
-
-
-  // --------------------------------------------
-  // following the API or data you're working with.
-  //  const [itemOffset, setItemOffset] = useState(0);
-
-  // Simulate fetching items from another resources.
-  // (This could be items from props; or items loaded in a local state
-  // from an API endpoint with useEffect and useState)
-  // const endOffset = itemOffset + itemsPerPage;
-  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-  // const currentItems = items.slice(itemOffset, endOffset);
-  // const pageCount = Math.ceil(items.length / itemsPerPage);
-
-  // // Invoke when user click to request another page.
-  // const handlePageClick = (event) => {
-  //   const newOffset = (event.selected * itemsPerPage) % items.length;
-  //   console.log(
-  //     `User requested page number ${event.selected}, which is offset ${newOffset}`
-  //   );
-  //   setItemOffset(newOffset);
+  // const handleImgClick = () => {
+  //   console.log("inside");
+  //   navigate("/mobiles", { replace: true });
   // };
-  //  -------------------------------------------
 
+
+  useEffect(() => {
+    console.log(mylocation[2]);
+
+    axios.get(`https://softliee.com/softlee/public/api/blog/${mylocation[2]}`).then((res) => {
+      console.log(res);
+
+    }).catch((err) => {
+      console.log(err);
+    })
+  }, [])
 
   return (
     <>
@@ -112,13 +97,13 @@ const Blogdetails = () => {
               <div className="col-sm-12">
                 <img
                   className="img-fluid about-us-img"
-                  src={`https://softliee.com/softlee/public/storage/blogs/${singleBlog?.data?.single_blog?.image}`}
+                  src={`https://softliee.com/softlee/public/storage/blogs/`}
                   alt=""
                 />
               </div>
 
               <h3 className="main-tit my-3">
-                {singleBlog?.data?.single_blog?.title}
+                Titlte
               </h3>
               {mobileWidth ? (
                 <section id="ad-plpl">
@@ -141,7 +126,7 @@ const Blogdetails = () => {
 
               <p
                 dangerouslySetInnerHTML={{
-                  __html: singleBlog?.data?.single_blog?.description,
+                  __html: "test"
                 }}
               ></p>
 
@@ -912,63 +897,7 @@ const Blogdetails = () => {
         </div>
       </section>
 
-      {/* 
-      <section id="ad-plpl">
-                    <div class="container py-3">
-                        <div style={{ padding: "30px 0", background: "#F8F8F9" }} class="text-center">Ad Placement</div>
-                    </div>
-                </section> */}
-      {/* <section className="latest-phones popular-mobiles">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-6 col-6">
-              <h2 className="main-tit">Latest Mobiles</h2>
-            </div>
-            <div className="col-sm-6 col-6">
-              <div className="flex align-items-end justify-content-end">
-                {" "}
-                <a className="seemoree" href="#">
-                  See More <ChevronRightIcon className="btn-chev" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="container">
-          <div className="row px-2">
-            {latestMobiles.map((item, index) => {
-              return (
-                <div className="col-sm-3 col-6 px-1">
-                  <div className="single-m-wrap">
-                    <img
-                      className="single-mob-img"
-                      src={item.src}
-                      alt=""
-                      onClick={() => handleImgClick()}
-                    />
-                    <h3 className="single-mob-tit">{item.title}</h3>
-                    <div className="compair-btn-with-ico">
-                      <h4>Compare</h4>
-                      <AddIcon />
-                    </div>
 
-                    <h4 className="details">{item.details}</h4>
-
-                    <div className="price-icon-wrap flex align-items-center justify-content-center">
-                      <h3 className="single-mob-tit">{item.price}</h3>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section> */}
-      {/* <img
-        src="../../assets/images/blog/endadvert.png"
-        alt=""
-        className="img-fluid  "
-      /> */}
 
       <Footer />
     </>

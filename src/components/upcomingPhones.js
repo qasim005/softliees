@@ -36,7 +36,7 @@ export default function UpcomingPhones() {
             hadleSarchBarOpen={() => setIsSearchBarOpen(true)}
             isSearchBarOpen={isSearchBarOpen}
           /> */}
-      <div class="main-tit">Upcoming Phone</div>
+      <div class="main-tit upcoming-phones">Upcoming Phone</div>
       <div class="spacer_custom_10"></div>
       {upcomingProducts?.data?.$upcoming_products?.length > 0 &&
         upcomingProducts?.data?.$upcoming_products.map((data) => (

@@ -4020,29 +4020,44 @@ ul.react-paginations {
   text-align: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   align-items: center;
+  background: #edeefd;
+  padding: 20px 0px;
 }
 
-ul.react-paginations li.previous {
+  /* ul.react-paginations li.previous a{
+    background:url(../public/assets/images/prev.png);
+    background-repeat: no-repeat;
+  
+    background-size: contain;
+    color: white;
+  
+    width: 20px;
+    height: 20px;
+    background-color: white;
+  } */
+
+ul.react-paginations li.previous a {
   background:url(../public/assets/images/prev.png);
   background-repeat: no-repeat;
- 
-  background-size: contain;
+  background-size: 30px;
   color: white;
- 
   width: 20px;
   height: 20px;
+  background-color: white;
+  background-position: 1px 7px;
 }
-ul.react-paginations li.next {
+
+ul.react-paginations li.next a {
   background:url(../public/assets/images/next.png) ;
   background-repeat: no-repeat;
-
-  background-size: contain;
+  background-size: 30px;
   color: white;
- 
   width: 20px;
   height: 20px;
+  background-color: white;
+  background-position: 4px 7px;
 }
 
 
@@ -4051,10 +4066,11 @@ ul.react-paginations li.next a {
   /* z-index: -1; */
   position: relative;
   padding: 10px;
-  background: transparent;
+  /* background-color: transparent; */
   /* width: 20px; */
   /* height: 20px; */
   color: transparent;
+ 
 }
 
 ul.react-paginations li.previous a {
@@ -4062,7 +4078,7 @@ ul.react-paginations li.previous a {
   /* z-index: -1; */
   position: relative;
   padding: 10px;
-  background: transparent;
+  /* background-color: transparent; */
   /* width: 20px; */
   /* height: 20px; */
   color: transparent;
@@ -4070,28 +4086,22 @@ ul.react-paginations li.previous a {
 ul.react-paginations li.next a:hover {
   position: relative;
   padding: 10px;
-  background: transparent;
+  /* background-color: transparent !important; */
   color: transparent !important;
 }
 
 ul.react-paginations li.previous a:hover {
   position: relative;
   padding: 10px;
-  background: transparent;
+  /* background: transparent !important; */
   color: transparent !important;
 }
-ul.react-paginations  li.selected {
-  background: #3c59ee;
 
-  color: white;
-}
-ul.react-paginations  li a {
-  padding: 6px 2px;
-}
 
 ul.react-paginations  li {
   width: 25px;
   height: 24px;
+  margin-left: 10px;
 }
 
 ul.react-paginations  li a:hover {
@@ -4100,7 +4110,7 @@ ul.react-paginations  li a:hover {
  }
 
 ul.react-paginations  li:hover {
-  background: #3c59ee;
+  background-color: #3c59ee;
  
   color: white;
 }
@@ -4108,4 +4118,53 @@ ul.react-paginations  li.selected a:hover  {
   
  
   color: white !important;
+
+}
+
+
+
+ul.react-paginations li.selected a {
+  background-color: #3c59ee;
+  color: white;
+}
+
+ul.react-paginations  li a {
+  padding: 12px 13px !important;
+  border: 1px solid #D9DADD;
+  background-color: white;
+}
+
+ul.react-paginations li.previous:hover {
+  background-color: transparent !important;
+  color: transparent;
+}
+ul.react-paginations li.next:hover {
+  background-color: transparent !important;
+  color: transparent;
+}
+
+ul.react-paginations li:hover a {
+  background-color: #3c59ee !important;
+  color: white;
+}
+
+section.oppo-mobiles ul.react-paginations {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  justify-content: center;
+  gap: 10px;
+  /* margin-top: 20px; */
+  align-items: center;
+  background: #edeefd;
+  padding: 20px 0px;
+  margin-top: 30px;
+}
+
+.main-tit.upcoming-phones {
+  margin-top: 40px;
+}
+.tech-news{
+  margin-top: 40px;
+  
 }
