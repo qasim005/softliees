@@ -3992,7 +3992,7 @@ img.fourzero {
 
 .lang-wrap.usa {
   /* padding: 0px; */
-  width: 110px;
+  width: 135px;
   margin-left: 38px;
 }
 
@@ -4167,4 +4167,8 @@ section.oppo-mobiles ul.react-paginations {
 .tech-news{
   margin-top: 40px;
   
+}
+a:-webkit-any-link:focus-visible {
+  outline-offset: 0px;
+  outline: none;
 }

@@ -487,7 +487,11 @@ const Header = (props) => {
 
                                 <div className="lang-wrap usa ">
 
-
+                                  <img
+                                    className="ic-notify flag"
+                                    src="https://softliee.com/softlee/public/storage/currency/1670178019.png"
+                                    alt=""
+                                  />
                                   <h5 className="pak-tit">
                                     USA
                                   </h5>

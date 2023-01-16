@@ -104,25 +104,25 @@ const BlogSidebar = () => {
             <>
               <div class="main-tit browsebyb-tit mt-5">Browse By Budget</div>
               <div class="tags_Sections budget mb-5">
-                <Link to={`/browsebybudget/15000/1`}>
+                <Link to={`/browsebybudget/15000`}>
                   <div class="btn tags budget-range">Under 15,000</div>
                 </Link>
-                <Link to={`/browsebybudget/25000/1`}>
+                <Link to={`/browsebybudget/25000`}>
                   <div class="btn tags budget-range">Under 25,000</div>
                 </Link>
-                <Link to={`/browsebybudget/35000/1`}>
+                <Link to={`/browsebybudget/35000`}>
                   <div class="btn tags budget-range">Under 35,000</div>
                 </Link>
-                <Link to={`/browsebybudget/45000/1`}>
+                <Link to={`/browsebybudget/45000`}>
                   <div class="btn tags budget-range">Under 45,000</div>
                 </Link>
-                <Link to={`/browsebybudget/65000/1`}>
+                <Link to={`/browsebybudget/65000`}>
                   <div class="btn tags budget-range">Under 65,000</div>
                 </Link>
-                <Link to={`/browsebybudget/85000/1`}>
+                <Link to={`/browsebybudget/85000`}>
                   <div class="btn tags budget-range">Under 85,000</div>
                 </Link>
-                <Link to={`/browsebybudget/115000/1`}>
+                <Link to={`/browsebybudget/115000`}>
                   <div class="btn tags budget-range">Under 115,000</div>
                 </Link>
               </div>
@@ -131,25 +131,25 @@ const BlogSidebar = () => {
             <>
               <div class="main-tit browsebyb-tit mt-5">Browse By Budget</div>
               <div class="tags_Section budget mb-5">
-                <Link to={`/browsebybudget/15000/1`}>
+                <Link to={`/browsebybudget/15000`}>
                   <div class="btn tags budget-range">Under 15,000</div>
                 </Link>
-                <Link to={`/browsebybudget/25000/1`}>
+                <Link to={`/browsebybudget/25000`}>
                   <div class="btn tags budget-range">Under 25,000</div>
                 </Link>
-                <Link to={`/browsebybudget/35000/1`}>
+                <Link to={`/browsebybudget/35000`}>
                   <div class="btn tags budget-range">Under 35,000</div>
                 </Link>
-                <Link to={`/browsebybudget/45000/1`}>
+                <Link to={`/browsebybudget/45000`}>
                   <div class="btn tags budget-range">Under 45,000</div>
                 </Link>
-                <Link to={`/browsebybudget/65000/1`}>
+                <Link to={`/browsebybudget/65000`}>
                   <div class="btn tags budget-range">Under 65,000</div>
                 </Link>
-                <Link to={`/browsebybudget/85000/1`}>
+                <Link to={`/browsebybudget/85000`}>
                   <div class="btn tags budget-range">Under 85,000</div>
                 </Link>
-                <Link to={`/browsebybudget/115000/1`}>
+                <Link to={`/browsebybudget/115000`}>
                   <div class="btn tags budget-range">Under 115,000</div>
                 </Link>
               </div>
@@ -240,25 +240,25 @@ const BlogSidebar = () => {
             <>
               <div class="main-tit browsebyb-tit mt-5">Browse By Budget</div>
               <div class="tags_Sections budget mb-5">
-                <Link to={`/browsebybudget/15000/1`}>
+                <Link to={`/browsebybudget/15000`}>
                   <div class="btn tags budget-range">Under 15,000</div>
                 </Link>
-                <Link to={`/browsebybudget/25000/1`}>
+                <Link to={`/browsebybudget/25000`}>
                   <div class="btn tags budget-range">Under 25,000</div>
                 </Link>
-                <Link to={`/browsebybudget/35000/1`}>
+                <Link to={`/browsebybudget/35000`}>
                   <div class="btn tags budget-range">Under 35,000</div>
                 </Link>
-                <Link to={`/browsebybudget/45000/1`}>
+                <Link to={`/browsebybudget/45000`}>
                   <div class="btn tags budget-range">Under 45,000</div>
                 </Link>
-                <Link to={`/browsebybudget/65000/1`}>
+                <Link to={`/browsebybudget/65000`}>
                   <div class="btn tags budget-range">Under 65,000</div>
                 </Link>
-                <Link to={`/browsebybudget/85000/1`}>
+                <Link to={`/browsebybudget/85000`}>
                   <div class="btn tags budget-range">Under 85,000</div>
                 </Link>
-                <Link to={`/browsebybudget/115000/1`}>
+                <Link to={`/browsebybudget/115000`}>
                   <div class="btn tags budget-range">Under 115,000</div>
                 </Link>
               </div>
@@ -267,25 +267,25 @@ const BlogSidebar = () => {
             <>
               <div class="main-tit browsebyb-tit mt-5">Browse By Budget</div>
               <div class="tags_Section budget mb-5">
-                <Link to={`/browsebybudget/15000/1`}>
+                <Link to={`/browsebybudget/15000`}>
                   <div class="btn tags budget-range">Under 15,000</div>
                 </Link>
-                <Link to={`/browsebybudget/25000/1`}>
+                <Link to={`/browsebybudget/25000`}>
                   <div class="btn tags budget-range">Under 25,000</div>
                 </Link>
-                <Link to={`/browsebybudget/35000/1`}>
+                <Link to={`/browsebybudget/35000`}>
                   <div class="btn tags budget-range">Under 35,000</div>
                 </Link>
-                <Link to={`/browsebybudget/45000/1`}>
+                <Link to={`/browsebybudget/45000`}>
                   <div class="btn tags budget-range">Under 45,000</div>
                 </Link>
-                <Link to={`/browsebybudget/65000/1`}>
+                <Link to={`/browsebybudget/65000`}>
                   <div class="btn tags budget-range">Under 65,000</div>
                 </Link>
-                <Link to={`/browsebybudget/85000/1`}>
+                <Link to={`/browsebybudget/85000`}>
                   <div class="btn tags budget-range">Under 85,000</div>
                 </Link>
-                <Link to={`/browsebybudget/115000/1`}>
+                <Link to={`/browsebybudget/115000`}>
                   <div class="btn tags budget-range">Under 115,000</div>
                 </Link>
               </div>

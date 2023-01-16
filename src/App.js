@@ -63,7 +63,7 @@ function App() {
           <Route path="/details/:slug" element={<Blogdetails />} />
           <Route path="/compare-mobile-phone" element={<PageCompare />} />
           <Route path="/ram/:id" element={<RamFilter />} />
-          <Route path="/browsebybudget/:id/:id" element={<BrowseByBudget />} />
+          <Route path="/browsebybudget/:id/" element={<BrowseByBudget />} />
           <Route
             path="/compare-mobile-phone/:slug/:slug1"
             element={<PageCompare />}

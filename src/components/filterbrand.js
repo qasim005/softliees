@@ -26,6 +26,7 @@ import {
 import CircularProgress from "@mui/material/CircularProgress";
 import { Helmet } from "react-helmet";
 import { Adsense } from "@ctrl/react-adsense";
+import axios from "axios";
 
 const Filterbrand = (props) => {
     let navigate = useNavigate();
@@ -33,6 +34,13 @@ const Filterbrand = (props) => {
     const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
     const [rangePrices, setRangePrices] = useState([10000, 350000]);
     const [searchParams] = useSearchParams();
+
+
+    const [itemOffset, setItemOffset] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
+    const [myCurrentItems, setCurrentItems] = useState([]);
+
+    const itemsPerPage = 16;
 
     var settings = {
         dots: false,
@@ -51,6 +59,9 @@ const Filterbrand = (props) => {
             },
         ],
     };
+
+
+
 
     const mobileWidth = IsMobileWidth();
     const dispatch = useDispatch();
@@ -249,6 +260,50 @@ const Filterbrand = (props) => {
 
     console.log(state);
 
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % productByBrand?.data?.brand_products.length;
+        console.log(
+            `User requested page number ${event.selected}, which is offset ${newOffset}`
+        );
+        setItemOffset(newOffset);
+
+        window.scrollTo(0, 0)
+    };
+
+    useEffect(() => {
+        console.log(productByBrand?.data?.brand_products);
+        if (productByBrand?.data?.brand_products) {
+            const endOffset = itemOffset + itemsPerPage;
+            console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+            const currentItems = productByBrand?.data?.brand_products.slice(itemOffset, endOffset);
+            setCurrentItems(currentItems)
+            const pageCount1 = Math.ceil(productByBrand?.data?.brand_products.length / itemsPerPage);
+            setPageCount(pageCount1)
+            console.log(currentItems, "Current ITems");
+        }
+
+    }, [productByBrand, itemOffset])
+
+
+
+
+    useEffect(() => {
+        axios.get("https://softliee.com/softlee/public/api/brands").then((res) => {
+            console.log(res.data.brands);
+            res.data.brands.map((item, index) => {
+                console.log("<url> <loc>https://www.softliee.com/new-mobile/" + item.slug + "</loc> </url>");
+            })
+
+        })
+        axios.get("https://softliee.com/softlee/public/api/get_products").then((res) => {
+            console.log(res.data.$products);
+            res.data.$products.map((item, index) => {
+                console.log("<url> <loc>https://www.softliee.com/" + item.slug + "</loc> </url>");
+            })
+
+        })
+
+    }, [])
     return (
         <>
             {isSearchBarOpen && mobileWidth ? (
@@ -290,53 +345,72 @@ const Filterbrand = (props) => {
                             <div className="slider-wrapper filter-prod">
                                 <Slider {...settings}>
                                     <div>
-                                        <img
-                                            className="slider-image slider1 img-fluid"
-                                            src="../../assets/images/filterprod/Branding1.png"
-                                            alt=""
-                                        />
+                                        <a href="/new-mobile/iphone-mobiles-price">
+                                            <img
+                                                className="slider-image slider1 img-fluid"
+                                                src="../../assets/images/filterprod/Branding1.png"
+                                                alt=""
+                                            />
+                                        </a>
                                     </div>
                                     <div>
-                                        <img
-                                            className="slider-image slider1 img-fluid"
-                                            src="../../assets/images/filterprod/Branding2.png"
-                                            alt=""
-                                        />
+                                        <a href="/new-mobile/samsung-mobile-phones-prices-in-pakistan">
+                                            <img
+                                                className="slider-image slider1 img-fluid"
+                                                src="../../assets/images/filterprod/Branding2.png"
+                                                alt=""
+                                            />
+                                        </a>
                                     </div>
                                     <div>
-                                        <img
-                                            className="slider-image slider1 img-fluid"
-                                            src="../../assets/images/filterprod/Branding3.png"
-                                            alt=""
-                                        />
+                                        <a href="/new-mobile/xiaomi">
+
+                                            <img
+                                                className="slider-image slider1 img-fluid"
+                                                src="../../assets/images/filterprod/Branding3.png"
+                                                alt=""
+                                            />
+                                        </a>
                                     </div>
                                     <div>
-                                        <img
-                                            className="slider-image slider1 img-fluid"
-                                            src="../../assets/images/filterprod/Branding4.png"
-                                            alt=""
-                                        />
+                                        <a href="/new-mobile/vivo-mobile-phones-prices-in-pakistan">
+
+                                            <img
+                                                className="slider-image slider1 img-fluid"
+                                                src="../../assets/images/filterprod/Branding4.png"
+                                                alt=""
+                                            />
+                                        </a>
                                     </div>
                                     <div>
-                                        <img
-                                            className="slider-image slider1 img-fluid"
-                                            src="../../assets/images/filterprod/Branding5.png"
-                                            alt=""
-                                        />
+                                        <a href="/new-mobile/oppo-mobile-phone-price-in-pakistan">
+
+                                            <img
+                                                className="slider-image slider1 img-fluid"
+                                                src="../../assets/images/filterprod/Branding5.png"
+                                                alt=""
+                                            />
+                                        </a>
                                     </div>
                                     <div>
-                                        <img
-                                            className="slider-image slider1 img-fluid"
-                                            src="../../assets/images/filterprod/Branding6.png"
-                                            alt=""
-                                        />
+                                        <a href="/new-mobile/realme-mobile-phones">
+
+                                            <img
+                                                className="slider-image slider1 img-fluid"
+                                                src="../../assets/images/filterprod/Branding6.png"
+                                                alt=""
+                                            />
+                                        </a>
                                     </div>
                                     <div>
-                                        <img
-                                            className="slider-image slider1 img-fluid"
-                                            src="../../assets/images/filterprod/Branding7.png"
-                                            alt=""
-                                        />
+                                        <a href="/new-mobile/infinix-mobile-phones">
+
+                                            <img
+                                                className="slider-image slider1 img-fluid"
+                                                src="../../assets/images/filterprod/Branding7.png"
+                                                alt=""
+                                            />
+                                        </a>
                                     </div>
                                 </Slider>
                             </div>
@@ -562,7 +636,7 @@ const Filterbrand = (props) => {
                                                 ? priceWiseProductsResponse?.data?.$price_wise_product
                                                 : slug === "trending-mobiles"
                                                     ? trendingProducts?.data?.$trending_products
-                                                    : productByBrand?.data?.brand_products
+                                                    : myCurrentItems
                                     ).map((item, index) => {
                                         return (
                                             <div className="col-sm-3 col-6 px-2">
@@ -609,7 +683,22 @@ const Filterbrand = (props) => {
                                     </div>
                                 )}
                             </div>
+                            {
+                                pageCount > 1 ? <ReactPaginate
+                                    breakLabel="..."
+                                    nextLabel=">"
+                                    onPageChange={handlePageClick}
+                                    pageRangeDisplayed={5}
+                                    pageCount={pageCount}
+                                    previousLabel="<"
+                                    renderOnZeroPageCount={null}
+                                    className="react-paginations"
+                                /> : <></>
+                            }
+
                         </div>
+
+
                     </section>
                     <section className="ads-section" style={{ marginBottom: "50px" }}>
                         <div className="container">

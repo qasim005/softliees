@@ -9,6 +9,7 @@ import { IsMobileWidth, IsTabletWidth } from "./utils";
 import { useSelector } from "react-redux";
 import { Adsense } from "@ctrl/react-adsense";
 import axios from "axios";
+import ReactPaginate from "react-paginate";
 
 
 const BrowseByBudget = () => {
@@ -24,7 +25,7 @@ const BrowseByBudget = () => {
   const navigate = useNavigate()
 
   const mylocation = window.location.pathname.split("/")
-  const [pageNumber, setpageNumber] = useState("")
+  // const [pageNumber, setpageNumber] = useState("")
 
 
   // const getUser = async () => {
@@ -46,27 +47,54 @@ const BrowseByBudget = () => {
   const handleImgClick1 = (slug) => {
     navigate(`/${slug}`, { replace: true });
   };
+
+
+  const [itemOffset, setItemOffset] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const [myCurrentItems, setCurrentItems] = useState([]);
+
+  const itemsPerPage = 16;
+
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % Users.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+    window.scrollTo(0, 0)
+  };
+
   const getData = () => {
     setUsers([])
-    if (pageNumber) {
-      console.log(pageNumber);
-      axios.get(`https://softliee.com/softlee/public/api/browse_budget/${mylocation[2]}?page=${pageNumber}`).then((res) => {
-        setUsers(res.data.budget_products.data);
-        console.log(res.data.budget_products);
-      })
-    }
+    axios.get(`https://softliee.com/softlee/public/api/browse_budget/${mylocation[2]}`).then((res) => {
+      setUsers(res.data.budget_products);
+    })
+
   }
 
   useEffect(() => {
     getData()
     window.scrollTo(0, 0)
-  }, [pageNumber]);
-  useEffect(() => {
-    setpageNumber(window.location.pathname.split("/")[3])
   }, []);
+
   useEffect(() => {
-    console.log(pageNumber);
-  }, [pageNumber]);
+    if (Users) {
+      const endOffset = itemOffset + itemsPerPage;
+      console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+      const currentItems = Users.slice(itemOffset, endOffset);
+      setCurrentItems(currentItems)
+      const pageCount1 = Math.ceil(Users.length / itemsPerPage);
+      setPageCount(pageCount1)
+      console.log(currentItems, "Current ITems");
+    }
+
+
+  }, [Users, itemOffset]);
+
+
+
+
 
   return (
     <div>
@@ -101,8 +129,8 @@ const BrowseByBudget = () => {
             </div>
           </div>
           <div className="row px-2">
-            {Users.length > 0 && Users ? (
-              Users.map((items, index) => {
+            {myCurrentItems?.length > 0 && myCurrentItems ? (
+              myCurrentItems.map((items, index) => {
 
                 return (
                   <div className="col-sm-3 col-6 bg-sm-danger px-2">
@@ -179,6 +207,19 @@ const BrowseByBudget = () => {
             )}
 
           </div>
+          {pageCount > 1 ? <div style={{ marginTop: "40px" }}>
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel=">"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={5}
+              pageCount={pageCount}
+              previousLabel="<"
+              renderOnZeroPageCount={null}
+              className="react-paginations"
+            />
+          </div>
+            : <></>}
         </div>
         {/* 
         <button onClick={() => {

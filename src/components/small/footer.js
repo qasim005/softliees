@@ -54,36 +54,36 @@ const Footer = () => {
                                         <div className="flex justify-content-around">
                                             <ul className="footer-nav for-padd-right">
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Apple</a>
+                                                    <a href="/new-mobile/iphone-mobiles-price" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Apple</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Samsung</a>
+                                                    <a href="/new-mobile/samsung-mobile-phones-prices-in-pakistan" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Samsung</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Huawei</a>
+                                                    <a href="/new-mobile/huawei-mobile-phone-price-in-pakistan" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Huawei</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Oppo</a>
+                                                    <a href="/new-mobile/oppo-mobile-phone-price-in-pakistan" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Oppo</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Realme</a>
+                                                    <a href="/new-mobile/realme-mobile-phones" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Realme</a>
                                                 </li>
                                             </ul>
                                             <ul className="footer-nav">
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Infinix</a>
+                                                    <a href="/new-mobile/infinix-mobile-phones" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Infinix</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Honor</a>
+                                                    <a href="/new-mobile/honor-mobile-phones" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Honor</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Honor</a>
+                                                    <a href="/new-mobile/tecno-mobile-phones" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Techno</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Techno</a>
+                                                    <a href="/new-mobile/nokia-mobile-phones-price-in-pakistan" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Nokia</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Vivo</a>
+                                                    <a href="/new-mobile/vivo-mobile-phones-prices-in-pakistan" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Vivo</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -95,18 +95,17 @@ const Footer = () => {
                                         </h3>
                                         <ul className="footer-nav">
                                             <li className="single-nav-li">
-                                                <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Trending Mobiles</a>
+                                                <a href="/new-mobile/trending-mobiles" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Trending Mobiles</a>
                                             </li>
                                             <li className="single-nav-li">
-                                                <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Upcoming Mobiles</a>
+                                                <a href="/top-upcoming-mobile-phones-in-2023" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Upcoming Mobiles</a>
                                             </li>
                                             <li className="single-nav-li">
-                                                <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Compare Mobile</a>
+                                                <a href="/compare-mobile-phone" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Compare Mobile</a>
                                             </li>
                                             <li className="single-nav-li">
-                                                <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Find Phone</a>
+                                                <a href="/phonefinder" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Phone Finder</a>
                                             </li>
-
                                         </ul>
                                     </div>
                                 </div>
@@ -195,36 +194,36 @@ const Footer = () => {
                                         <div className="flex justify-content-around">
                                             <ul className="footer-nav for-padd-right">
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Apple</a>
+                                                    <a href="/new-mobile/iphone-mobiles-price" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Apple</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Samsung</a>
+                                                    <a href="/new-mobile/samsung-mobile-phones-prices-in-pakistan" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Samsung</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Huawei</a>
+                                                    <a href="/new-mobile/huawei-mobile-phone-price-in-pakistan" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Huawei</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Oppo</a>
+                                                    <a href="/new-mobile/oppo-mobile-phone-price-in-pakistan" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Oppo</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Realme</a>
+                                                    <a href="/new-mobile/realme-mobile-phones" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Realme</a>
                                                 </li>
                                             </ul>
                                             <ul className="footer-nav">
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Infinix</a>
+                                                    <a href="/new-mobile/infinix-mobile-phones" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Infinix</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Honor</a>
+                                                    <a href="/new-mobile/honor-mobile-phones" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Honor</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Honor</a>
+                                                    <a href="/new-mobile/tecno-mobile-phones" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Techno</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Techno</a>
+                                                    <a href="/new-mobile/nokia-mobile-phones-price-in-pakistan" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Nokia</a>
                                                 </li>
                                                 <li className="single-nav-li">
-                                                    <a href="#" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Vivo</a>
+                                                    <a href="/new-mobile/vivo-mobile-phones-prices-in-pakistan" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Vivo</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -239,13 +238,13 @@ const Footer = () => {
                                                 <a href="/new-mobile/trending-mobiles" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Trending Mobiles</a>
                                             </li>
                                             <li className="single-nav-li">
-                                                <a href="/upcomingphones" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Upcoming Mobiles</a>
+                                                <a href="/top-upcoming-mobile-phones-in-2023" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Upcoming Mobiles</a>
                                             </li>
                                             <li className="single-nav-li">
                                                 <a href="/compare-mobile-phone" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Compare Mobile</a>
                                             </li>
                                             <li className="single-nav-li">
-                                                <a href="/phonefinder" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" /> Find Phone</a>
+                                                <a href="/phonefinder" className="single-nav-a"><ChevronRightIcon className="footer-chevron-right" />Phone Finder</a>
                                             </li>
 
                                         </ul>
