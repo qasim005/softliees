@@ -226,6 +226,14 @@ export function postComments(data) {
     data,
   });
 }
+export function postBlogComments(data) {
+  return apiAction({
+    path: `public/api/comments_save`,
+    label: POST_COMMENTS,
+    method: "POST",
+    data,
+  });
+}
 
 export function getLikeDislikeComments(data) {
   return apiAction({
@@ -236,11 +244,11 @@ export function getLikeDislikeComments(data) {
 
 export function priceWiseProducts(data) {
   let path = `public/api/product_price_finder?from=${data?.from}&to=${data?.to}${data?.ram ? `&ram=${data?.ram}` : ''}`
-  if(data?.filters){
+  if (data?.filters) {
     path = `public/api/phone_finder`
   }
-  if(data?.under){
-  path = `public/api/browse_budget/${data?.under}`
+  if (data?.under) {
+    path = `public/api/browse_budget/${data?.under}`
   }
   return apiAction({
     path,

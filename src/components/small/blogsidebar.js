@@ -51,54 +51,45 @@ const BlogSidebar = () => {
             </button>
           </div>
           {maxCountBlog?.data?.blogs &&
-            maxCountBlog?.data?.blogs.map((data) => (
-              <div class="side_mobile_section side">
-                <div class="side_mobile_Col">
-                  <center>
-                    <img
-                      class="tech-news-img img-fluid"
-                      src={`https://softliee.com/softlee/public/storage/blogs/${data?.image}`}
-                      height="88px"
-                    />
-                  </center>
-                </div>
-                <div class="side_mobile_Col">
-                  <div class="side_col_titles">{data?.title}</div>
-                </div>
-              </div>
+            maxCountBlog?.data?.blogs.map((data, index) => (
+
+              index < 5 ?
+                <div class="side_mobile_section side">
+                  <div class="side_mobile_Col">
+                    <center>
+                      <img
+                        class="tech-news-img img-fluid"
+                        src={`https://softliee.com/softlee/public/storage/blogs/${data?.image}`}
+                        height="88px"
+                      />
+                    </center>
+                  </div>
+                  <div class="side_mobile_Col">
+                    <div class="side_col_titles">{data?.title}</div>
+                  </div>
+                </div> : <></>
             ))}
 
-          {mobileWidth ? (
-            <section id="ad-plpl">
-              <div class="container py-3">
-                <div
-                  style={{ padding: "30px 0", background: "#F8F8F9" }}
-                  class="text-center"
-                >
-                  Ad Placement
-                </div>
-              </div>
-            </section>
-          ) : (
-            <div className="w-100 d-flex justify-content-center">
-              {/* <img
+
+          <div className="w-100 d-flex justify-content-center">
+            {/* <img
                 src="../../assets/images/blog/ss.png"
                 alt=""
                 className="img-fluid for-margin-blog-ad ad-between"
               /> */}
 
-              <Adsense
-                className="for-margin-blog-ad"
-                client="ca-pub-2933454440337038"
-                slot="6702463586"
-                style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                  width: 300, height: 250, display: "block", margin: "0 auto"
-                }}
-                format=""
-              />
-            </div>
-          )}
-          {mobileWidth && <PopularMobiles title="More Mobiles" fourItems />}
+            <Adsense
+              className="for-margin-blog-ad"
+              client="ca-pub-2933454440337038"
+              slot="6702463586"
+              style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                width: 300, height: 250, display: "block", margin: "0 auto"
+              }}
+              format=""
+            />
+          </div>
+
+          {/* {mobileWidth && <PopularMobiles title="More Mobiles" fourItems />} */}
 
           {mobileWidth ? (
             <>
@@ -188,19 +179,21 @@ const BlogSidebar = () => {
               if (index < 5) {
                 return (
                   <>
-                    <div class="side_mobile_section side">
-                      <div class="side_mobile_Col">
-                        <center>
-                          <img
-                            class="tech-news-img img-fluid"
-                            src={`https://softliee.com/softlee/public/storage/blogs/${data?.image}`}
-                          />
-                        </center>
+                    <a href={"/details/" + data.slug}>
+                      <div class="side_mobile_section side">
+                        <div class="side_mobile_Col">
+                          <center>
+                            <img
+                              class="tech-news-img img-fluid"
+                              src={`https://softliee.com/softlee/public/storage/blogs/${data?.image}`}
+                            />
+                          </center>
+                        </div>
+                        <div class="side_mobile_Col">
+                          <div class="side_col_title">{data?.title.slice(0, 35) + "..."}</div>
+                        </div>
                       </div>
-                      <div class="side_mobile_Col">
-                        <div class="side_col_title">{data?.title}</div>
-                      </div>
-                    </div>
+                    </a>
                   </>
                 );
               }
@@ -303,7 +296,8 @@ const BlogSidebar = () => {
             />
           </div>
         </div>
-      )}
+      )
+      }
     </>
   );
 };

@@ -133,7 +133,7 @@ const BrowseByBudget = () => {
               myCurrentItems.map((items, index) => {
 
                 return (
-                  <div className="col-sm-3 col-6 bg-sm-danger px-2">
+                  <div className="col-sm-3 col-6 bg-sm-danger px-2" key={index}>
                     <div
                       className={clsx(
                         "",

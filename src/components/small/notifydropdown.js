@@ -13,7 +13,8 @@ const NotifyDropdown = () => {
   const [allNotifications, setAllNotifications] = useState([]);
   const { notification } = useSelector((selectSate) => selectSate.app);
   const handleImgClick = (slug, type) => {
-    navigate(`/${type}/${slug}`, { replace: true });
+    // navigate(`/${type}/${slug}`, { replace: true });
+    navigate(`/${slug}`, { replace: true });
   };
 
   useEffect(() => {
@@ -57,9 +58,8 @@ const NotifyDropdown = () => {
             <div className="notify-item">
               <img
                 className="side-mobile-sec-img"
-                src={`https://softliee.com/softlee/public/storage/${
-                  item?.latestPost ? "blogs" : "product"
-                }/${item.image}`}
+                src={`https://softliee.com/softlee/public/storage/${item?.latestPost ? "blogs" : "product"
+                  }/${item.image}`}
                 height="88px"
                 onClick={() =>
                   handleImgClick(

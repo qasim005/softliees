@@ -32,6 +32,7 @@ import { HashRouter } from "react-router-dom";
 import SearchResultPage from "./components/searchpage";
 import FindAMobile from "./components/findAmobile";
 import BrowseByBudget from "./components/browsebybudget";
+import Sitemapss from "./components/sitemap";
 
 function App() {
   const dispatch = useDispatch();
@@ -70,6 +71,7 @@ function App() {
           />
           <Route path="*" element={<NotFound />} />
           <Route path="/searchresult" element={<SearchResultPage />} />
+          <Route path="/generator" element={<Sitemapss />} />
         </Routes>
       </BrowserRouter>
     </>

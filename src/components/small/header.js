@@ -40,7 +40,7 @@ const Header = (props) => {
   );
   const [allNotifications, setAllNotifications] = useState([]);
   const handleImgClick = (slug, type) => {
-    navigate(`/${type}/${slug}`, { replace: true });
+    navigate(`/${slug}`, { replace: true });
   };
 
   const handleClose = () => setShow(false);

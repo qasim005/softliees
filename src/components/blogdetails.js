@@ -8,16 +8,25 @@ import BlogSidebar from "./small/blogsidebar";
 import { IsMobileWidth, IsTabletWidth } from "./utils";
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import { useDispatch, useSelector } from "react-redux";
+import { Adsense } from "@ctrl/react-adsense";
+import { Helmet } from "react-helmet";
+import { postBlogComments } from "../redux/actions/app.actions";
+import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 // import { getSingleBlog } from "../redux/actions/app.actions";
 
 const Blogdetails = () => {
 
+  const [singleBlog, setSingleBlog] = useState([])
+  const [comment, setComment] = useState([])
+  const [commentReply, setCommentReply] = useState([])
+  const [replyClicked, setreplyClicked] = useState([])
 
 
   const tabletWidth = IsTabletWidth();
   const mobileWidth = IsMobileWidth();
   const mylocation = window.location.pathname.split("/")
+  const { loginResponse } = useSelector((selectSate) => selectSate.app);
 
   // const dispatch = useDispatch();
   // const { slug } = useParams();
@@ -38,15 +47,101 @@ const Blogdetails = () => {
     console.log(mylocation[2]);
 
     axios.get(`https://softliee.com/softlee/public/api/blog/${mylocation[2]}`).then((res) => {
-      console.log(res);
+      // console.log(res.data.single_blog );
+      setSingleBlog(res.data.single_blog)
 
     }).catch((err) => {
       console.log(err);
     })
   }, [])
+  useEffect(() => {
+    if (singleBlog) {
+      singleBlog?.comments?.map((item, index) => {
+        setreplyClicked(prev => [...prev, ({ [item.id]: "false" })])
+      })
+    }
+
+  }, [singleBlog])
+  useEffect(() => {
+    console.log(replyClicked);
+
+  }, [replyClicked])
+
+  const handleCommentPost = (id) => {
+    if (localStorage.softliUserData) {
+      let test = JSON.parse(localStorage.softliUserData)
+      console.log(test.user.id);
+
+      // console.log("test");
+
+      axios.post(`https://softliee.com/softlee/public/api/blogcommentsave?user_id=${test.user.id}&blog_id=${singleBlog?.id}&comment=${comment}`).then(res => {
+        console.log(res);
+        window.location.reload()
+
+      }).catch(err => {
+        console.log(err);
+      })
+      //   console.log("test");
+    } else {
+      alert("Please Login to comment")
+    }
+
+
+
+  };
+
+
+  const handleReply = (commentid) => {
+    console.log(commentid);
+    if (localStorage.softliUserData) {
+      let test = JSON.parse(localStorage.softliUserData)
+      console.log(test.user.id);
+
+      // console.log("test");
+
+      axios.post(`https://softliee.com/softlee/public/api/blogcommentsave?user_id=${test.user.id}&blog_id=${singleBlog?.id}&parent_id=${commentid}&comment=${commentReply}`).then(res => {
+        console.log(res);
+        window.location.reload()
+      }).catch(err => {
+        console.log(err);
+      })
+      //   console.log("test");
+    } else {
+      alert("Please Login to comment")
+    }
+
+
+
+  }
+  // useEffect(() => {
+  //   console.log(singleBlog);
+  // }, [singleBlog])
+  // useEffect(() => {
+  //   console.log(localStorage.userData);
+  // }, [])
+
+  useEffect(() => {
+    if (localStorage.softliUserData)
+      console.log(localStorage.softliUserData);
+  }, []);
 
   return (
     <>
+      <Helmet>
+        <title>{singleBlog?.meta_title}</title>
+        <meta
+          name="description"
+          content={singleBlog?.meta_description}
+        />
+
+        <meta
+          name="keywords"
+          content={
+            singleBlog?.meta_keywords
+          }
+        />
+      </Helmet>
+
       <Header />
 
       <section className="advertiseus">
@@ -54,37 +149,32 @@ const Blogdetails = () => {
           <div className="row">
             <div className="col-sm-12">
               <div class="bread_crumb_link blog-detail">
-                <a href="" class="bread_crumb_link">
+                <a href="/" class="bread_crumb_link">
                   Home
                 </a>{" "}
                 <ChevronRightIcon />
                 <a href="" class="bread_crumb_link">
-                  Oppo
+                  {singleBlog?.category?.name}
                 </a>{" "}
                 <ChevronRightIcon />
                 <a href="" class="bread_crumb_link">
-                  Oppo A5
+                  {singleBlog?.title}
                 </a>{" "}
                 <ChevronRightIcon />
               </div>
-              {mobileWidth ? (
-                <section id="ad-plpl">
-                  <div class="container py-3">
-                    <div
-                      style={{ padding: "30px 0", background: "#F8F8F9" }}
-                      class="text-center"
-                    >
-                      Ad Placement
-                    </div>
-                  </div>
-                </section>
-              ) : (
-                <img
-                  src="../../assets/images/blog/aaa.png"
-                  alt=""
-                  className="img-fluid mb-5 mt-3 "
+
+              <div className="banner-ad-single-post">
+
+
+                <Adsense
+                  client="ca-pub-2933454440337038"
+                  slot="6702463586"
+                  style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
+                    width: 720, height: 90, display: "block", margin: "0 auto"
+                  }}
+                  format=""
                 />
-              )}
+              </div>
             </div>
           </div>
         </div>
@@ -97,57 +187,39 @@ const Blogdetails = () => {
               <div className="col-sm-12">
                 <img
                   className="img-fluid about-us-img"
-                  src={`https://softliee.com/softlee/public/storage/blogs/`}
-                  alt=""
+                  src={`https://softliee.com/softlee/public/storage/blogs/${singleBlog?.image}`}
+                  alt={singleBlog?.alt_image}
                 />
               </div>
 
               <h3 className="main-tit my-3">
-                Titlte
+                {singleBlog?.title}
               </h3>
-              {mobileWidth ? (
-                <section id="ad-plpl">
-                  <div class="container py-3">
-                    <div
-                      style={{ padding: "30px 0", background: "#F8F8F9" }}
-                      class="text-center"
-                    >
-                      Ad Placement
-                    </div>
-                  </div>
-                </section>
-              ) : (
-                <img
-                  src="../../assets/images/blog/aaa.png"
-                  alt=""
-                  className="img-fluid mb-5 mt-3 "
-                />
-              )}
+              <Adsense
+                className="second-ad-single-blog"
+                client="ca-pub-2933454440337038"
+                slot="6702463586"
+                style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                  width: 720, height: 90, display: "block", margin: "0 auto"
+                }}
+                format=""
+              />
 
-              <p
+              <p className="single-post-descroption"
                 dangerouslySetInnerHTML={{
-                  __html: "test"
+                  __html: singleBlog?.description
                 }}
               ></p>
 
-              {mobileWidth ? (
-                <section id="ad-plpl">
-                  <div class="container py-3">
-                    <div
-                      style={{ padding: "30px 0", background: "#F8F8F9" }}
-                      class="text-center"
-                    >
-                      Ad Placement
-                    </div>
-                  </div>
-                </section>
-              ) : (
-                <img
-                  src="../../assets/images/blog/aaa.png"
-                  alt=""
-                  className="img-fluid mb-5 mt-3 "
-                />
-              )}
+              <Adsense
+                className="third-ad-single-blog"
+                client="ca-pub-2933454440337038"
+                slot="6702463586"
+                style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                  width: 720, height: 90, display: "block", margin: "0 auto"
+                }}
+                format=""
+              />
               {/* <div className="quote-section">
                 <div className="row">
                   <div className="col-sm-2">
@@ -242,7 +314,7 @@ const Blogdetails = () => {
                           <p className="quote-tits">Nolan Workman</p>
 
                           <div className="published-dates">
-                            Published Aug 25, 2022
+                            Published {singleBlog?.created_at}
                           </div>
                           <div className="published-times">12:08 pm</div>
 
@@ -341,7 +413,7 @@ const Blogdetails = () => {
                           <p className="quote-tit">Nolan Workman</p>
 
                           <div className="published-date">
-                            Published Aug 25, 2022
+                            Published {singleBlog?.created_at}
                           </div>
                           <div className="published-time">12:08 pm</div>
                         </div>
@@ -430,7 +502,7 @@ const Blogdetails = () => {
                       <div className="col-sm-12">
                         <h3 className="main-tit users-cc-tit">
                           {" "}
-                          Oppo A3s Opinions and reviews
+                          {singleBlog?.title} Opinions and reviews
                         </h3>
 
                         <div className="d-flex align-items-bottom">
@@ -443,215 +515,171 @@ const Blogdetails = () => {
                             className="comment-input "
                             type="text"
                             placeholder="Write a review..."
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
                           />
                         </div>
                         <div className="d-flex align-items-center justify-content-end">
-                          <button className="comment-btn">Post Review</button>
+                          <button className="comment-btn" onClick={handleCommentPost}>Post Review</button>
                         </div>
-                        <div className="comment-wrapper">
-                          <div
-                            className={
-                              tabletWidth || mobileWidth
-                                ? "align-items-start justify-content-between"
-                                : "d-flex align-items-start justify-content-between"
-                            }
-                          >
-                            <div
-                              className={
-                                tabletWidth || mobileWidth
-                                  ? "align-items-center"
-                                  : "d-flex align-items-center"
-                              }
-                            >
-                              <img
-                                className="comment-av-reals"
-                                src="../../assets/images/av1.png"
-                                alt=""
-                              />
-                              <div className="comment-prof-info">
-                                <h3 className="prof-tits">Ahsan Khan</h3>
-                                <h6 className="daysago">3 days ago </h6>
 
-                                <div className="d-flex">
-                                  <p className="comment-desc">
-                                    Exchange with Infinix Hot 11s Media tak
-                                    Helio G88 Pubg master??
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="wrapper-rep-like-dis">
-                              <button className="reply-btn">Reply</button>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="like-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6 className="like-ico-count">12</h6>
-                              </div>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="dislike-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6>0</h6>
-                              </div>
-                            </div>
-                          </div>
 
-                          <div className="forborborderbottom"></div>
-                        </div>
-                        <div className="comment-wrapper replay">
-                          <div
-                            className={
-                              tabletWidth || mobileWidth
-                                ? "align-items-start justify-content-between"
-                                : "d-flex align-items-start justify-content-between"
-                            }
-                          >
-                            <div
-                              className={
-                                tabletWidth || mobileWidth
-                                  ? "align-items-center"
-                                  : "d-flex align-items-center"
-                              }
-                            >
-                              <img
-                                className="comment-av-real"
-                                src="../../assets/images/av1.png"
-                                alt=""
-                              />
-                              <div className="comment-prof-info">
-                                <h3 className="prof-tit">Ahsan Khan</h3>
-                                <h6 className="daysago">3 days ago </h6>
+                        {/* --------------------------------------------------------------------- */}
 
-                                <div className="d-flex">
-                                  <p className="comment-desc">
-                                    Exchange with Infinix Hot 11s Media tak
-                                    Helio G88 Pubg master??
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
+                        {
 
-                            <button className="reply-btn">Reply</button>
-                            {/* <div className="wrapper-rep-like-dis">
-                            <button className="reply-btn">Reply</button>
-                            <div className="like-btn-count">
-                              <Icon className="like-ico" icon="ant-design:like-filled" />
-                              <h6 className="like-ico-count">12</h6>
-                            </div>
-                            <div className="like-btn-count">
-                              <Icon className="dislike-ico" icon="ant-design:like-filled" />
-                              <h6>0</h6>
-                            </div>
-                          </div> */}
-                          </div>
+                          singleBlog ?
+                            singleBlog?.comments?.map((item, index) => {
 
-                          <div className="forborborderbottom"></div>
-                        </div>
-                        <div className="comment-wrapper">
-                          <div
-                            className={
-                              tabletWidth || mobileWidth
-                                ? "align-items-start justify-content-between"
-                                : "d-flex align-items-start justify-content-between"
-                            }
-                          >
-                            <div
-                              className={
-                                tabletWidth || mobileWidth
-                                  ? "align-items-center"
-                                  : "d-flex align-items-center"
-                              }
-                            >
-                              <img
-                                className="comment-av-real"
-                                src="../../assets/images/av1.png"
-                                alt=""
-                              />
-                              <div className="comment-prof-info">
-                                <h3 className="prof-tit">Ahsan Khan</h3>
-                                <h6 className="daysago">3 days ago </h6>
+                              console.log(item);
+                              return (
+                                <>
+                                  <div className="comment-wrapper">
+                                    <div
+                                      className={
+                                        tabletWidth || mobileWidth
+                                          ? "align-items-start justify-content-between"
+                                          : "d-flex align-items-start justify-content-between"
+                                      }
+                                    >
+                                      <div
+                                        className={
+                                          tabletWidth || mobileWidth
+                                            ? "align-items-center"
+                                            : "d-flex align-items-center"
+                                        }
+                                      >
+                                        <img
+                                          className="comment-av-reals"
+                                          src={item?.user?.profile_photo_url}
+                                          alt=""
+                                        />
+                                        <div className="comment-prof-info">
+                                          <h3 className="prof-tits">{item?.user?.name}</h3>
+                                          {/* <h6 className="daysago">3 days ago </h6> */}
 
-                                <p className="comment-desc">
-                                  Exchange with Infinix Hot 11s Media tak Helio
-                                  G88 Pubg master??
-                                </p>
-                              </div>
-                            </div>
-                            <div className="wrapper-rep-like-dis">
-                              <button className="reply-btn">Reply</button>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="like-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6 className="like-ico-count">12</h6>
-                              </div>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="dislike-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6>0</h6>
-                              </div>
-                            </div>
-                          </div>
+                                          <div className="d-flex">
+                                            <p className="comment-desc">
+                                              {item.comment}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div className="wrapper-rep-like-dis">
 
-                          <div className="forborborderbottom"></div>
-                        </div>
-                        <div className="comment-wrapper">
-                          <div
-                            className={
-                              tabletWidth || mobileWidth
-                                ? "align-items-start justify-content-between"
-                                : "d-flex align-items-start justify-content-between"
-                            }
-                          >
-                            <div
-                              className={
-                                tabletWidth || mobileWidth
-                                  ? "align-items-center"
-                                  : "d-flex align-items-center"
-                              }
-                            >
-                              <img
-                                className="comment-av-real"
-                                src="../../assets/images/av1.png"
-                                alt=""
-                              />
-                              <div className="comment-prof-info">
-                                <h3 className="prof-tit">Ahsan Khan</h3>
-                                <h6 className="daysago">3 days ago </h6>
 
-                                <p className="comment-desc">
-                                  Exchange with Infinix Hot 11s Media tak Helio
-                                  G88 Pubg master??
-                                </p>
-                              </div>
-                            </div>
-                            <div className="wrapper-rep-like-dis">
-                              <button className="reply-btn">Reply</button>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="like-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6 className="like-ico-count">12</h6>
-                              </div>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="dislike-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6>0</h6>
-                              </div>
-                            </div>
-                          </div>
 
-                          <div className="forborborderbottom"></div>
-                        </div>
+                                        {
+                                          replyClicked[item.id] ?
+                                            <>
+                                              <button className=" comment-btn w-100" onClick={() => handleReply(item.id)}>Reply</button>
+                                              <input className="comment-input mt-3" type="text" placeholder="Write a reply..." value={commentReply} style={{ marginRight: "8px", width: "200px" }} onChange={(e) => setCommentReply(e.target.value)} />
+                                            </>
+
+                                            : <>  <button className="reply-btn" onClick={() => {
+
+                                              setreplyClicked({ [item.id]: true })
+                                            }}>Reply</button></>
+                                        }
+
+                                        <div className="like-btn-count">
+                                          <Icon
+                                            className="like-ico"
+                                            icon="ant-design:like-filled"
+                                          />
+                                          <h6 className="like-ico-count">12</h6>
+                                        </div>
+                                        <div className="like-btn-count">
+                                          <Icon
+                                            className="dislike-ico"
+                                            icon="ant-design:like-filled"
+                                          />
+                                          <h6>0</h6>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div className="forborborderbottom"></div>
+                                  </div>
+
+                                  {
+                                    item.replies && item.replies.length > 0 ?
+
+                                      item.replies.map((item, index) => {
+                                        return (
+                                          <div className="comment-wrapper replay">
+                                            <div
+                                              className={
+                                                tabletWidth || mobileWidth
+                                                  ? "align-items-start justify-content-between"
+                                                  : "d-flex align-items-start justify-content-between"
+                                              }
+                                            >
+                                              <div
+                                                className={
+                                                  tabletWidth || mobileWidth
+                                                    ? "align-items-center"
+                                                    : "d-flex align-items-center"
+                                                }
+                                              >
+                                                <img
+                                                  className="comment-av-real"
+                                                  src={item?.user?.profile_photo_url}
+                                                  alt=""
+                                                />
+                                                <div className="comment-prof-info">
+                                                  <h3 className="prof-tit">{item?.user?.name}</h3>
+                                                  {/* <h6 className="daysago">3 days ago </h6> */}
+
+                                                  <div className="d-flex">
+                                                    <p className="comment-desc">
+                                                      {item?.comment}
+                                                    </p>
+                                                  </div>
+                                                </div>
+                                              </div>
+
+                                              {/* <button className="reply-btn">Reply</button> */}
+                                              {/* <div className="wrapper-rep-like-dis">
+                                            <button className="reply-btn">Reply</button>
+                                            <div className="like-btn-count">
+                                              <Icon className="like-ico" icon="ant-design:like-filled" />
+                                              <h6 className="like-ico-count">12</h6>
+                                            </div>
+                                            <div className="like-btn-count">
+                                              <Icon className="dislike-ico" icon="ant-design:like-filled" />
+                                              <h6>0</h6>
+                                            </div>
+                                          </div> */}
+                                            </div>
+
+                                            <div className="forborborderbottom"></div>
+                                          </div>
+                                        )
+                                      })
+
+
+                                      :
+
+                                      <></>
+                                  }
+                                </>
+                              )
+                            }) : <></>
+
+                        }
+
+
+
+
+
+
+
+
+                        {/* -------------------------------------------------------------------------------- */}
+
+
+
                       </div>
                     </div>
                   </div>
@@ -663,7 +691,7 @@ const Blogdetails = () => {
                       <div className="col-sm-12">
                         <h3 className="main-tit users-cc-tit">
                           {" "}
-                          Oppo A3s Opinions and reviews
+                          {singleBlog?.title} Opinions and reviews
                         </h3>
 
                         <div className="d-flex align-items-bottom">
@@ -676,215 +704,143 @@ const Blogdetails = () => {
                             className="comment-input "
                             type="text"
                             placeholder="Write a review..."
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
                           />
                         </div>
                         <div className="d-flex align-items-center justify-content-end">
-                          <button className="comment-btn">Post Review</button>
+                          <button className="comment-btn" onClick={handleCommentPost}>Post Review</button>
                         </div>
-                        <div className="comment-wrapper">
-                          <div
-                            className={
-                              tabletWidth || mobileWidth
-                                ? "align-items-start justify-content-between"
-                                : "d-flex align-items-start justify-content-between"
-                            }
-                          >
-                            <div
-                              className={
-                                tabletWidth || mobileWidth
-                                  ? "align-items-center"
-                                  : "d-flex align-items-center"
-                              }
-                            >
-                              <img
-                                className="comment-av-real"
-                                src="../../assets/images/av1.png"
-                                alt=""
-                              />
-                              <div className="comment-prof-info">
-                                <h3 className="prof-tit">Ahsan Khan</h3>
-                                <h6 className="daysago">3 days ago </h6>
+                        {
 
-                                <div className="d-flex">
-                                  <p className="comment-desc">
-                                    Exchange with Infinix Hot 11s Media tak
-                                    Helio G88 Pubg master??
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="wrapper-rep-like-dis">
-                              <button className="reply-btn">Reply</button>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="like-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6 className="like-ico-count">12</h6>
-                              </div>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="dislike-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6>0</h6>
-                              </div>
-                            </div>
-                          </div>
+                          singleBlog ?
+                            singleBlog?.comments?.map((item, index) => {
 
-                          <div className="forborborderbottom"></div>
-                        </div>
-                        <div className="comment-wrapper replay">
-                          <div
-                            className={
-                              tabletWidth || mobileWidth
-                                ? "align-items-start justify-content-between"
-                                : "d-flex align-items-start justify-content-between"
-                            }
-                          >
-                            <div
-                              className={
-                                tabletWidth || mobileWidth
-                                  ? "align-items-center"
-                                  : "d-flex align-items-center"
-                              }
-                            >
-                              <img
-                                className="comment-av-real"
-                                src="../../assets/images/av1.png"
-                                alt=""
-                              />
-                              <div className="comment-prof-info">
-                                <h3 className="prof-tit">Ahsan Khan</h3>
-                                <h6 className="daysago">3 days ago </h6>
+                              console.log(item);
+                              return (
+                                <>
+                                  <div className="comment-wrapper" key={index}>
+                                    <div
+                                      className={
+                                        tabletWidth || mobileWidth
+                                          ? "align-items-start justify-content-between"
+                                          : "d-flex align-items-start justify-content-between"
+                                      }
+                                    >
+                                      <div
+                                        className={
+                                          tabletWidth || mobileWidth
+                                            ? "align-items-center"
+                                            : "d-flex align-items-center"
+                                        }
+                                      >
+                                        <img
+                                          className="comment-av-real"
+                                          src={item.user.profile_photo_url}
+                                          alt=""
+                                        />
+                                        <div className="comment-prof-info">
+                                          <h3 className="prof-tit">{item.user.name}</h3>
+                                          <h6 className="daysago"> {moment(item?.created_at).format(
+                                            "YYYY-MM-DD hh:mm:ss"
+                                          )}</h6>
 
-                                <div className="d-flex">
-                                  <p className="comment-desc">
-                                    Exchange with Infinix Hot 11s Media tak
-                                    Helio G88 Pubg master??
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
+                                          <div className="d-flex">
+                                            <p className="comment-desc">
+                                              {item.comment}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
 
-                            <button className="reply-btn">Reply</button>
-                            {/* <div className="wrapper-rep-like-dis">
-                            <button className="reply-btn">Reply</button>
-                            <div className="like-btn-count">
-                              <Icon className="like-ico" icon="ant-design:like-filled" />
-                              <h6 className="like-ico-count">12</h6>
-                            </div>
-                            <div className="like-btn-count">
-                              <Icon className="dislike-ico" icon="ant-design:like-filled" />
-                              <h6>0</h6>
-                            </div>
-                          </div> */}
-                          </div>
+                                      <div className="wrapper-rep-like-dis">
+                                        {replyClicked[item.id] ? <>
+                                          <input className="comment-input mt-3" type="text" placeholder="Write a reply..." value={commentReply} style={{ marginRight: "8px", width: "200px" }} onChange={(e) => setCommentReply(e.target.value)} />
+                                          <button className=" comment-btn w-100" onClick={() => handleReply(item.id)}>Reply</button>
+                                        </> : <button className="reply-btn" onClick={() => {
+                                          setreplyClicked({ [item.id]: true })
 
-                          <div className="forborborderbottom"></div>
-                        </div>
-                        <div className="comment-wrapper">
-                          <div
-                            className={
-                              tabletWidth || mobileWidth
-                                ? "align-items-start justify-content-between"
-                                : "d-flex align-items-start justify-content-between"
-                            }
-                          >
-                            <div
-                              className={
-                                tabletWidth || mobileWidth
-                                  ? "align-items-center"
-                                  : "d-flex align-items-center"
-                              }
-                            >
-                              <img
-                                className="comment-av-real"
-                                src="../../assets/images/av1.png"
-                                alt=""
-                              />
-                              <div className="comment-prof-info">
-                                <h3 className="prof-tit">Ahsan Khan</h3>
-                                <h6 className="daysago">3 days ago </h6>
+                                        }}>Reply</button>
+                                        }
 
-                                <p className="comment-desc">
-                                  Exchange with Infinix Hot 11s Media tak Helio
-                                  G88 Pubg master??
-                                </p>
-                              </div>
-                            </div>
-                            <div className="wrapper-rep-like-dis">
-                              <button className="reply-btn">Reply</button>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="like-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6 className="like-ico-count">12</h6>
-                              </div>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="dislike-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6>0</h6>
-                              </div>
-                            </div>
-                          </div>
+                                        <div className="like-btn-count">
+                                          <Icon
+                                            className="like-ico"
+                                            icon="ant-design:like-filled"
+                                          />
+                                          <h6 className="like-ico-count">12</h6>
+                                        </div>
+                                        <div className="like-btn-count">
+                                          <Icon
+                                            className="dislike-ico"
+                                            icon="ant-design:like-filled"
+                                          />
+                                          <h6>0</h6>
+                                        </div>
+                                      </div>
+                                    </div>
 
-                          <div className="forborborderbottom"></div>
-                        </div>
-                        <div className="comment-wrapper">
-                          <div
-                            className={
-                              tabletWidth || mobileWidth
-                                ? "align-items-start justify-content-between"
-                                : "d-flex align-items-start justify-content-between"
-                            }
-                          >
-                            <div
-                              className={
-                                tabletWidth || mobileWidth
-                                  ? "align-items-center"
-                                  : "d-flex align-items-center"
-                              }
-                            >
-                              <img
-                                className="comment-av-real"
-                                src="../../assets/images/av1.png"
-                                alt=""
-                              />
-                              <div className="comment-prof-info">
-                                <h3 className="prof-tit">Ahsan Khan</h3>
-                                <h6 className="daysago">3 days ago </h6>
+                                    <div className="forborborderbottom"></div>
+                                  </div>
 
-                                <p className="comment-desc">
-                                  Exchange with Infinix Hot 11s Media tak Helio
-                                  G88 Pubg master??
-                                </p>
-                              </div>
-                            </div>
-                            <div className="wrapper-rep-like-dis">
-                              <button className="reply-btn">Reply</button>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="like-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6 className="like-ico-count">12</h6>
-                              </div>
-                              <div className="like-btn-count">
-                                <Icon
-                                  className="dislike-ico"
-                                  icon="ant-design:like-filled"
-                                />
-                                <h6>0</h6>
-                              </div>
-                            </div>
-                          </div>
+                                  {
+                                    item.replies && item.replies.length > 0 ?
 
-                          <div className="forborborderbottom"></div>
-                        </div>
+                                      item.replies.map((item, index) => {
+                                        return (
+                                          <div className="comment-wrapper replay">
+                                            <div
+                                              className={
+                                                tabletWidth || mobileWidth
+                                                  ? "align-items-start justify-content-between"
+                                                  : "d-flex align-items-start justify-content-between"
+                                              }
+                                            >
+                                              <div
+                                                className={
+                                                  tabletWidth || mobileWidth
+                                                    ? "align-items-center"
+                                                    : "d-flex align-items-center"
+                                                }
+                                              >
+                                                <img
+                                                  className="comment-av-real"
+                                                  src={item?.user?.profile_photo_url}
+                                                  alt=""
+                                                />
+                                                <div className="comment-prof-info">
+                                                  <h3 className="prof-tit">{item?.user?.name}</h3>
+                                                  {/* <h6 className="daysago">3 days ago </h6> */}
+
+                                                  <div className="d-flex">
+                                                    <p className="comment-desc">
+                                                      {item.comment}
+                                                    </p>
+                                                  </div>
+                                                </div>
+                                              </div>
+
+
+                                            </div>
+
+                                            <div className="forborborderbottom"></div>
+                                          </div>
+                                        )
+                                      })
+
+
+                                      :
+
+                                      <></>
+                                  }
+                                </>
+                              )
+                            }) : <></>
+
+                        }
+
+
+
                       </div>
                     </div>
                   </div>

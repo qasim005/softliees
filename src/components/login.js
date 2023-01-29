@@ -12,6 +12,7 @@ import { login, resetLogin, resetLogot } from "../redux/actions/app.actions";
 import { useDispatch, useSelector } from "react-redux";
 import { CircularProgress } from "@mui/material";
 import { isValidlogin } from "./validator";
+import axios from "axios";
 const Login = () => {
   const dispatch = useDispatch();
   const { loginResponse } = useSelector((selectSate) => selectSate.app);
@@ -48,9 +49,21 @@ const Login = () => {
 
   const handleLogin = () => {
     let form = new FormData();
+    console.log(form);
+
+    // axios.post("https://softliee.com/softlee/public/api/login", {
+    //   "email": state.email, "password": state.password
+
+    // }).then(function (response) {
+    //   console.log(response);
+    // })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
     form.append("email", state.email);
     form.append("password", state.password);
-    dispatch(login(form));
+    const abc = dispatch(login(form));
+    console.log(abc);
   };
 
   useEffect(() => {
@@ -77,7 +90,7 @@ const Login = () => {
       }))
     }
   }, [])
-  
+
 
   return (
     <>

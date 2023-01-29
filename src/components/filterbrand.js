@@ -287,23 +287,7 @@ const Filterbrand = (props) => {
 
 
 
-    useEffect(() => {
-        axios.get("https://softliee.com/softlee/public/api/brands").then((res) => {
-            console.log(res.data.brands);
-            res.data.brands.map((item, index) => {
-                console.log("<url> <loc>https://www.softliee.com/new-mobile/" + item.slug + "</loc> </url>");
-            })
 
-        })
-        axios.get("https://softliee.com/softlee/public/api/get_products").then((res) => {
-            console.log(res.data.$products);
-            res.data.$products.map((item, index) => {
-                console.log("<url> <loc>https://www.softliee.com/" + item.slug + "</loc> </url>");
-            })
-
-        })
-
-    }, [])
     return (
         <>
             {isSearchBarOpen && mobileWidth ? (

@@ -30,28 +30,29 @@ export default function SimpleDialog(props) {
   const selectedCountry = localStorage.getItem("selectedCountry");
 
   return (
-    <Dialog onClose={handleClose} open={open && !selectedCountry}>
-      <div
-        style={{ width: "280px" }}
-        className="d-flex flex-column align-items-center"
-      >
-        <DialogTitle>Select Country</DialogTitle>
-        <List sx={{ p: 2, pt: 0 }} className="w-100">
-          {countries.map((data) => (
-            <div
-              className="box-shadow-default-country rounded-5 mt-2 p-2"
-              button
-              onClick={() => handleListItemClick(data?.name)}
-              key={data?.name}
-            >
-              <img src={data.img} />
+    // <Dialog onClose={handleClose} open={open && !selectedCountry}>
+    //   <div
+    //     style={{ width: "280px" }}
+    //     className="d-flex flex-column align-items-center"
+    //   >
+    //     <DialogTitle>Select Country</DialogTitle>
+    //     <List sx={{ p: 2, pt: 0 }} className="w-100">
+    //       {countries.map((data) => (
+    //         <div
+    //           className="box-shadow-default-country rounded-5 mt-2 p-2"
+    //           button
+    //           onClick={() => handleListItemClick(data?.name)}
+    //           key={data?.name}
+    //         >
+    //           <img src={data.img} />
 
-              <span className="ms-2">{data?.name}</span>
-            </div>
-          ))}
-        </List>
-      </div>
-    </Dialog>
+    //           <span className="ms-2">{data?.name}</span>
+    //         </div>
+    //       ))}
+    //     </List>
+    //   </div>
+    // </Dialog>
+    <></>
   );
 }
 

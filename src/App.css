@@ -4172,3 +4172,34 @@ a:-webkit-any-link:focus-visible {
   outline-offset: 0px;
   outline: none;
 }
+.banner-ad-single-post{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.single-post-descroption h1{
+
+font-size: 21px;
+font-family: "Manrope";
+font-weight: 600;
+margin-top: 10px;
+
+}
+.single-post-descroption h2{
+
+font-size: 21px;
+font-family: "Manrope";
+font-weight: 600;
+
+}
+ins.adsbygoogle.for-margin-blog-ad.lastadblog {
+  margin-bottom: 80px !important;
+}
+ins.adsbygoogle.third-ad-single-blog {
+  margin-bottom: 40px !important;
+  margin-top: 30px !important;
+}
+ins.adsbygoogle.second-ad-single-blog {
+  margin-top: 30px !important;
+  margin-bottom: 40px  !important;
+}
