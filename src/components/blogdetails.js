@@ -13,6 +13,13 @@ import { Helmet } from "react-helmet";
 import { postBlogComments } from "../redux/actions/app.actions";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
+import PopularMobiles from "./small/popularmobiles";
+import { getPopularProducts } from "../redux/actions/app.actions";
+import { CircularProgress } from "@mui/material";
+import clsx from "clsx";
+import { formatAmount } from "./utils";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+
 // import { getSingleBlog } from "../redux/actions/app.actions";
 
 const Blogdetails = () => {
@@ -37,11 +44,38 @@ const Blogdetails = () => {
   // }, []);
 
   let navigate = useNavigate();
+  const dispatch = useDispatch();
+
   // const handleImgClick = () => {
   //   console.log("inside");
   //   navigate("/mobiles", { replace: true });
   // };
 
+  const { popularProducts, advertisement, currency } = useSelector(
+    (selectSate) => selectSate.app
+  );
+
+  const getItemPrice = (price) => {
+    let selectedCurrency =
+      currency.data &&
+      currency.data?.currency &&
+      currency.data?.currency.find(
+        (data) => data?.country === localSelectedCurrency
+      );
+    if (selectedCurrency) {
+      return (parseInt(price / selectedCurrency?.price));
+
+    } else {
+      return price;
+    }
+  };
+
+  const handleImgClick = (slug) => {
+    navigate(`/${slug}`, { replace: true });
+  };
+
+
+  let localSelectedCurrency = localStorage.getItem("selectedCurrency");
 
   useEffect(() => {
     console.log(mylocation[2]);
@@ -125,6 +159,12 @@ const Blogdetails = () => {
       console.log(localStorage.softliUserData);
   }, []);
 
+  useEffect(() => {
+    if (!popularProducts?.data && !popularProducts?.loading) {
+      dispatch(getPopularProducts());
+    }
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -148,7 +188,7 @@ const Blogdetails = () => {
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
-              <div class="bread_crumb_link blog-detail">
+              {/* <div class="bread_crumb_link blog-detail">
                 <a href="/" class="bread_crumb_link">
                   Home
                 </a>{" "}
@@ -161,16 +201,16 @@ const Blogdetails = () => {
                   {singleBlog?.title}
                 </a>{" "}
                 <ChevronRightIcon />
-              </div>
+              </div> */}
 
               <div className="banner-ad-single-post">
-
+                <p className="ads-text">ADS</p>
 
                 <Adsense
                   client="ca-pub-2933454440337038"
                   slot="6702463586"
                   style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
-                    width: 720, height: 90, display: "block", margin: "0 auto"
+                    width: 728, height: 90, display: "block", margin: "0 auto"
                   }}
                   format=""
                 />
@@ -195,12 +235,13 @@ const Blogdetails = () => {
               <h3 className="main-tit my-3">
                 {singleBlog?.title}
               </h3>
+              <p className="ads-text">ADS</p>
               <Adsense
                 className="second-ad-single-blog"
                 client="ca-pub-2933454440337038"
                 slot="6702463586"
                 style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                  width: 720, height: 90, display: "block", margin: "0 auto"
+                  width: 728, height: 90, display: "block", margin: "0 auto"
                 }}
                 format=""
               />
@@ -210,13 +251,14 @@ const Blogdetails = () => {
                   __html: singleBlog?.description
                 }}
               ></p>
+              <p className="ads-text">ADS</p>
 
               <Adsense
                 className="third-ad-single-blog"
                 client="ca-pub-2933454440337038"
                 slot="6702463586"
                 style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                  width: 720, height: 90, display: "block", margin: "0 auto"
+                  width: 728, height: 90, display: "block", margin: "0 auto"
                 }}
                 format=""
               />
@@ -294,7 +336,8 @@ const Blogdetails = () => {
                 </a>
               </div>
               {/* author bio */}
-              {mobileWidth ? (
+
+              {/* {mobileWidth ? (
                 <div className="author-bio">
                   <div className="row">
                     <div
@@ -492,7 +535,7 @@ const Blogdetails = () => {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
 
               {/* comments here */}
               {mobileWidth ? (
@@ -846,9 +889,117 @@ const Blogdetails = () => {
                   </div>
                 </section>
               )}
+
             </div>
 
+
+
             <BlogSidebar />
+            <section className="popular-mobiles">
+              <div className="container">
+                <div className="row">
+                  <div className="col-sm-6 col-7">
+                    <h2 className="main-tit">Popular Mobiles</h2>
+                  </div>
+                  <div className="col-sm-6 col-5">
+                    <div className="flex align-items-end justify-content-end">
+
+                      <a className="seemoree" href="#">
+                        See More <ChevronRightIcon className="btn-chev" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="container">
+                <div className="row px-2">
+                  {popularProducts.loading ? (
+                    <div className="w-100 d-flex justify-content-center align-items-center h-40vh">
+                      <CircularProgress />
+                    </div>
+                  ) : (
+                    popularProducts?.data?.$popular_products?.data &&
+                    popularProducts?.data?.$popular_products?.data.map(
+                      (item, index) => {
+                        if (index < 4) {
+                          return (
+                            <div className="col-sm-3 col-6 px-2">
+                              <div
+                                className="single-m-wrap"
+                                style={{ minHeight: "400px", maxHeight: "400px" }}
+                              >
+                                <img
+                                  className="single-mob-img"
+                                  src={`https://softliee.com/softlee/public/storage/product/${item.image}`}
+                                  alt={item.name}
+                                  onClick={() => handleImgClick(item.slug)}
+                                />
+                                <h3 className="single-mob-tit">{item.name}</h3>
+                                <div className="compair-btn-with-ico">
+                                  <h4>Compare</h4>
+                                  <AddIcon />
+                                </div>
+
+                                <div
+                                  className={clsx(
+                                    "mt-3",
+                                    tabletWidth && "deetails-wrap",
+                                    !tabletWidth && "details-wrap"
+                                  )}
+                                >
+                                  <h4
+                                    className={clsx(
+                                      " p-1",
+                                      tabletWidth && "deetails",
+                                      !tabletWidth && "details"
+                                    )}
+                                  >
+                                    {item.ram}
+                                    {" / "} {item?.storage} | {item.battery}
+                                  </h4>
+                                </div>
+
+                                <div className="price-icon-wrap flex align-items-center justify-content-center">
+                                  <h3 className="single-mob-tit">
+                                    {localSelectedCurrency === "USD" ? "$ " : "RS "}
+                                    {item.orignal_price
+                                      ? formatAmount(
+                                        getItemPrice(item.orignal_price)
+                                      )
+                                      : "N/A"}
+                                  </h3>
+                                  <RemoveRedEyeIcon />
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        }
+                      }
+                    )
+                  )}
+                </div>
+              </div>
+            </section>
+
+            <section className="ads-section" style={{ marginBottom: "50px" }}>
+              <div className="container">
+                <div className="row justify-content-center">
+                  <div className="col-12">
+
+                    <Adsense
+                      client="ca-pub-2933454440337038"
+                      slot="6702463586"
+                      style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                        width: 970, height: 250, display: "block", margin: "0 auto"
+                      }}
+                      format=""
+                    />
+                  </div>
+
+
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </section>

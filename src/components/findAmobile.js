@@ -14,7 +14,7 @@ import {
   useParams,
   useSearchParams,
 } from "react-router-dom";
-import { formatAmount, IsMobileWidth } from "./utils";
+import { formatAmount, IsMobileWidth, IsTabletWidth } from "./utils";
 import SearchBar from "./small/searchbar";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -26,6 +26,7 @@ import {
 import CircularProgress from "@mui/material/CircularProgress";
 import { Helmet } from "react-helmet";
 import { Adsense } from "@ctrl/react-adsense";
+import clsx from "clsx";
 
 const FindAMobile = (props) => {
   let navigate = useNavigate();
@@ -40,7 +41,8 @@ const FindAMobile = (props) => {
   const [myCurrentItems, setCurrentItems] = useState([]);
 
   const itemsPerPage = 16;
-
+  const mobileWidth = IsMobileWidth();
+  const tabletWidth = IsTabletWidth();
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -65,7 +67,7 @@ const FindAMobile = (props) => {
     ],
   };
 
-  const mobileWidth = IsMobileWidth();
+
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
@@ -411,11 +413,12 @@ const FindAMobile = (props) => {
               <div className="row justify-content-center">
                 <div className="col-12">
 
+                  <p className="ads-text">ADS</p>
                   <Adsense
                     client="ca-pub-2933454440337038"
                     slot="6702463586"
                     style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
-                      width: 720, height: 90, display: "block", margin: "0 auto"
+                      width: 728, height: 90, display: "block", margin: "0 auto"
                     }}
                     format=""
                   />
@@ -592,34 +595,72 @@ const FindAMobile = (props) => {
                     myCurrentItems
                       .map((item, index) => {
                         return (
-                          <div className="col-sm-3 col-6 px-2" key={index}>
-                            <div className="single-m-wrap">
+                          <div className="col-sm-3 col-6 bg-sm-danger px-2">
+                            <div
+                              className={clsx(
+                                "",
+                                mobileWidth && "single-m-wraps",
+                                !mobileWidth && "single-m-wrap"
+                              )}
+                              style={{ maxHeight: "400px" }}
+                            >
                               <img
                                 className="single-mob-img"
                                 src={`https://softliee.com/softlee/public/storage/product/${item.image}`}
                                 alt={item.name}
-                                onClick={() => handleImgClick1(item.slug)}
+                                onClick={() => handleImgClick(item.slug)}
                               />
                               <h3
-                                className="single-mob-tit"
-                                onClick={() => handleImgClick1(item.slug)}
+                                className={clsx(
+                                  "",
+                                  mobileWidth && "single-mob-tits",
+                                  !mobileWidth && "single-mob-tit"
+                                )}
+                                onClick={() => handleImgClick(item.slug)}
                               >
                                 {item.name}
                               </h3>
-                              <div className="compair-btn-with-ico">
+                              <Link
+                                to={`/compare-mobile-phone/${item?.slug}/change_product`}
+                                className="compair-btn-with-ico"
+                              >
                                 <h4>Compare</h4>
                                 <AddIcon />
-                              </div>
+                              </Link>
 
-                              <div className="details-wrap">
-                                <h4 className="details">
+                              <div
+                                className={clsx(
+                                  "mt-3",
+                                  tabletWidth && "deetails-wrap",
+                                  !tabletWidth && "details-wrap"
+                                )}
+                              >
+                                <h4
+                                  className={clsx(
+                                    " p-1",
+                                    tabletWidth && "deetails",
+                                    !tabletWidth && "details"
+                                  )}
+                                >
                                   {item.ram}
                                   {" / "} {item?.storage} | {item.battery}
                                 </h4>
                               </div>
 
-                              <div className="price-icon-wrap flex align-items-center justify-content-center">
-                                <h3 className="single-mob-tit">
+                              <div
+                                className={clsx(
+                                  "flex align-items-center justify-content-center",
+                                  mobileWidth && "price-icon-wraps",
+                                  !mobileWidth && "price-icon-wrap"
+                                )}
+                              >
+                                <h3
+                                  className={clsx(
+                                    "",
+                                    mobileWidth && "single-mob-tits",
+                                    !mobileWidth && "single-mob-tit"
+                                  )}
+                                >
                                   {localSelectedCurrency === "USD" ? "$ " : "RS "}
                                   {item.orignal_price
                                     ? formatAmount(getItemPrice(item.orignal_price))
@@ -655,6 +696,7 @@ const FindAMobile = (props) => {
               <div className="row justify-content-center">
                 <div className="col-12">
 
+                  <p className="ads-text">ADS</p>
                   <Adsense
                     client="ca-pub-2933454440337038"
                     slot="6702463586"

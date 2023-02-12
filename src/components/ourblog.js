@@ -100,12 +100,12 @@ const Ourblog = () => {
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-12">
-
+                  <p className="ads-text">ADS</p>
                   <Adsense
                     client="ca-pub-2933454440337038"
                     slot="6702463586"
                     style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
-                      width: 720, height: 90, display: "block", margin: "0 auto"
+                      width: 728, height: 90, display: "block", margin: "0 auto"
                     }}
                     format=""
                   />
@@ -150,7 +150,7 @@ const Ourblog = () => {
                               <div className="right-side-info">
                                 <h3 className="posts-title-m">{data?.title}</h3>
                                 <Link
-                                  to={`/details${data?.slug}`}
+                                  to={`/details/${data?.slug}`}
                                   className="readmore-btn"
                                 >
                                   Read more
@@ -244,7 +244,25 @@ const Ourblog = () => {
             </>
           )}
           {mobileWidth && <BlogSidebar />}
+          <section className="ads-section" style={{ marginBottom: "50px", marginTop: "40px" }}>
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-12">
 
+                  <Adsense
+                    client="ca-pub-2933454440337038"
+                    slot="6702463586"
+                    style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                      width: 970, height: 250, display: "block", margin: "0 auto"
+                    }}
+                    format=""
+                  />
+                </div>
+
+
+              </div>
+            </div>
+          </section>
           <Footer />
         </>
       )}

@@ -53,7 +53,7 @@ export default function UpcomingPhones() {
             <div class="side_mobile_Col">
               <div class="side_col_title">{data?.name}</div>
               <div class="side_col_rupee">RS {data?.orignal_price}</div>
-              <Link class="view_more_link" to={`/product/${data?.slug}`}>View More</Link>
+              <Link class="view_more_link" to={`/${data?.slug}`}>View More</Link>
             </div>
           </div>
         ))}

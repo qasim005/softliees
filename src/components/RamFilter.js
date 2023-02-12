@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import clsx from "clsx";
-import { IsMobileWidth, IsTabletWidth } from "./utils";
+import { formatAmount, IsMobileWidth, IsTabletWidth } from "./utils";
 import { useSelector } from "react-redux";
 import { Adsense } from "@ctrl/react-adsense";
 
@@ -22,6 +22,7 @@ const RamFilter = () => {
   const path = location.pathname.split("/");
   const navigate = useNavigate()
 
+  let localSelectedCurrency = localStorage.getItem("selectedCurrency");
 
   const getUser = async () => {
 
@@ -43,7 +44,23 @@ const RamFilter = () => {
     navigate(`/${slug}`, { replace: true });
   };
 
+  const handleImgClick = () => {
+    navigate("/trending_products", { replace: true });
+  };
 
+  const getItemPrice = (price) => {
+    let selectedCurrency =
+      currency.data &&
+      currency.data?.currency &&
+      currency.data?.currency.find(
+        (data) => data?.country === localSelectedCurrency
+      );
+    if (selectedCurrency) {
+      return (parseInt(price / selectedCurrency?.price));
+    } else {
+      return price;
+    }
+  };
   useEffect(() => {
     getUser();
   }, []);
@@ -61,11 +78,12 @@ const RamFilter = () => {
             <div className="row justify-content-center">
               <div className="col-12">
 
+                <p className="ads-text">ADS</p>
                 <Adsense
                   client="ca-pub-2933454440337038"
                   slot="6702463586"
                   style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
-                    width: 720, height: 90, display: "block", margin: "0 auto"
+                    width: 728, height: 90, display: "block", margin: "0 auto"
                   }}
                   format=""
                 />
@@ -85,7 +103,7 @@ const RamFilter = () => {
           </div>
           <div className="row px-2">
             {Users.length > 0 && Users ? (
-              Users.map((items, index) => {
+              Users.map((item, index) => {
 
                 return (
                   <div className="col-sm-3 col-6 bg-sm-danger px-2">
@@ -99,20 +117,22 @@ const RamFilter = () => {
                     >
                       <img
                         className="single-mob-img"
-                        //   src="\assets\images\mobiles\image1.png"
-                        src={`https://softliee.com/softlee/public/storage/product/${items.image}`}
-                        alt={items.alt_imag}
-                        onClick={() => handleImgClick1(items.slug)}
+                        src={`https://softliee.com/softlee/public/storage/product/${item.image}`}
+                        alt={item.name}
+                        onClick={() => handleImgClick(item.slug)}
                       />
                       <h3
                         className={clsx(
                           "",
                           mobileWidth && "single-mob-tits",
                           !mobileWidth && "single-mob-tit"
-                        )} onClick={() => handleImgClick1(items.slug)}>{items.name}</h3>
-
+                        )}
+                        onClick={() => handleImgClick(item.slug)}
+                      >
+                        {item.name}
+                      </h3>
                       <Link
-                        to={`/compare-mobile-phone/${items?.slug}/change_product`}
+                        to={`/compare-mobile-phone/${item?.slug}/change_product`}
                         className="compair-btn-with-ico"
                       >
                         <h4>Compare</h4>
@@ -133,9 +153,11 @@ const RamFilter = () => {
                             !tabletWidth && "details"
                           )}
                         >
-                          {items.ram_storage1} GB | {items.battery}
+                          {item.ram}
+                          {" / "} {item?.storage} | {item.battery}
                         </h4>
                       </div>
+
                       <div
                         className={clsx(
                           "flex align-items-center justify-content-center",
@@ -150,7 +172,10 @@ const RamFilter = () => {
                             !mobileWidth && "single-mob-tit"
                           )}
                         >
-                          RS {items.orignal_price}
+                          {localSelectedCurrency === "USD" ? "$ " : "RS "}
+                          {item.orignal_price
+                            ? formatAmount(getItemPrice(item.orignal_price))
+                            : "N/A"}
                         </h3>
                       </div>
                     </div>
@@ -169,6 +194,7 @@ const RamFilter = () => {
             <div className="row justify-content-center">
               <div className="col-12">
 
+                <p className="ads-text">ADS</p>
                 <Adsense
                   client="ca-pub-2933454440337038"
                   slot="6702463586"

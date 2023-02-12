@@ -28,11 +28,12 @@ const SearchResultPage = () => {
                     <div className="row justify-content-center">
                         <div className="col-12">
 
+                            <p className="ads-text">ADS</p>
                             <Adsense
                                 client="ca-pub-2933454440337038"
                                 slot="6702463586"
                                 style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
-                                    width: 720, height: 90, display: "block", margin: "0 auto"
+                                    width: 728, height: 90, display: "block", margin: "0 auto"
                                 }}
                                 format=""
                             />
@@ -123,6 +124,7 @@ const SearchResultPage = () => {
                     <div className="row justify-content-center">
                         <div className="col-12">
 
+                            <p className="ads-text">ADS</p>
                             <Adsense
                                 client="ca-pub-2933454440337038"
                                 slot="6702463586"

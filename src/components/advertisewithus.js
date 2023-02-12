@@ -4,10 +4,24 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "./small/searchbar";
 import { IsMobileWidth, IsTabletWidth } from "./utils";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 const Advertisewithus = () => {
   const tabletWidth = IsTabletWidth();
   const mobileWidth = IsMobileWidth();
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = () => {
+    console.log(name, email, message)
+    axios.post(`https://softliee.com/softlee/public/api/send_message?name=${name}&email=${email}&description=${message}`).then((res) => {
+      console.log(res.data.message)
+      setStatus(res.data.message)
+
+    })
+  }
   return (
     <>
 
@@ -32,7 +46,7 @@ const Advertisewithus = () => {
             <div className="container">
               <div className="row">
                 <div className="col-sm-12">
-                  <form className="row g-3">
+                  <div className="row g-3">
                     <h3 className="main-tit">Advertise us</h3>
                     <p>
                       Place your business message in front of the world! We
@@ -47,6 +61,7 @@ const Advertisewithus = () => {
                         type="text"
                         className="form-control form-control-custom"
                         placeholder="Full Name*"
+                        onChange={(e) => setName(e.target.value)}
                       />
                     </div>
 
@@ -55,6 +70,7 @@ const Advertisewithus = () => {
                         type="email"
                         className="form-control form-control-custom"
                         placeholder="Email Address*"
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
                     {/* <div className="col-md-12">
@@ -69,21 +85,27 @@ const Advertisewithus = () => {
                       <textarea
                         className="form-control form-control-custom txt-arr"
                         placeholder="Message"
+                        onChange={(e) => setMessage(e.target.value)}
                       ></textarea>
                     </div>
                     <div className="col-md-12 text-end">
-                      <button type="submit" className="btn-form-submit">
+                      <button className="btn-form-submit" onClick={handleSubmit}>
                         Submit Details
                       </button>
                     </div>
-                  </form>
+
+                    <div className="text-center  " style={{ marginBottom: "60px", fontWeight: "bold", fontSize: "20px" }}>
+                      <div className="text-success">{status}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
           <Footer />
         </>
-      )}
+      )
+      }
     </>
   );
 };

@@ -440,11 +440,12 @@ const PageCompare = () => {
                   <div className="row justify-content-center">
                     <div className="col-12">
 
+                      <p className="ads-text">ADS</p>
                       <Adsense
                         client="ca-pub-2933454440337038"
                         slot="6702463586"
                         style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
-                          width: 720, height: 90, display: "block", margin: "0 auto"
+                          width: 728, height: 90, display: "block", margin: "0 auto"
                         }}
                         format=""
                       />
@@ -777,7 +778,7 @@ const PageCompare = () => {
                             />{" "}
                             <span class="icon_heading_title">General</span>
                           </div>
-                          <table class="table specification_table">
+                          <div className="table-wrap"><table class="table specification_table general">
                             {state.group1.map((data) => (
                               <>
                                 <tr>
@@ -787,7 +788,7 @@ const PageCompare = () => {
                                 </tr>
                               </>
                             ))}
-                          </table>
+                          </table> </div>
                         </>
                       )}
 
@@ -802,7 +803,7 @@ const PageCompare = () => {
                             />{" "}
                             <span class="icon_heading_title">Display</span>
                           </div>
-                          <table class="table specification_table">
+                          <div className="table-wrap"><table class="table specification_table display">
                             {state.group2.map((data) => (
                               <>
                                 <tr>
@@ -812,7 +813,7 @@ const PageCompare = () => {
                                 </tr>
                               </>
                             ))}
-                          </table>
+                          </table> </div>
                         </>
                       )}
 
@@ -821,11 +822,12 @@ const PageCompare = () => {
                           <div className="row justify-content-center">
                             <div className="col-12">
 
+                              <p className="ads-text">ADS</p>
                               <Adsense
                                 client="ca-pub-2933454440337038"
                                 slot="6702463586"
                                 style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                                  width: 720, height: 90, display: "block", margin: "0 auto"
+                                  width: 728, height: 90, display: "block", margin: "0 auto"
                                 }}
                                 format=""
                               />
@@ -847,7 +849,7 @@ const PageCompare = () => {
                             />{" "}
                             <span class="icon_heading_title">Build</span>
                           </div>
-                          <table class="table specification_table">
+                          <div className="table-wrap"><table class="table specification_table build">
                             {state.group3.map((data) => (
                               <>
                                 <tr>
@@ -857,7 +859,7 @@ const PageCompare = () => {
                                 </tr>
                               </>
                             ))}
-                          </table>
+                          </table> </div>
                         </>
                       )}
 
@@ -872,7 +874,7 @@ const PageCompare = () => {
                             />{" "}
                             <span class="icon_heading_title">Network</span>
                           </div>
-                          <table class="table specification_table">
+                          <div className="table-wrap"><table class="table specification_table network">
                             {state.group4.map((data) => (
                               <>
                                 <tr>
@@ -882,7 +884,7 @@ const PageCompare = () => {
                                 </tr>
                               </>
                             ))}
-                          </table>
+                          </table> </div>
                         </>
                       )}
 
@@ -899,7 +901,7 @@ const PageCompare = () => {
                             />{" "}
                             <span class="icon_heading_title">Memory</span>
                           </div>
-                          <table class="table specification_table">
+                          <div className="table-wrap"><table class="table specification_table">
                             {state.group5.map((data) => (
                               <>
                                 <tr>
@@ -909,7 +911,7 @@ const PageCompare = () => {
                                 </tr>
                               </>
                             ))}
-                          </table>
+                          </table> </div>
                         </>
                       )}
 
@@ -924,7 +926,7 @@ const PageCompare = () => {
                             />{" "}
                             <span class="icon_heading_title">Camera</span>
                           </div>
-                          <table class="table specification_table">
+                          <div className="table-wrap"><table class="table specification_table">
                             {state.group6.map((data) => (
                               <>
                                 <tr>
@@ -934,7 +936,7 @@ const PageCompare = () => {
                                 </tr>
                               </>
                             ))}
-                          </table>
+                          </table> </div>
                         </>
                       )}
 
@@ -943,11 +945,12 @@ const PageCompare = () => {
                           <div className="row justify-content-center">
                             <div className="col-12">
 
+                              <p className="ads-text">ADS</p>
                               <Adsense
                                 client="ca-pub-2933454440337038"
                                 slot="6702463586"
                                 style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                                  width: 720, height: 90, display: "block", margin: "0 auto"
+                                  width: 728, height: 90, display: "block", margin: "0 auto"
                                 }}
                                 format=""
                               />
@@ -969,7 +972,7 @@ const PageCompare = () => {
                             />{" "}
                             <span class="icon_heading_title">Connectivity</span>
                           </div>
-                          <table class="table specification_table">
+                          <div className="table-wrap"><table class="table specification_table">
                             {state.group7.map((data) => (
                               <>
                                 <tr>
@@ -979,7 +982,7 @@ const PageCompare = () => {
                                 </tr>
                               </>
                             ))}
-                          </table>
+                          </table> </div>
                         </>
                       )}
 
@@ -994,7 +997,7 @@ const PageCompare = () => {
                             />{" "}
                             <span class="icon_heading_title">Features</span>
                           </div>
-                          <table class="table specification_table">
+                          <div className="table-wrap"><table class="table specification_table">
                             {state.group8.map((data) => (
                               <>
                                 <tr>
@@ -1004,7 +1007,7 @@ const PageCompare = () => {
                                 </tr>
                               </>
                             ))}
-                          </table>
+                          </table> </div>
                         </>
                       )}
 
@@ -1019,7 +1022,7 @@ const PageCompare = () => {
                             />{" "}
                             <span class="icon_heading_title">Battery</span>
                           </div>
-                          <table class="table specification_table">
+                          <div className="table-wrap"><table class="table specification_table">
                             {state.group9.map((data) => (
                               <>
                                 <tr>
@@ -1029,7 +1032,7 @@ const PageCompare = () => {
                                 </tr>
                               </>
                             ))}
-                          </table>
+                          </table> </div>
                         </>
                       )}
 
@@ -1038,6 +1041,7 @@ const PageCompare = () => {
                           <div className="row justify-content-center">
                             <div className="col-12">
 
+                              <p className="ads-text">ADS</p>
                               <Adsense
                                 client="ca-pub-2933454440337038"
                                 slot="6702463586"
@@ -1056,7 +1060,7 @@ const PageCompare = () => {
                       {state.group10.length > 0 && (
                         <div className="internationalprice">
                           <h3 className="main-tit">International Price List</h3>
-                          <table class="table specification_table">
+                          <div className="table-wrap"><table class="table specification_table">
                             {state.group10.map((data) => (
                               <>
                                 <tr>
@@ -1066,7 +1070,7 @@ const PageCompare = () => {
                                 </tr>
                               </>
                             ))}
-                          </table>
+                          </table> </div>
                         </div>
                       )}
                     </div>

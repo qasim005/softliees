@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 import { Icon } from "@iconify/react";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -31,7 +31,9 @@ const Header = (props) => {
   const [isSearchDialogOpen, setIsSearchDialogOpen] = useState(false);
   const [search, setSearch] = useState();
   const [countryPopupOpen, setCountryPopupOpen] = useState(true);
+  const [mobileLoginDrop, setmobileLoginDrop] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
+  const [softlieeUser, setUser] = useState({});
   let navigate = useNavigate();
   const tabletWidth = IsTabletWidth();
   const mobileWidth = IsMobileWidth();
@@ -130,8 +132,16 @@ const Header = (props) => {
     }
   };
   useEffect(() => {
-    console.log(localSelectedCurrency);
-  }, [localSelectedCurrency])
+    if (localStorage.softliUserData) {
+      let user = JSON.parse(localStorage.softliUserData);
+      setUser(user)
+    }
+  }, [])
+  useEffect(() => {
+    console.log(softlieeUser);
+  }, [softlieeUser])
+
+
   return (
     <>
       {!isSearchBarOpen && (
@@ -205,6 +215,63 @@ const Header = (props) => {
                       setShow(false)
                     }}>Infinix</h3>
                     <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/alcatel-mobile-phones")
+                      setShow(false)
+                    }}>alcatel</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/honor-mobile-phones")
+                      setShow(false)
+                    }}>Honor</h3>
+
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/new-itel-mobile-phone-and-prices-in-pakistan")
+                      setShow(false)
+                    }}>Itel</h3>
+
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/nokia-mobile-phones-price-in-pakistan")
+                      setShow(false)
+                    }}>Nokia</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/oale-mobile-phones")
+                      setShow(false)
+                    }}>Oale</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/oneplus-mobile-phone-price-in-pakistan")
+                      setShow(false)
+                    }}>Oneplus</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/oppo-mobile-phone-price-in-pakistan")
+                      setShow(false)
+                    }}>Oppo</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/q-mobile-phones")
+                      setShow(false)
+                    }}>Q Mobile</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/realme-mobile-phones")
+                      setShow(false)
+                    }}>Realme</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/samsung-mobile-phones-prices-in-pakistan")
+                      setShow(false)
+                    }}>Samsung</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/tecno-mobile-phones")
+                      setShow(false)
+                    }}>Tecno</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/vivo-mobile-phones-prices-in-pakistan")
+                      setShow(false)
+                    }}>vivo</h3>
+                    <h3 className="topbrand-tit sub" onClick={() => {
+                      navigate("/new-mobile/xiaomi")
+                      setShow(false)
+                    }}>Xiaomi</h3>
+
+
+
+                    <h3 className="topbrand-tit sub" onClick={() => {
                       setControlBrands(false)
                     }}>Less..</h3>
 
@@ -222,12 +289,12 @@ const Header = (props) => {
                     />
                   </div>
                   <h3 className="topbrand-tit trending">
-                    <Link
+                    <NavLink
                       to="/"
                       className="off-links"
                     >
                       Home Mobiles
-                    </Link>
+                    </NavLink>
                   </h3>
                 </div>
               </div>
@@ -244,9 +311,9 @@ const Header = (props) => {
 
                   <h3 className="topbrand-tit trending">
                     {" "}
-                    <Link to="/top-upcoming-mobile-phones-in-2023" className="off-links">
+                    <NavLink to="/top-upcoming-mobile-phones-in-2023" className="off-links">
                       Upcoming Mobiles
-                    </Link>
+                    </NavLink>
                   </h3>
                 </div>
               </div>
@@ -261,36 +328,36 @@ const Header = (props) => {
                     />
                   </div>
                   <h3 className="topbrand-tit trending">
-                    <Link to="/blog" className="off-links">
+                    <NavLink to="/blog" className="off-links">
                       Tech News
-                    </Link>
+                    </NavLink>
                   </h3>
                 </div>
               </div>
 
               <div className="Line"></div>
               <div className="more-links">
-                <Link to="/privacypolicy" className="off-links ps-3 pe-3">
+                <NavLink to="/privacypolicy" className="off-links ps-3 pe-3">
                   <span>Privacy Policy</span>
-                </Link>
+                </NavLink>
                 <div className="Line"></div>
-                <Link className="off-links ps-3 pe-3" to="/contact">
+                <NavLink className="off-links ps-3 pe-3" to="/contact">
                   <span>Contact us</span>
-                </Link>
+                </NavLink>
                 <div className="Line"></div>
-                <Link className="off-links ps-3 pe-3" to="/advertise">
+                <NavLink className="off-links ps-3 pe-3" to="/advertise">
                   <span>Advertise with us</span>
-                </Link>
+                </NavLink>
                 <div className="Line"></div>
-                <Link className="off-links ps-3 pe-3" to="/termsandconditions">
+                <NavLink className="off-links ps-3 pe-3" to="/termsandconditions">
                   <span>Terms and Conditions</span>
-                </Link>
-                <Link className="off-links ps-3 pe-3" to="">
+                </NavLink>
+                <NavLink className="off-links ps-3 pe-3" to="">
                   <div></div>
-                </Link>
-                <Link className="off-links ps-3 pe-3" to="">
+                </NavLink>
+                <NavLink className="off-links ps-3 pe-3" to="">
                   <div></div>
-                </Link>
+                </NavLink>
               </div>
               <div className="only-lang off-c">
                 <Dropdown>
@@ -357,12 +424,12 @@ const Header = (props) => {
                 />
                 Notifications
               </h5>
-              <Link to="/login">
+              <NavLink to="/login">
                 <img
                   src="../../../assets/images/icons/account-mob.png"
                   alt=""
                 />
-              </Link>
+              </NavLink>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <div className="notify-upper">
@@ -415,13 +482,13 @@ const Header = (props) => {
               <div className="container">
                 <div className="row">
                   <div className="col-sm-2">
-                    <Link to="/">
+                    <NavLink to="/">
                       <img
                         className="logo-img"
                         src="../../assets/images/softliee.png"
                         alt="logo"
                       />
-                    </Link>
+                    </NavLink>
                   </div>
                   <ClickAwayListener onClickAway={handleBlurForSearchDialog}>
                     <div
@@ -584,7 +651,7 @@ const Header = (props) => {
                             </div>
                           </div>
                         ) : (
-                          <Link to="/login" className="link-custom">
+                          <NavLink to="/login" className="link-custom">
                             <div className="flex align-items-center">
                               <img
                                 className="ic-login"
@@ -593,7 +660,7 @@ const Header = (props) => {
                               />
                               <h3 className="login-tit">Login</h3>
                             </div>
-                          </Link>
+                          </NavLink>
                         )}
                       </div>
                     </div>
@@ -607,37 +674,37 @@ const Header = (props) => {
                 <div className="flex justify-content-between">
                   <ul className="navigation">
                     <li className="nav-single-li">
-                      <Link
+                      <NavLink
                         className="nav-single-a"
                         to="/"
                       >
                         Home Mobiles
-                      </Link>
+                      </NavLink>
                     </li>
                     <li className="nav-single-li">
-                      <a className="nav-single-a" href="/blog">
+                      <NavLink className="nav-single-a" to="/blog">
                         Tech News
-                      </a>
+                      </NavLink>
                     </li>
                     <li className="nav-single-li">
-                      <a className="nav-single-a" href="/top-upcoming-mobile-phones-in-2023">
+                      <NavLink className="nav-single-a" to="/top-upcoming-mobile-phones-in-2023">
                         Upcoming mobiles
-                      </a>
+                      </NavLink>
                     </li>
                     <li className="nav-single-li">
-                      <a className="nav-single-a" href="/popularmobiles">
+                      <NavLink className="nav-single-a" to="/popularmobiles">
                         Popular Mobiles
-                      </a>
+                      </NavLink>
                     </li>
                     <li className="nav-single-li">
-                      <Link className="nav-single-a" to="/compare-mobile-phone">
+                      <NavLink className="nav-single-a" to="/compare-mobile-phone">
                         Compare Mobiles
-                      </Link>
+                      </NavLink>
                     </li>
                     <li className="nav-single-li">
-                      <a className="nav-single-a" href="/phonefinder">
+                      <NavLink className="nav-single-a" to="/phonefinder">
                         Phone Finder
-                      </a>
+                      </NavLink>
                     </li>
                   </ul>
                   <div className="flex">
@@ -698,14 +765,14 @@ const Header = (props) => {
               </div>
 
               <div className="logo-wrapp">
-                <Link to="/">
+                <NavLink to="/">
                   {" "}
                   <img
                     className="logo-img"
                     src="../../assets/images/softliee.png"
                     alt="logo"
                   />
-                </Link>
+                </NavLink>
               </div>
               <div className="right-side-wrap">
                 <img
@@ -715,13 +782,21 @@ const Header = (props) => {
                 />
               </div>
               <div>
-                <Link to="/login">
-                  <img
-                    src="../../../assets/images/icons/account-mob.png"
-                    alt=""
-                  />
-                </Link>
+                {
+                  localStorage.softliUserData ? <img src="../../../assets/images/icons/account-mob.png" alt="" onClick={() => {
+                    mobileLoginDrop ?
+                      setmobileLoginDrop(false) : setmobileLoginDrop(true)
+
+                  }} /> : <Link to="/login">
+                    <img src="../../../assets/images/icons/account-mob.png" alt="" />
+                  </Link>
+                }
               </div>
+
+              {mobileLoginDrop && <div className="mobile-login-dropdown">
+                <p>{softlieeUser?.user?.name}</p>
+                <p onClick={handleLogout}>Log out</p>
+              </div>}
             </div>
           </header>
         </>
@@ -737,14 +812,14 @@ const Header = (props) => {
                 : "icon-box-wrap"
             }
           >
-            <Link to="/" className="custom-link">
+            <NavLink to="/" className="custom-link">
               <img
                 className="ico"
                 src="../../../assets/images/icons/i1.svg"
                 alt=""
               />
               <h3 className="icon-box-tit">Home</h3>
-            </Link>
+            </NavLink>
           </div>
           <div
             onClick={handleCloseS}
@@ -754,14 +829,14 @@ const Header = (props) => {
                 : "icon-box-wrap"
             }
           >
-            <Link to="/compare-mobile-phone" className="custom-link">
+            <NavLink to="/compare-mobile-phone" className="custom-link">
               <img
                 className="ico"
                 src="../../../assets/images/icons/i2.svg"
                 alt=""
               />
               <h3 className="icon-box-tit">Compare</h3>
-            </Link>
+            </NavLink>
           </div>
 
           <div
@@ -772,14 +847,14 @@ const Header = (props) => {
                 : "icon-box-wrap"
             }
           >
-            <Link to="/phonefinder" className="custom-link">
+            <NavLink to="/phonefinder" className="custom-link">
               <img
                 className="ico"
                 src="../../../assets/images/icons/i3.svg"
                 alt=""
               />
               <h3 className="icon-box-tit">Finder</h3>
-            </Link>
+            </NavLink>
           </div>
           <div
             className={showS ? "active icon-box-wrap" : "icon-box-wrap"}

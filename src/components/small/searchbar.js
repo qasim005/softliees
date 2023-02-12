@@ -3,13 +3,17 @@ import { IconButton } from "@mui/material";
 import { Close } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-import { getSearchProduct } from "../../redux/actions/app.actions";
+import { useEffect, useState } from "react";
+import { getSearchProduct, logout } from "../../redux/actions/app.actions";
 
 const SearchBar = (props) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const [isSearchDialogOpen, setIsSearchDialogOpen] = useState(false);
+  const [mobileLoginDrop, setmobileLoginDrop] = useState(false);
+  const [softlieeUser, setUser] = useState({});
+
+
   const [search, setSearch] = useState();
   const { searchProduct } = useSelector((selectSate) => selectSate.app);
 
@@ -26,6 +30,17 @@ const SearchBar = (props) => {
   const handleImgClick = (slug) => {
     navigate(`/${slug}`, { replace: true });
   };
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
+  useEffect(() => {
+    if (localStorage.softliUserData) {
+      let user = JSON.parse(localStorage.softliUserData);
+      setUser(user)
+    }
+  }, [])
+
 
   return (
     <>
@@ -45,9 +60,20 @@ const SearchBar = (props) => {
           className=" search-mobile"
           onClick={handleSearch}
         />
-        <Link to="/login">
-          <img src="../../../assets/images/icons/account-mob.png" alt="" />
-        </Link>
+        {
+          localStorage.softliUserData ? <img src="../../../assets/images/icons/account-mob.png" alt="" onClick={() => {
+            mobileLoginDrop ?
+              setmobileLoginDrop(false) : setmobileLoginDrop(true)
+
+          }} /> : <Link to="/login">
+            <img src="../../../assets/images/icons/account-mob.png" alt="" />
+          </Link>
+        }
+        {mobileLoginDrop && <div className="mobile-login-dropdown">
+          <p>{softlieeUser?.user?.name}</p>
+          <p onClick={handleLogout}>Log out</p>
+        </div>}
+
       </div>
       <div className="p-2">
         <div className="notify-upper align-items-center mt-2">

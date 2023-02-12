@@ -14,7 +14,7 @@ import {
     useParams,
     useSearchParams,
 } from "react-router-dom";
-import { formatAmount, IsMobileWidth } from "./utils";
+import { formatAmount, IsMobileWidth, IsTabletWidth } from "./utils";
 import SearchBar from "./small/searchbar";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -27,6 +27,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { Helmet } from "react-helmet";
 import { Adsense } from "@ctrl/react-adsense";
 import axios from "axios";
+import clsx from "clsx";
 
 const Filterbrand = (props) => {
     let navigate = useNavigate();
@@ -39,6 +40,7 @@ const Filterbrand = (props) => {
     const [itemOffset, setItemOffset] = useState(0);
     const [pageCount, setPageCount] = useState(0);
     const [myCurrentItems, setCurrentItems] = useState([]);
+    const tabletWidth = IsTabletWidth();
 
     const itemsPerPage = 16;
 
@@ -405,11 +407,12 @@ const Filterbrand = (props) => {
                             <div className="row justify-content-center">
                                 <div className="col-12">
 
+                                    <p className="ads-text">ADS</p>
                                     <Adsense
                                         client="ca-pub-2933454440337038"
                                         slot="6702463586"
                                         style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
-                                            width: 720, height: 90, display: "block", margin: "0 auto"
+                                            width: 728, height: 90, display: "block", margin: "0 auto"
                                         }}
                                         format=""
                                     />
@@ -632,7 +635,12 @@ const Filterbrand = (props) => {
                                                         onClick={() => handleImgClick1(item.slug)}
                                                     />
                                                     <h3
-                                                        className="single-mob-tit"
+
+                                                        className={clsx(
+                                                            "",
+                                                            mobileWidth && "single-mob-tits",
+                                                            !mobileWidth && "single-mob-tit"
+                                                        )}
                                                         onClick={() => handleImgClick1(item.slug)}
                                                     >
                                                         {item.name}
@@ -642,15 +650,34 @@ const Filterbrand = (props) => {
                                                         <AddIcon />
                                                     </div>
 
-                                                    <div className="details-wrap">
-                                                        <h4 className="details">
+                                                    <div className={clsx(
+                                                        "mt-3",
+                                                        tabletWidth && "deetails-wrap",
+                                                        !tabletWidth && "details-wrap"
+                                                    )}>
+                                                        <h4 className={clsx(
+                                                            " p-1",
+                                                            tabletWidth && "deetails",
+                                                            !tabletWidth && "details"
+                                                        )}>
                                                             {item.ram}
                                                             {" / "} {item?.storage} | {item.battery}
                                                         </h4>
                                                     </div>
 
-                                                    <div className="price-icon-wrap flex align-items-center justify-content-center">
-                                                        <h3 className="single-mob-tit">
+                                                    <div
+                                                        className={clsx(
+                                                            "flex align-items-center justify-content-center",
+                                                            mobileWidth && "price-icon-wraps",
+                                                            !mobileWidth && "price-icon-wrap"
+                                                        )}>
+                                                        <h3
+                                                            className={clsx(
+                                                                "",
+                                                                mobileWidth && "single-mob-tits",
+                                                                !mobileWidth && "single-mob-tit"
+                                                            )}
+                                                        >
                                                             {localSelectedCurrency === "USD" ? "$ " : "RS "}
                                                             {item.orignal_price
                                                                 ? formatAmount(getItemPrice(item.orignal_price))
@@ -689,6 +716,7 @@ const Filterbrand = (props) => {
                             <div className="row justify-content-center">
                                 <div className="col-12">
 
+                                    <p className="ads-text">ADS</p>
                                     <Adsense
                                         client="ca-pub-2933454440337038"
                                         slot="6702463586"

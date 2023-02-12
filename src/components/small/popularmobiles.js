@@ -79,6 +79,7 @@ const PopularMobiles = (props) => {
               <div className="row justify-content-center">
                 <div className="col-12">
 
+                  <p className="ads-text">ADS</p>
                   <Adsense
                     client="ca-pub-2933454440337038"
                     slot="6702463586"
@@ -182,6 +183,7 @@ const PopularMobiles = (props) => {
               <div className="row justify-content-center">
                 <div className="col-12">
 
+                  <p className="ads-text">ADS</p>
                   <Adsense
                     client="ca-pub-2933454440337038"
                     slot="6702463586"

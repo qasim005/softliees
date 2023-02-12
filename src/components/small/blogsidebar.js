@@ -26,17 +26,14 @@ const BlogSidebar = () => {
     <>
       {tabletWidth ? (
         <div className="col-sm-3 ps-0 blog-sidebar">
+
           <div className="w-100 d-flex justify-content-center">
-            {/* <img
-              src="../../assets/images/blog/ss.png"
-              alt=""
-              className="img-fluid for-margin-blog-ad"
-            /> */}
+            <p className="ads-text">ADS</p>
             <Adsense
               className="for-margin-blog-ad"
               client="ca-pub-2933454440337038"
               slot="6702463586"
-              style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+              style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto", marginBottom: "40px" } : {
                 width: 300, height: 250, display: "block", margin: "0 auto"
               }}
               format=""
@@ -78,11 +75,12 @@ const BlogSidebar = () => {
                 className="img-fluid for-margin-blog-ad ad-between"
               /> */}
 
+            <p className="ads-text">ADS</p>
             <Adsense
               className="for-margin-blog-ad"
               client="ca-pub-2933454440337038"
               slot="6702463586"
-              style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+              style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto", marginTop: "30px" } : {
                 width: 300, height: 250, display: "block", margin: "0 auto"
               }}
               format=""
@@ -146,17 +144,21 @@ const BlogSidebar = () => {
               </div>
             </>
           )}
-          <div className="w-100 d-flex justify-content-center">
+          {/* <div className="w-100 d-flex justify-content-center">
             <img
               src="../../assets/images/blog/ss.png"
               alt=""
               className="img-fluid last-ad-blog"
             />
-          </div>
+          </div> */}
         </div>
       ) : (
+
+        // this is for desktop
         <div className="col-sm-3 ps-0 blog-sidebar">
+
           <div className="w-100 d-flex justify-content-center">
+            <p className="ads-text">ADS</p>
             <Adsense
               className="for-margin-blog-ad"
               client="ca-pub-2933454440337038"
@@ -199,35 +201,26 @@ const BlogSidebar = () => {
               }
             })}
 
-          {mobileWidth ? (
-            <section id="ad-plpl">
-              <div class="container py-3">
-                <div
-                  style={{ padding: "30px 0", background: "#F8F8F9" }}
-                  class="text-center"
-                >
-                  Ad Placement
-                </div>
-              </div>
-            </section>
-          ) : (
-            <div className="w-100 d-flex justify-content-center">
-              <Adsense
-                className="for-margin-blog-ad"
-                client="ca-pub-2933454440337038"
-                slot="6702463586"
-                style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                  width: 300, height: 250, display: "block", margin: "0 auto"
-                }}
-                format=""
-              />
-            </div>
-          )}
+
+
+          <div className="w-100 d-flex justify-content-center">
+            <p className="ads-text">ADS</p>
+            <Adsense
+              className="for-margin-blog-ad"
+              client="ca-pub-2933454440337038"
+              slot="6702463586"
+              style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
+                width: 300, height: 250, display: "block", margin: "0 auto"
+              }}
+              format=""
+            />
+          </div>
+
 
           <>
             <UpcomingPhones />
           </>
-          {/* )} */}
+
 
           {mobileWidth ? (
             <>
@@ -284,7 +277,9 @@ const BlogSidebar = () => {
               </div>
             </>
           )}
+
           <div className="w-100 d-flex justify-content-center">
+            <p className="ads-text">ADS</p>
             <Adsense
               className="for-margin-blog-ad lastadblog"
               client="ca-pub-2933454440337038"

@@ -2129,6 +2129,18 @@ input.cmps-input {
   font-weight: 600;
   color: #5e5f5f;
 }
+.compare-spec .specification_table tr td:nth-child(3) {
+  padding-left: 25px;
+
+  font-size: 13px;
+  border-right: 2.4px dashed #262626;
+  width: 33%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5e5f5f;
+}
 
 .specification_table tr td:nth-child(3) {
   padding-left: 38px;
@@ -3974,7 +3986,7 @@ h3.login-tit.cursor-pointer.logout {
 }
 
 /* .myAds{
-  width:720 !important; 
+  width:728 !important; 
   height: 90 !important;
 }
 
@@ -4202,4 +4214,56 @@ ins.adsbygoogle.third-ad-single-blog {
 ins.adsbygoogle.second-ad-single-blog {
   margin-top: 30px !important;
   margin-bottom: 40px  !important;
+}
+p.ads-text {
+    margin: 0;
+    font-size: 8px;
+}
+a.nav-single-a.active {
+  color: #ee2835;
+}
+a.off-links.active {
+  color: #ee2835;
+}
+.table-wrap {
+  overflow: auto;
+}
+
+@media (max-width:767px) {
+  h3.products_price_under_product_name.text-center{
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .spec-sec-compare .specification_table tr td:nth-child(1) {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+}
+  .spec-sec-compare .specification_table tr td:nth-child(2) {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+}
+  .spec-sec-compare .specification_table tr td:nth-child(3) {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+}
+}
+
+.mobile-login-dropdown {
+  position: absolute;
+  right: 14px;
+  top: 60px;
+  box-shadow: 0px 0px 10px 3px #0000001f;
+  width: 36%;
+  padding: 13px;
+  z-index: 99999999;
+  background: white;
+}
+.mobile-login-dropdown p{
+  color: #000;
+  text-transform: capitalize;
+  font-size: 13px;
+  font-weight: 600;
 }

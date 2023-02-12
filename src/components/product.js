@@ -72,8 +72,8 @@ const ProductPages = () => {
   const { singleProducts, upcomingProducts } = useSelector(
     (selectSate) => selectSate.app
   );
-  const handleImgClick = () => {
-    navigate("/single_products", "/upcoming_products", { replace: true });
+  const handleImgClick = (slug) => {
+    navigate(`/${slug}`, { replace: true });
   };
 
   useEffect(() => {
@@ -291,11 +291,12 @@ const ProductPages = () => {
               <div className="row justify-content-center">
                 <div className="col-12">
 
+                  <p className="ads-text">ADS</p>
                   <Adsense
                     client="ca-pub-2933454440337038"
                     slot="6702463586"
                     style={mobileWidth ? { width: 300, height: 100, display: "block", margin: "0 auto" } : {
-                      width: 720, height: 90, display: "block", margin: "0 auto"
+                      width: 728, height: 90, display: "block", margin: "0 auto"
                     }}
                     format=""
                   />
@@ -701,11 +702,12 @@ const ProductPages = () => {
               <div className="row justify-content-center">
                 <div className="col-12">
 
+                  <p className="ads-text">ADS</p>
                   <Adsense
                     client="ca-pub-2933454440337038"
                     slot="6702463586"
                     style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                      width: 720, height: 90, display: "block", margin: "0 auto"
+                      width: 728, height: 90, display: "block", margin: "0 auto"
                     }}
                     format=""
                   />
@@ -772,11 +774,12 @@ const ProductPages = () => {
                       <div className="row justify-content-center">
                         <div className="col-12">
 
+                          <p className="ads-text">ADS</p>
                           <Adsense
                             client="ca-pub-2933454440337038"
                             slot="6702463586"
                             style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                              width: 720, height: 90, display: "block", margin: "0 auto"
+                              width: 728, height: 90, display: "block", margin: "0 auto"
                             }}
                             format=""
                           />
@@ -836,11 +839,12 @@ const ProductPages = () => {
                       <div className="row justify-content-center">
                         <div className="col-12">
 
+                          <p className="ads-text">ADS</p>
                           <Adsense
                             client="ca-pub-2933454440337038"
                             slot="6702463586"
                             style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                              width: 720, height: 90, display: "block", margin: "0 auto"
+                              width: 728, height: 90, display: "block", margin: "0 auto"
                             }}
                             format=""
                           />
@@ -900,11 +904,12 @@ const ProductPages = () => {
                       <div className="row justify-content-center">
                         <div className="col-12">
 
+                          <p className="ads-text">ADS</p>
                           <Adsense
                             client="ca-pub-2933454440337038"
                             slot="6702463586"
                             style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                              width: 720, height: 90, display: "block", margin: "0 auto"
+                              width: 728, height: 90, display: "block", margin: "0 auto"
                             }}
                             format=""
                           />
@@ -985,11 +990,12 @@ const ProductPages = () => {
                       <div className="row justify-content-center">
                         <div className="col-12">
 
+                          <p className="ads-text">ADS</p>
                           <Adsense
                             client="ca-pub-2933454440337038"
                             slot="6702463586"
                             style={mobileWidth ? { width: 300, height: 250, display: "block", margin: "0 auto" } : {
-                              width: 720, height: 90, display: "block", margin: "0 auto"
+                              width: 728, height: 90, display: "block", margin: "0 auto"
                             }}
                             format=""
                           />
@@ -1019,10 +1025,12 @@ const ProductPages = () => {
                   )}
                 </div>
                 <div class="col-md-3 nopaddingleftright">
-                  <img
-                    src="../../assets/images/product/prod-banner.png"
-                    width="100%"
-                  />
+                  <a href="https://play.google.com/store/apps/details?id=com.mobilestore.softliee" target="_blank">
+                    <img
+                      src="../../assets/images/product/prod-banner.jpeg"
+                      width="100%"
+                    />
+                  </a>
                   <div class="spacer_custom_50"></div>
                   <div class="spacer_custom_20"></div>
                   <div class="main-tit">Tags</div>
@@ -1100,6 +1108,7 @@ const ProductPages = () => {
                   <div class="spacer_custom_30"></div>
 
 
+                  <p className="ads-text">ADS</p>
                   <Adsense
                     client="ca-pub-2933454440337038"
                     slot="6702463586"
@@ -1362,6 +1371,7 @@ const ProductPages = () => {
               <div className="row justify-content-center">
                 <div className="col-12">
 
+                  <p className="ads-text">ADS</p>
                   <Adsense
                     client="ca-pub-2933454440337038"
                     slot="6702463586"
