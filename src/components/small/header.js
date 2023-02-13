@@ -290,10 +290,10 @@ const Header = (props) => {
                   </div>
                   <h3 className="topbrand-tit trending">
                     <NavLink
-                      to="/"
+                      to="/popularmobiles"
                       className="off-links"
                     >
-                      Home Mobiles
+                      Popular Mobiles
                     </NavLink>
                   </h3>
                 </div>
@@ -854,6 +854,23 @@ const Header = (props) => {
                 alt=""
               />
               <h3 className="icon-box-tit">Finder</h3>
+            </NavLink>
+          </div>
+          <div
+            onClick={handleCloseS}
+            className={
+              !showS && window.location.pathname === "/blog"
+                ? "active icon-box-wrap"
+                : "icon-box-wrap"
+            }
+          >
+            <NavLink to="/blog" className="custom-link">
+              <img
+                className="ico"
+                src="../../../assets/images/icons/News.png"
+                alt=""
+              />
+              <h3 className="icon-box-tit">News</h3>
             </NavLink>
           </div>
           <div

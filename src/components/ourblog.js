@@ -148,7 +148,11 @@ const Ourblog = () => {
                                 alt=""
                               />
                               <div className="right-side-info">
-                                <h3 className="posts-title-m">{data?.title}</h3>
+                                {
+                                  mobileWidth ? <h3 className="posts-title-m">{data?.title.substring(0, 45) + "..."}</h3> :
+                                    <h3 className="posts-title-m">{data?.title}</h3>
+                                }
+
                                 <Link
                                   to={`/details/${data?.slug}`}
                                   className="readmore-btn"
@@ -168,6 +172,17 @@ const Ourblog = () => {
                       ))}
                   </div>
                 </div>
+                < ReactPaginate
+                  breakLabel="..."
+                  nextLabel=">"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={2}
+                  pageCount={pageCount}
+                  previousLabel="<"
+                  renderOnZeroPageCount={null}
+                  className="react-paginations"
+                  marginPagesDisplayed={2}
+                />
               </section>
             </>
           ) : (
@@ -227,15 +242,16 @@ const Ourblog = () => {
 
                         ))}
 
-                      <ReactPaginate
+                      < ReactPaginate
                         breakLabel="..."
                         nextLabel=">"
                         onPageChange={handlePageClick}
-                        pageRangeDisplayed={5}
+                        pageRangeDisplayed={2}
                         pageCount={pageCount}
                         previousLabel="<"
                         renderOnZeroPageCount={null}
                         className="react-paginations"
+                        marginPagesDisplayed={2}
                       />
                     </div>
                   </div>

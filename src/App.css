@@ -3998,8 +3998,13 @@ h3.login-tit.cursor-pointer.logout {
 } */
 
 img.fourzero {
-    width: 100%;
-    margin-top: 10px;
+
+ 
+  width: 220px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  padding: 140px 0px;
 }
 
 .lang-wrap.usa {
@@ -4266,4 +4271,9 @@ a.off-links.active {
   text-transform: capitalize;
   font-size: 13px;
   font-weight: 600;
+}
+@media (max-width:767px) {
+  ul.react-paginations{
+    margin-top: 10px;
+  }
 }

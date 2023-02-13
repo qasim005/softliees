@@ -695,16 +695,20 @@ const Filterbrand = (props) => {
                                 )}
                             </div>
                             {
-                                pageCount > 1 ? <ReactPaginate
-                                    breakLabel="..."
-                                    nextLabel=">"
-                                    onPageChange={handlePageClick}
-                                    pageRangeDisplayed={5}
-                                    pageCount={pageCount}
-                                    previousLabel="<"
-                                    renderOnZeroPageCount={null}
-                                    className="react-paginations"
-                                /> : <></>
+                                pageCount > 1 ?
+
+                                    < ReactPaginate
+                                        breakLabel="..."
+                                        nextLabel=">"
+                                        onPageChange={handlePageClick}
+                                        pageRangeDisplayed={2}
+                                        pageCount={pageCount}
+                                        previousLabel="<"
+                                        renderOnZeroPageCount={null}
+                                        className="react-paginations"
+                                        marginPagesDisplayed={2}
+                                    />
+                                    : <></>
                             }
 
                         </div>

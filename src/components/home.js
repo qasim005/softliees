@@ -443,22 +443,25 @@ const Home = () => {
                           )}
                           style={{ maxHeight: "400px" }}
                         >
-                          <img
-                            className="single-mob-img"
-                            src={`https://softliee.com/softlee/public/storage/product/${item.image}`}
-                            alt={item.name}
-                            onClick={() => handleImgClick(item.slug)}
-                          />
-                          <h3
-                            className={clsx(
-                              "",
-                              mobileWidth && "single-mob-tits",
-                              !mobileWidth && "single-mob-tit"
-                            )}
-                            onClick={() => handleImgClick(item.slug)}
-                          >
-                            {item.name}
-                          </h3>
+                          <a href={item.slug} style={{ color: "#212529", textDecoration: "none" }}>
+                            <img
+                              className="single-mob-img"
+                              src={`https://softliee.com/softlee/public/storage/product/${item.image}`}
+                              alt={item.name}
+                            // onClick={() => handleImgClick(item.slug)}
+                            />
+
+                            <h3
+                              className={clsx(
+                                "",
+                                mobileWidth && "single-mob-tits",
+                                !mobileWidth && "single-mob-tit"
+                              )}
+                            // onClick={() => handleImgClick(item.slug)}
+                            >
+                              {item.name}
+                            </h3>
+                          </a>
                           <Link
                             to={`/compare-mobile-phone/${item?.slug}/change_product`}
                             className="compair-btn-with-ico"

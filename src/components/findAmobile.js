@@ -682,12 +682,27 @@ const FindAMobile = (props) => {
                   breakLabel="..."
                   nextLabel=">"
                   onPageChange={handlePageClick}
-                  pageRangeDisplayed={5}
+                  pageRangeDisplayed={2}
                   pageCount={pageCount}
                   previousLabel="<"
                   renderOnZeroPageCount={null}
                   className="react-paginations"
+                  marginPagesDisplayed={2}
                 />
+
+                {/* <ReactPaginate
+                  forcePage={handlePageClick}
+                  previousLabel={"previous"}
+                  nextLabel={"next"}
+                  breakLabel={<a href="">...</a>}
+                  pageCount={pageCount}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={5}
+
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"active"}
+                /> */}
               </div>
             </div>
           </section>

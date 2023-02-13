@@ -928,13 +928,15 @@ const Blogdetails = () => {
                                 className="single-m-wrap"
                                 style={{ minHeight: "400px", maxHeight: "400px" }}
                               >
-                                <img
-                                  className="single-mob-img"
-                                  src={`https://softliee.com/softlee/public/storage/product/${item.image}`}
-                                  alt={item.name}
-                                  onClick={() => handleImgClick(item.slug)}
-                                />
-                                <h3 className="single-mob-tit">{item.name}</h3>
+                                <a href={item.slug} style={{ color: "#212529", textDecoration: "none" }}>
+                                  <img
+                                    className="single-mob-img"
+                                    src={`https://softliee.com/softlee/public/storage/product/${item.image}`}
+                                    alt={item.name}
+                                  // onClick={() => handleImgClick(item.slug)}
+                                  />
+                                  <h3 className="single-mob-tit">{item.name}</h3>
+                                </a>
                                 <div className="compair-btn-with-ico">
                                   <h4>Compare</h4>
                                   <AddIcon />

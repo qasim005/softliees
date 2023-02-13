@@ -70,7 +70,7 @@ const Popularcomp = () => {
                       </h3>
                     </div>
                     <div>
-                      <img style={{ width: 45, height: 45 , marginBottom: 50 }} src={VS} />
+                      <img style={{ width: 45, height: 45, marginBottom: 50 }} src="../../../assets/images/vs.png" />
                     </div>
                     <div className="w-50 p-1 d-flex flex-column justify-content-center align-items-center">
                       <img

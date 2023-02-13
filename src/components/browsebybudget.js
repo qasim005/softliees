@@ -143,19 +143,23 @@ const BrowseByBudget = () => {
                       )}
                       style={{ maxHeight: "400px" }}
                     >
-                      <img
-                        className="single-mob-img"
-                        //   src="\assets\images\mobiles\image1.png"
-                        src={`https://softliee.com/softlee/public/storage/product/${items.image}`}
-                        alt={items.alt_imag}
-                        onClick={() => handleImgClick1(items.slug)}
-                      />
-                      <h3
-                        className={clsx(
-                          "",
-                          mobileWidth && "single-mob-tits",
-                          !mobileWidth && "single-mob-tit"
-                        )} onClick={() => handleImgClick1(items.slug)}>{items.name}</h3>
+                      <a href={items.slug} style={{ color: "#212529", textDecoration: "none" }}>
+                        <img
+                          className="single-mob-img"
+                          //   src="\assets\images\mobiles\image1.png"
+                          src={`https://softliee.com/softlee/public/storage/product/${items.image}`}
+                          alt={items.alt_imag}
+                        // onClick={() => handleImgClick1(items.slug)}
+                        />
+                        <h3
+                          className={clsx(
+                            "",
+                            mobileWidth && "single-mob-tits",
+                            !mobileWidth && "single-mob-tit"
+                          )}
+                        // onClick={() => handleImgClick1(items.slug)}
+                        >{items.name}</h3>
+                      </a>
 
                       <Link
                         to={`/compare-mobile-phone/${items?.slug}/change_product`}
@@ -209,15 +213,16 @@ const BrowseByBudget = () => {
 
           </div>
           {pageCount > 1 ? <div style={{ marginTop: "40px" }}>
-            <ReactPaginate
+            < ReactPaginate
               breakLabel="..."
               nextLabel=">"
               onPageChange={handlePageClick}
-              pageRangeDisplayed={5}
+              pageRangeDisplayed={2}
               pageCount={pageCount}
               previousLabel="<"
               renderOnZeroPageCount={null}
               className="react-paginations"
+              marginPagesDisplayed={2}
             />
           </div>
             : <></>}

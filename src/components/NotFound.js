@@ -9,7 +9,7 @@ const NotFound = () => {
                 <div className="row">
                     <div className="col-sm-12">
 
-                        <img className="fourzero" src="../../assets/images/404.jpeg" alt="" />
+                        <img className="fourzero" src="../../assets/images/404.png" alt="" />
                     </div>
                 </div>
             </div>
