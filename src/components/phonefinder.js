@@ -153,10 +153,10 @@ const PhoneFinder = () => {
             isSearchBarOpen={isSearchBarOpen}
           />
           <Helmet>
-            <title>google mobile phone finder 2023 - Sofliee.com</title>
+            <title>Mobile phone finder 2023 - Sofliee.com</title>
             <meta
               name="description"
-              content="Phone Ffinder - Finder Mobile phones Prices, Brand, Display, Cpu, Storage, Camera, Bbattey, Rating and more."
+              content="Phone Finder - Finder Mobile phones Prices, Brand, Display, Cpu, Storage, Camera, Bbattey, Rating and more."
             />
           </Helmet>
           <section className="ads-section" style={{ marginTop: "30px" }}>

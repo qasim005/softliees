@@ -21,6 +21,7 @@ import {
   getBrands,
 } from "../../redux/actions/app.actions";
 import { formatAmount } from "../utils";
+import axios from "axios";
 
 const Header = (props) => {
   const { isSearchBarOpen } = props;
@@ -34,6 +35,7 @@ const Header = (props) => {
   const [mobileLoginDrop, setmobileLoginDrop] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [softlieeUser, setUser] = useState({});
+  const [Brand, setBrands] = useState([]);
   let navigate = useNavigate();
   const tabletWidth = IsTabletWidth();
   const mobileWidth = IsMobileWidth();
@@ -140,8 +142,17 @@ const Header = (props) => {
   useEffect(() => {
     console.log(softlieeUser);
   }, [softlieeUser])
+  useEffect(() => {
+    setBrands([])
+    axios.get("https://softliee.com/softlee/public/api/brands").then((res) => {
+      console.log(res.data.brands);
+      setBrands((prev) => [...prev, (res.data.brands)])
+    })
+  }, [softlieeUser])
 
-
+  useEffect(() => {
+    console.log(Brand);
+  }, [Brand])
   return (
     <>
       {!isSearchBarOpen && (
@@ -174,100 +185,143 @@ const Header = (props) => {
               <div className="off-submenu ps-3 pe-3">
                 {
                   !ControlBrands ? <>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/iphone-mobiles-price")
-                      setShow(false)
-                    }}>Apple</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/samsung-mobile-phones-prices-in-pakistan")
-                      setShow(false)
-                    }}>Samsung</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/iphone-mobiles-price")
-                      setShow(false)
-                    }}>Realme</h3>
+                    <a href="/new-mobile/iphone-mobiles-price" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub"
+                      // onClick={() => {
+                      //   navigate("/new-mobile/iphone-mobiles-price")
+                      //   setShow(false)
+                      // }}
+                      >Apple</h3>
+                    </a>
+                    <a href="/new-mobile/samsung-mobile-phones-prices-in-pakistan" className="myLinkStyle">
+
+                      <h3 className="topbrand-tit sub" >Samsung</h3>
+                    </a>
+
+                    <a href="/new-mobile/realme-mobile-phones" className="myLinkStyle">
+
+                      <h3 className="topbrand-tit sub"
+
+                      >Realme</h3>
+                    </a>
                     <h3 className="topbrand-tit sub" onClick={() => {
                       setControlBrands(true)
                     }}>More..</h3>
                   </> : <>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/iphone-mobiles-price")
-                      setShow(false)
-                    }}>Apple</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/samsung-mobile-phones-prices-in-pakistan")
-                      setShow(false)
-                    }}>Samsung</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/iphone-mobiles-price")
-                      setShow(false)
-                    }}>Realme</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/google-mobile-phones-price-in-pakistan")
-                      setShow(false)
-                    }}>Google</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/huawei-mobile-phone-price-in-pakistan")
-                      setShow(false)
-                    }}>Huawei</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/infinix-mobile-phones")
-                      setShow(false)
-                    }}>Infinix</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/alcatel-mobile-phones")
-                      setShow(false)
-                    }}>alcatel</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/honor-mobile-phones")
-                      setShow(false)
-                    }}>Honor</h3>
+                    {
+                      Brand[0] && Brand[0].map((item, index) => {
+                        return (
+                          <>
+                            <a href={"/new-mobile/" + item.slug} className="myLinkStyle">
+                              <h3 className="topbrand-tit sub" >{item.brand_name}                        </h3>
+                            </a>
+                          </>
+                        )
+                      })
+                    }
 
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/new-itel-mobile-phone-and-prices-in-pakistan")
-                      setShow(false)
-                    }}>Itel</h3>
 
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/nokia-mobile-phones-price-in-pakistan")
-                      setShow(false)
-                    }}>Nokia</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/oale-mobile-phones")
-                      setShow(false)
-                    }}>Oale</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/oneplus-mobile-phone-price-in-pakistan")
-                      setShow(false)
-                    }}>Oneplus</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/oppo-mobile-phone-price-in-pakistan")
-                      setShow(false)
-                    }}>Oppo</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/q-mobile-phones")
-                      setShow(false)
-                    }}>Q Mobile</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/realme-mobile-phones")
-                      setShow(false)
-                    }}>Realme</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/samsung-mobile-phones-prices-in-pakistan")
-                      setShow(false)
-                    }}>Samsung</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/tecno-mobile-phones")
-                      setShow(false)
-                    }}>Tecno</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/vivo-mobile-phones-prices-in-pakistan")
-                      setShow(false)
-                    }}>vivo</h3>
-                    <h3 className="topbrand-tit sub" onClick={() => {
-                      navigate("/new-mobile/xiaomi")
-                      setShow(false)
-                    }}>Xiaomi</h3>
+
+                    {/* 
+                    <a href="/new-mobile/samsung-mobile-phones-prices-in-pakistan" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/samsung-mobile-phones-prices-in-pakistan")
+                        setShow(false)
+                      }}>Samsung</h3>
+                    </a>
+
+                    <a href="/new-mobile/realme-mobile-phoness" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/iphone-mobiles-price")
+                        setShow(false)
+                      }}>Realme</h3>
+                    </a>
+
+                    <a href="/new-mobile/Google%20Mobile%20Phones%202023" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/google-mobile-phones-price-in-pakistan")
+                        setShow(false)
+                      }}>Google</h3>
+                    </a>
+
+                    <a href="/new-mobile/huawei-mobile-phone-price-in-pakistan" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/huawei-mobile-phone-price-in-pakistan")
+                        setShow(false)
+                      }}>Huawei</h3>
+                    </a>
+
+                    <a href=" /new-mobile/realme-mobile-phones" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/alcatel-mobile-phones")
+                        setShow(false)
+                      }}>Infinix</h3>
+                    </a>
+                    <a href=" /new-mobile/realme-mobile-phones" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/alcatel-mobile-phones")
+                        setShow(false)
+                      }}>alcatel</h3>
+                    </a>
+                    <a href="/new-mobile/honor-mobile-phones" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/honor-mobile-phones")
+                        setShow(false)
+                      }}>Honor</h3>
+                    </a>
+                    <a href="/new-mobile/new-itel-mobile-phone-and-prices-in-pakistan" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/new-itel-mobile-phone-and-prices-in-pakistan")
+                        setShow(false)
+                      }}>Itel</h3>
+                    </a>
+                    <a href="/new-mobile/nokia-mobile-phones-price-in-pakistan" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/nokia-mobile-phones-price-in-pakistan")
+                        setShow(false)
+                      }}>Nokia</h3>
+                    </a>
+
+                    <a href="/new-mobile/oale-mobile-phones" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/oale-mobile-phones")
+                        setShow(false)
+                      }}>Oale</h3>
+                    </a>
+
+                    <a href="/new-mobile/oneplus-mobile-phone-price-in-pakistan" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" onClick={() => {
+                        navigate("/new-mobile/oneplus-mobile-phone-price-in-pakistan")
+                        setShow(false)
+                      }}>Oneplus</h3>
+                    </a>
+
+                    <a href="/new-mobile/oppo-mobile-phone-price-in-pakistan" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" >Oppo</h3>
+                    </a>
+
+                    <a href="/new-mobile/q-mobile-phones" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" >Q Mobile</h3>
+                    </a>
+                    <a href="/new-mobile/realme-mobile-phones" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" >Realme</h3>
+                    </a>
+
+                    <a href="/new-mobile/samsung-mobile-phones-prices-in-pakistan" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub">Samsung</h3>
+
+                    </a>
+
+                    <a href="/new-mobile/tecno-mobile-phones" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" >Tecno</h3>
+                    </a>
+                    <a href="/new-mobile/vivo-mobile-phones-prices-in-pakistan" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub" >vivo</h3>
+                    </a>
+
+                    <a href=" /new-mobile/xiaomi" className="myLinkStyle">
+                      <h3 className="topbrand-tit sub">Xiaomi</h3>
+                    </a> */}
 
 
 
@@ -813,11 +867,14 @@ const Header = (props) => {
             }
           >
             <NavLink to="/" className="custom-link">
-              <img
-                className="ico"
-                src="../../../assets/images/icons/i1.svg"
-                alt=""
-              />
+              <div className="image-wrap-fixed-menu">
+
+                <img
+                  className="ico"
+                  src="../../../assets/images/icons/i1.svg"
+                  alt=""
+                />
+              </div>
               <h3 className="icon-box-tit">Home</h3>
             </NavLink>
           </div>
@@ -830,11 +887,14 @@ const Header = (props) => {
             }
           >
             <NavLink to="/compare-mobile-phone" className="custom-link">
-              <img
-                className="ico"
-                src="../../../assets/images/icons/i2.svg"
-                alt=""
-              />
+              <div className="image-wrap-fixed-menu">
+
+                <img
+                  className="ico"
+                  src="../../../assets/images/icons/i2.svg"
+                  alt=""
+                />
+              </div>
               <h3 className="icon-box-tit">Compare</h3>
             </NavLink>
           </div>
@@ -848,11 +908,15 @@ const Header = (props) => {
             }
           >
             <NavLink to="/phonefinder" className="custom-link">
-              <img
-                className="ico"
-                src="../../../assets/images/icons/i3.svg"
-                alt=""
-              />
+              <div className="image-wrap-fixed-menu">
+
+                <img
+                  className="ico"
+                  src="../../../assets/images/icons/i3.svg"
+                  alt=""
+                />
+              </div>
+
               <h3 className="icon-box-tit">Finder</h3>
             </NavLink>
           </div>
@@ -865,11 +929,14 @@ const Header = (props) => {
             }
           >
             <NavLink to="/blog" className="custom-link">
-              <img
-                className="ico"
-                src="../../../assets/images/icons/News.png"
-                alt=""
-              />
+              <div className="image-wrap-fixed-menu">
+
+                <img
+                  className="ico"
+                  src="../../../assets/images/icons/News.svg"
+                  alt=""
+                />
+              </div>
               <h3 className="icon-box-tit">News</h3>
             </NavLink>
           </div>
@@ -877,12 +944,16 @@ const Header = (props) => {
             className={showS ? "active icon-box-wrap" : "icon-box-wrap"}
             onClick={handleShowS}
           >
-            <img
-              className="ico notify-ico-off-c"
-              src="../../../assets/images/icons/i4.svg"
-              alt=""
-            />
-            <h3 className="icon-box-tit">Notify</h3>
+            <div className="image-wrap-fixed-menu">
+
+              <img
+                className="ico notify-ico-off-c"
+                src="../../../assets/images/icons/i4.svg"
+                alt=""
+              />
+            </div>
+
+            <h3 className="icon-box-tit notify">Notify</h3>
           </div>
         </div>
       </section>

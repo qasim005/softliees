@@ -569,7 +569,7 @@ a.seemoree {
   justify-content: center;
   margin: 0 auto;
   text-decoration: none;
-  /* padding: 0px 5px; */
+
 }
 
 .compair-btn-with-ico svg {
@@ -595,10 +595,7 @@ img.single-mob-imgss {
   margin: 0 auto;
   display: block;
   object-fit: contain;
-  /* justify-content: center;
-  display: flex;
-  align-items: center;
-  text-align: center; */
+ 
 }
 
 img.single-mob-imgss-mobile {
@@ -607,23 +604,17 @@ img.single-mob-imgss-mobile {
   margin: 0 auto;
   display: block;
   object-fit: contain;
-  /* justify-content: center;
-  display: flex;
-  align-items: center;
-  text-align: center; */
+
 }
 
 img.single-mob-imgss-mobiles {
   width: 300px;
-  /* height: 40px; */
+ 
   margin: 0 auto;
   display: block;
   margin-bottom: 20px;
   object-fit: contain;
-  /* justify-content: center;
-  display: flex;
-  align-items: center;
-  text-align: center; */
+
 }
 
 h3.single-mob-tit {
@@ -972,8 +963,7 @@ p.foot-bottom-txt {
 }
 
 .forborder {
-  /* width: 1px; */
-  /* background: black; */
+
   border-left: 2px dashed #262626;
   border-collapse: collapse;
 }
@@ -1344,7 +1334,6 @@ a.nav-link.rounded-0.more_vision_details {
 
 .specification_table {
   box-shadow: 0px 2px 8px 0px #0203032e;
-  /* font-weight: 700;/ */
   font-size: 16px;
   line-height: 25px;
 }
@@ -1552,11 +1541,6 @@ img.product-img.img-fluid {
   margin: 0 auto;
   margin-top: 0px;
   max-width: 100%;
-  /* position: absolute; */
-  /* left: 0; */
-  /* right: 0; */
-  /* border: 0; */
-  /* top: 0; */
   height: 100%;
   object-fit: contain;
 }
@@ -1719,7 +1703,6 @@ input.comment-input {
 
 img.comment-av {
   width: 60px;
-  /* border: none; */
 }
 
 input.comment-input {
@@ -1771,7 +1754,6 @@ h3.prof-tits {
 }
 
 h6.daysago {
-  /* margin: 0; */
   font-size: 13px;
   color: #898989;
 }
@@ -2215,15 +2197,11 @@ h6.daysago {
   margin: 0;
 }
 
-/* .advertiseus .container .row div {
-  padding: 80px 0px;
-  margin-top: 30px;
-  text-align: center;
-} */
+
 
 .blog-card-design {
   display: flex;
-  /* align-items: center; */
+ 
 }
 
 h6.blogging {
@@ -2619,10 +2597,7 @@ img.blog-social-items {
   padding-right: 15px;
 }
 
-.colsss {
-  /* border-right: 1px solid #ccc; */
-  /* padding-right: 17%; */
-}
+
 
 img.share-icons {
   width: 22px;
@@ -3442,16 +3417,21 @@ h3.icon-box-tit {
 
 .icon-box-wrap {
   border-bottom: 5px solid #ccc0;
-  padding: 16px 10px;
+  /* padding: 16px 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  flex: 25% 1;
+  /* flex: 25% 1; */
+  width: 20%;
+  flex-direction: column;
 }
 
 .icon-box-wrap.active {
   border-bottom: 5px solid #4958ef;
-  padding: 15px 6px;
+  /* padding: 15px 6px; */
   text-align: center;
-  flex: 25% 1;
+  /* flex: 25% 1; */
 }
 
 a.custom-link {
@@ -3544,9 +3524,6 @@ section.filter-devices {
     padding-left: 0px;
   }
 
-  .col-sm-3.ps-0.blog-sidebar {
-    /* display: none; */
-  }
 
   .blog-details-left {
     padding-right: 10px !important;
@@ -3763,14 +3740,7 @@ section.filter-devices {
 .w-48 {
   width: 48%;
 }
-.search-box-parent-container {
-  /* box-shadow: -2px 15px 11px 10000px rgba(0,0,0,0.30);
-  -webkit-box-shadow: -2px 15px 11px 10000px rgba(0,0,0,0.30);
-  -moz-box-shadow: -2px 15px 11px 10000px rgba(0,0,0,0.30); */
-  /* padding: 25px 20px; */
-  /* background-color: #f8f8f9; */
-  /* box-shadow: 0px 10px 10px 10px #0000001a; */
-}
+
 
 .overview_details_title-2 {
   font-weight: 500;
@@ -3843,14 +3813,6 @@ section.filter-devices {
   background-color: #fafafa !important;
 }
 
-.truncated-word {
-  /* white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 80px;
-  min-height: 80px;
-  max-width: 100% !important; */
-}
 
 /* width */
 .searchDialogContainer::-webkit-scrollbar {
@@ -3890,16 +3852,10 @@ section.filter-devices {
   margin-left: 0 !important;
 }
 .user-profile-drop-menu .dropdown-item h3 {
-  /* background-color: #000 !important; */
+ 
   margin: 0 !important;
   margin-left: 0 !important;
 }
-
-/* .product_vision_section {
-  width: 100% !important ;
-} */
-
-/* --------------- Ram Filterd */
 
 .section-head-ram h1 {
   font-size: 21px;
@@ -3984,22 +3940,7 @@ h3.login-tit.cursor-pointer.logout {
   background: none !important;
   color: #000 !important;
 }
-
-/* .myAds{
-  width:728 !important; 
-  height: 90 !important;
-}
-
-@media (max-width:600px) {
-  .myAds{
-    width:300 !important;
-    height: 250 !important;
-  }
-} */
-
 img.fourzero {
-
- 
   width: 220px;
   text-align: center;
   margin: 0 auto;
@@ -4008,13 +3949,11 @@ img.fourzero {
 }
 
 .lang-wrap.usa {
-  /* padding: 0px; */
   width: 135px;
   margin-left: 38px;
 }
 
 .single-m-wrap.search-items-wrap {
-  /* padding-bottom: 12px; */
   padding-top: 20px;
   border: 1px solid #d9dadd;
   margin-top: 20px;
@@ -4037,23 +3976,12 @@ ul.react-paginations {
   text-align: center;
   justify-content: center;
   gap: 10px;
-  /* margin-top: 20px; */
+ 
   align-items: center;
   background: #edeefd;
   padding: 20px 0px;
 }
 
-  /* ul.react-paginations li.previous a{
-    background:url(../public/assets/images/prev.png);
-    background-repeat: no-repeat;
-  
-    background-size: contain;
-    color: white;
-  
-    width: 20px;
-    height: 20px;
-    background-color: white;
-  } */
 
 ul.react-paginations li.previous a {
   background:url(../public/assets/images/prev.png);
@@ -4080,37 +4008,33 @@ ul.react-paginations li.next a {
 
 ul.react-paginations li.next a {
   color: white;
-  /* z-index: -1; */
+ 
   position: relative;
   padding: 10px;
-  /* background-color: transparent; */
-  /* width: 20px; */
-  /* height: 20px; */
+
   color: transparent;
  
 }
 
 ul.react-paginations li.previous a {
   color: white;
-  /* z-index: -1; */
+ 
   position: relative;
   padding: 10px;
-  /* background-color: transparent; */
-  /* width: 20px; */
-  /* height: 20px; */
+
   color: transparent;
 }
 ul.react-paginations li.next a:hover {
   position: relative;
   padding: 10px;
-  /* background-color: transparent !important; */
+  
   color: transparent !important;
 }
 
 ul.react-paginations li.previous a:hover {
   position: relative;
   padding: 10px;
-  /* background: transparent !important; */
+ 
   color: transparent !important;
 }
 
@@ -4171,7 +4095,7 @@ section.oppo-mobiles ul.react-paginations {
   text-align: center;
   justify-content: center;
   gap: 10px;
-  /* margin-top: 20px; */
+ 
   align-items: center;
   background: #edeefd;
   padding: 20px 0px;
@@ -4276,4 +4200,12 @@ a.off-links.active {
   ul.react-paginations{
     margin-top: 10px;
   }
+}
+
+.myLinkStyle{
+  color: #212529 !important;
+  text-decoration: none !important;
+}
+h3.icon-box-tit.notify {
+    margin-top: 2.8px;
 }

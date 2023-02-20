@@ -33,6 +33,7 @@ import SearchResultPage from "./components/searchpage";
 import FindAMobile from "./components/findAmobile";
 import BrowseByBudget from "./components/browsebybudget";
 import Sitemapss from "./components/sitemap";
+import 'react-virtualized/styles.css';
 
 function App() {
   const dispatch = useDispatch();

@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
 import { Adsense } from "@ctrl/react-adsense";
 import ReactPaginate from "react-paginate";
-// import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet";
 
 
 const Ourblog = () => {
@@ -76,13 +76,13 @@ const Ourblog = () => {
   }, [blogs.data.blogs, itemOffset])
   return (
     <>
-      {/* <Helmet>
+      <Helmet>
         <title>Gadgets - Mobile Phones And Tech Updates - Softliee.com</title>
         <meta
           name="description"
           content="Mobile Blog aims to focus upon latest news and seo friendly content related to technology, gadgets or Mobile phones."
         />
-      </Helmet> */}
+      </Helmet>
 
       {/* <Items currentItems={currentItems} /> */}
 
