@@ -28,11 +28,8 @@ import clsx from "clsx";
 import CircularProgress from "@mui/material/CircularProgress";
 import { isValidMessage } from "./validator";
 import { Helmet } from "react-helmet";
-// import { Adsense } from '@ctrl/react-adsense';
 import AdSense from 'react-adsense';
 import { Adsense } from "@ctrl/react-adsense";
-
-
 
 const Home = () => {
   const [rangePrices, setRangePrices] = useState([1000, 500000]);
@@ -113,41 +110,7 @@ const Home = () => {
       return price;
     }
   };
-  // useEffect(() => {
-  //   (window.adsbygoogle = window.adsbygoogle || []).push({});
 
-  // }, [])
-
-
-  // useEffect(() => {
-  //   const pushAd = () => {
-  //     try {
-  //       const adsbygoogle = window.adsbygoogle
-  //       console.log({ adsbygoogle })
-  //       adsbygoogle.push({})
-  //     } catch (e) {
-  //       console.error(e)
-  //     }
-  //   }
-
-  //   let interval = setInterval(() => {
-  //     // Check if Adsense script is loaded every 300ms
-  //     if (window.adsbygoogle) {
-  //       pushAd()
-  //       // clear the interval once the ad is pushed so that function isn't called indefinitely
-  //       clearInterval(interval)
-  //     }
-  //   }, 300)
-
-  //   return () => {
-  //     clearInterval(interval)
-  //   }
-  // }, [])
-  // useEffect(() => {
-  //   if (!currency?.data && !currency?.loading) {
-  //     dispatch(getCurrency());
-  //   }
-  // }, []);
 
   const getPrice = (amount) => {
     if (currency?.data && currency?.data?.currency) {
