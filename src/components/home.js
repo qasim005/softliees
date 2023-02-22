@@ -28,7 +28,7 @@ import clsx from "clsx";
 import CircularProgress from "@mui/material/CircularProgress";
 import { isValidMessage } from "./validator";
 import { Helmet } from "react-helmet";
-import AdSense from 'react-adsense';
+
 import { Adsense } from "@ctrl/react-adsense";
 
 const Home = () => {
